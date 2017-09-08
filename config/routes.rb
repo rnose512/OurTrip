@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
   resources :trips do
-    resources :packing_lists do
-      resources :items, only: [:new, :create, :delete]
-    end
+    resources :packing_lists, only: [:index]
     resources :expenses
-    resources :destinations do
-      resources :events, :accomodations, :transportations
-    end
+    resources :destinations, only: [:new, :create, :destroy, :index]
+  end
+
+  resources :packing_lists, only: [:index] do
+    resources :items, only: [:new, :create, :destroy]
+  end
+
+
+  resources :destinations, except: [:new, :create, :destroy, :show, :index] do
+    resources :events
+    resources :accomodations, except: [:show]
+    resources :transportations, except: [:show]
   end
 
   get 'login', to: 'sessions#new'
