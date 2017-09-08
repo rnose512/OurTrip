@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+ - 2.3
+ - jruby
+ - rbx-2
+
+language: javascript
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+cache:
+  directories:
+    - "node_modules"
