@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
-import TripList from './src/components/TripList';
+import Trips from './src/components/Trips';
+import Header from './src/components/common/header';
 
 class OurTrip extends Component {
   render() {
     console.log("WTFFFF")
     return (
       <View>
-        <TripList />
+        <Header headerText={'Your Trips'}/>
+        <Trips />
       </View>
     );
   }
