@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  belongs to :destination
+  belongs_to :destination
 
-  validates :title, :category, :start_time, :end_time, :description_id, presence: true
+  validates :title, :category, :start_time, :end_time, :destination_id, presence: true
 end
