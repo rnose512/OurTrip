@@ -2846,3 +2846,581 @@ Migrating to CreateTripsUsers (20170909165207)
   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" INNER JOIN "trips_users" ON "trips"."id" = "trips_users"."trip_id" WHERE "trips_users"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-09-09 10:47:51 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "my_database_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/trips/index" for 127.0.0.1 at 2017-09-09 10:47:55 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "my_database_development" does not exist
+):
+  
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:699:in `rescue in connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:695:in `connect'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:220:in `initialize'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `new'
+activerecord (5.1.3) lib/active_record/connection_adapters/postgresql_adapter.rb:38:in `postgresql_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:759:in `new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:803:in `checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:782:in `try_to_checkout_new_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:743:in `acquire_connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:500:in `checkout'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:374:in `connection'
+activerecord (5.1.3) lib/active_record/connection_adapters/abstract/connection_pool.rb:931:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:116:in `retrieve_connection'
+activerecord (5.1.3) lib/active_record/connection_handling.rb:88:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:562:in `connection'
+activerecord (5.1.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (581.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (50.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (69.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5168794849566389475)[0m
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20170908001141)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (118.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone_number" character varying, "emergency_contact" character varying, "emergency_contact_phone_number" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (44.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001141"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTrips (20170908001158)
+  [1m[35m (40.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "start_date" date, "end_date" date, "creator_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001158"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserExpenses (20170908001211)
+  [1m[35m (25.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "user_expenses" ("id" bigserial primary key, "user_id" integer, "expense_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001211"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExpenses (20170908001214)
+  [1m[35m (25.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.2ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" bigserial primary key, "price" float, "event_id" integer, "payer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001214"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePackingLists (20170908001219)
+  [1m[35m (40.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "packing_lists" ("id" bigserial primary key, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001219"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20170908001223)
+  [1m[35m (39.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "quantity" integer, "packing_list_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001223"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDestinations (20170908001227)
+  [1m[35m (39.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "trip_id" integer, "start_date" timestamp, "end_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001227"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTransportations (20170908001240)
+  [1m[35m (25.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "transportations" ("id" bigserial primary key, "title" character varying, "confirmation_number" character varying, "transportation_type" character varying, "destination_id" integer, "user_id" integer, "arrival_time" time, "departure_time" time, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001240"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20170908001251)
+  [1m[35m (25.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "category" character varying, "description" text, "start_time" timestamp, "end_time" timestamp, "destination_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001251"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAccomodations (20170908001257)
+  [1m[35m (24.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "accomodations" ("id" bigserial primary key, "name" character varying, "address" character varying, "phone_number" character varying, "price" float, "destination_id" integer, "check_in" timestamp, "check_out" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001257"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTripsUsers (20170909165207)
+  [1m[35m (25.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "trips_users" ("id" bigserial primary key, "user_id" integer, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170909165207"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (45.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-09 17:48:39.720631"], ["updated_at", "2017-09-09 17:48:39.720631"]]
+  [1m[35m (21.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5168794849566389475)[0m
+  [1m[35m (18.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (41.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (202.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "my_database_development"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "my_database_development"[0m
+  [1m[35m (15.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5168794849566389475)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20170908001141)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (44.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "phone_number" character varying, "emergency_contact" character varying, "emergency_contact_phone_number" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001141"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTrips (20170908001158)
+  [1m[35m (40.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "trips" ("id" bigserial primary key, "name" character varying, "start_date" date, "end_date" date, "creator_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001158"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserExpenses (20170908001211)
+  [1m[35m (31.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "user_expenses" ("id" bigserial primary key, "user_id" integer, "expense_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001211"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExpenses (20170908001214)
+  [1m[35m (25.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "expenses" ("id" bigserial primary key, "price" float, "event_id" integer, "payer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001214"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePackingLists (20170908001219)
+  [1m[35m (24.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "packing_lists" ("id" bigserial primary key, "category" character varying, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001219"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateItems (20170908001223)
+  [1m[35m (24.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "items" ("id" bigserial primary key, "title" character varying, "quantity" integer, "packing_list_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001223"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDestinations (20170908001227)
+  [1m[35m (26.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" bigserial primary key, "name" character varying, "trip_id" integer, "start_date" timestamp, "end_date" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001227"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTransportations (20170908001240)
+  [1m[35m (25.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "transportations" ("id" bigserial primary key, "title" character varying, "confirmation_number" character varying, "transportation_type" character varying, "destination_id" integer, "user_id" integer, "arrival_time" time, "departure_time" time, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001240"]]
+  [1m[35m (11.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20170908001251)
+  [1m[35m (41.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title" character varying, "category" character varying, "description" text, "start_time" timestamp, "end_time" timestamp, "destination_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001251"]]
+  [1m[35m (13.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAccomodations (20170908001257)
+  [1m[35m (39.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "accomodations" ("id" bigserial primary key, "name" character varying, "address" character varying, "phone_number" character varying, "price" float, "destination_id" integer, "check_in" timestamp, "check_out" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170908001257"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTripsUsers (20170909165207)
+  [1m[35m (40.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "trips_users" ("id" bigserial primary key, "user_id" integer, "trip_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170909165207"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-09 17:49:29.623144"], ["updated_at", "2017-09-09 17:49:29.623144"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5168794849566389475)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mTripsUser Load (0.4ms)[0m  [1m[34mSELECT "trips_users".* FROM "trips_users"[0m
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  [1m[36mUserExpense Load (0.5ms)[0m  [1m[34mSELECT "user_expenses".* FROM "user_expenses"[0m
+  [1m[36mExpense Load (0.4ms)[0m  [1m[34mSELECT "expenses".* FROM "expenses"[0m
+  [1m[36mPackingList Load (0.5ms)[0m  [1m[34mSELECT "packing_lists".* FROM "packing_lists"[0m
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items"[0m
+  [1m[36mDestination Load (0.6ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  [1m[36mTransportation Load (0.5ms)[0m  [1m[34mSELECT "transportations".* FROM "transportations"[0m
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mAccomodation Load (0.4ms)[0m  [1m[34mSELECT "accomodations".* FROM "accomodations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hannie@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "phone_number", "emergency_contact", "emergency_contact_phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Hannie"], ["last_name", "Dong"], ["email", "hannie@email.com"], ["password_digest", "$2a$10$ec6gMKpYe6dFrWnfudX5L.vtQklOnQmjXwoUlYmYsdM9CTZH/01Pm"], ["phone_number", "000-000-0000"], ["emergency_contact", "bob"], ["emergency_contact_phone_number", "111-111-1111"], ["created_at", "2017-09-09 17:49:35.503230"], ["updated_at", "2017-09-09 17:49:35.503230"]]
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hawken@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "phone_number", "emergency_contact", "emergency_contact_phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Hawken"], ["last_name", "Ritter"], ["email", "hawken@email.com"], ["password_digest", "$2a$10$T81ePEyHVJt5O6Jm7JasPeH1GT2llDnOkyD8kDV71rEdgQkxmxqei"], ["phone_number", "222-222-2222"], ["emergency_contact", "Sally"], ["emergency_contact_phone_number", "333-333-3333"], ["created_at", "2017-09-09 17:49:35.598366"], ["updated_at", "2017-09-09 17:49:35.598366"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "peter@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "phone_number", "emergency_contact", "emergency_contact_phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Peter"], ["last_name", "Thompson"], ["email", "peter@email.com"], ["password_digest", "$2a$10$YymSqzpIwoACfeNHRiMb.eXSgb4KHSarxkfWR2mNi4onM2iV1Hv56"], ["phone_number", "444-444-4444"], ["emergency_contact", "Charles"], ["emergency_contact_phone_number", "555-555-5555"], ["created_at", "2017-09-09 17:49:35.668891"], ["updated_at", "2017-09-09 17:49:35.668891"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ashley@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "phone_number", "emergency_contact", "emergency_contact_phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Ashley"], ["last_name", "Teow"], ["email", "ashley@email.com"], ["password_digest", "$2a$10$JVvkgqaW3gKIF.RH5crYA.OCkH0MXcldg55u/2sbkNvT5alS5C56a"], ["phone_number", "666-666-6666"], ["emergency_contact", "Nancy"], ["emergency_contact_phone_number", "666-666-6666"], ["created_at", "2017-09-09 17:49:35.737111"], ["updated_at", "2017-09-09 17:49:35.737111"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "rio@email.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "phone_number", "emergency_contact", "emergency_contact_phone_number", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["first_name", "Rio"], ["last_name", "Nose"], ["email", "rio@email.com"], ["password_digest", "$2a$10$qB4C6hDyVLu6yoQlQCNcdODz44rTDntax7bK.Fzv1DmoyNuQlu7tm"], ["phone_number", "777-777-7777"], ["emergency_contact", "Jack"], ["emergency_contact_phone_number", "888-888-8888"], ["created_at", "2017-09-09 17:49:35.804091"], ["updated_at", "2017-09-09 17:49:35.804091"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("name", "start_date", "end_date", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Hawken's Birthday Bonanza"], ["start_date", "2017-09-15"], ["end_date", "2017-09-30"], ["creator_id", 1], ["created_at", "2017-09-09 17:49:35.863089"], ["updated_at", "2017-09-09 17:49:35.863089"]]
+  [1m[35m (40.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "destinations" ("name", "trip_id", "start_date", "end_date", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Bali, Indonesia"], ["trip_id", 1], ["start_date", "2017-09-15 00:00:00"], ["end_date", "2017-09-30 00:00:00"], ["created_at", "2017-09-09 17:49:35.934603"], ["updated_at", "2017-09-09 17:49:35.934603"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "trips_users" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["trip_id", 1], ["created_at", "2017-09-09 17:49:35.943726"], ["updated_at", "2017-09-09 17:49:35.943726"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips_users" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["trip_id", 1], ["created_at", "2017-09-09 17:49:35.947830"], ["updated_at", "2017-09-09 17:49:35.947830"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips_users" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 3], ["trip_id", 1], ["created_at", "2017-09-09 17:49:35.950660"], ["updated_at", "2017-09-09 17:49:35.950660"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips_users" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 4], ["trip_id", 1], ["created_at", "2017-09-09 17:49:35.953321"], ["updated_at", "2017-09-09 17:49:35.953321"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 4]]
+  [1m[36mTrip Load (0.1ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips_users" ("user_id", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["trip_id", 1], ["created_at", "2017-09-09 17:49:35.955896"], ["updated_at", "2017-09-09 17:49:35.955896"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "events" ("title", "category", "description", "start_time", "end_time", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "surfing"], ["category", "activity"], ["description", "fun taimz"], ["start_time", "2017-09-16 18:40:00"], ["end_time", "2017-09-16 18:40:00"], ["destination_id", 1], ["created_at", "2017-09-09 17:49:35.971126"], ["updated_at", "2017-09-09 17:49:35.971126"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("title", "category", "description", "start_time", "end_time", "destination_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["title", "birthday dinner"], ["category", "food"], ["description", "omnomnom"], ["start_time", "2017-09-16 20:30:00"], ["end_time", "2017-09-16 21:30:00"], ["destination_id", 1], ["created_at", "2017-09-09 17:49:35.976438"], ["updated_at", "2017-09-09 17:49:35.976438"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (15.8ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:35.992175"], ["updated_at", "2017-09-09 17:49:35.992175"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.015011"], ["updated_at", "2017-09-09 17:49:36.015011"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.022046"], ["updated_at", "2017-09-09 17:49:36.022046"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.027838"], ["updated_at", "2017-09-09 17:49:36.027838"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.033357"], ["updated_at", "2017-09-09 17:49:36.033357"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.038463"], ["updated_at", "2017-09-09 17:49:36.038463"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.043444"], ["updated_at", "2017-09-09 17:49:36.043444"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.048589"], ["updated_at", "2017-09-09 17:49:36.048589"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.053507"], ["updated_at", "2017-09-09 17:49:36.053507"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "expenses" ("price", "event_id", "payer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["price", 4.5], ["event_id", 1], ["payer_id", 1], ["created_at", "2017-09-09 17:49:36.064163"], ["updated_at", "2017-09-09 17:49:36.064163"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 1], ["created_at", "2017-09-09 17:49:36.073112"], ["updated_at", "2017-09-09 17:49:36.073112"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 4], ["created_at", "2017-09-09 17:49:36.076017"], ["updated_at", "2017-09-09 17:49:36.076017"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 4], ["created_at", "2017-09-09 17:49:36.078301"], ["updated_at", "2017-09-09 17:49:36.078301"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 2], ["created_at", "2017-09-09 17:49:36.080541"], ["updated_at", "2017-09-09 17:49:36.080541"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 5], ["created_at", "2017-09-09 17:49:36.082696"], ["updated_at", "2017-09-09 17:49:36.082696"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 5], ["created_at", "2017-09-09 17:49:36.084710"], ["updated_at", "2017-09-09 17:49:36.084710"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 5], ["created_at", "2017-09-09 17:49:36.086684"], ["updated_at", "2017-09-09 17:49:36.086684"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 5], ["created_at", "2017-09-09 17:49:36.088667"], ["updated_at", "2017-09-09 17:49:36.088667"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 2], ["created_at", "2017-09-09 17:49:36.090585"], ["updated_at", "2017-09-09 17:49:36.090585"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_expenses" ("user_id", "expense_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 2], ["expense_id", 5], ["created_at", "2017-09-09 17:49:36.092497"], ["updated_at", "2017-09-09 17:49:36.092497"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" ORDER BY "trips"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" WHERE "trips"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "packing_lists" ("category", "trip_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category", "Toiletries"], ["trip_id", 1], ["created_at", "2017-09-09 17:49:36.111505"], ["updated_at", "2017-09-09 17:49:36.111505"]]
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPackingList Load (0.3ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" ORDER BY "packing_lists"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPackingList Load (0.3ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" WHERE "packing_lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "items" ("title", "quantity", "packing_list_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Toothpaste"], ["quantity", 1], ["packing_list_id", 1], ["created_at", "2017-09-09 17:49:36.167501"], ["updated_at", "2017-09-09 17:49:36.167501"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPackingList Load (0.2ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" ORDER BY "packing_lists"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPackingList Load (0.2ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" WHERE "packing_lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "quantity", "packing_list_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Toothbrush"], ["quantity", 1], ["packing_list_id", 1], ["created_at", "2017-09-09 17:49:36.172329"], ["updated_at", "2017-09-09 17:49:36.172329"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPackingList Load (0.2ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" ORDER BY "packing_lists"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPackingList Load (0.1ms)[0m  [1m[34mSELECT  "packing_lists".* FROM "packing_lists" WHERE "packing_lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "items" ("title", "quantity", "packing_list_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Facewash"], ["quantity", 1], ["packing_list_id", 1], ["created_at", "2017-09-09 17:49:36.175856"], ["updated_at", "2017-09-09 17:49:36.175856"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "transportations" ("title", "confirmation_number", "transportation_type", "destination_id", "user_id", "arrival_time", "departure_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "flight to Bali"], ["confirmation_number", "AA12BX"], ["transportation_type", "flight"], ["destination_id", 1], ["user_id", 1], ["arrival_time", "00:00:00"], ["departure_time", "12:00:00"], ["created_at", "2017-09-09 17:49:36.197189"], ["updated_at", "2017-09-09 17:49:36.197189"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "transportations" ("title", "confirmation_number", "transportation_type", "destination_id", "user_id", "arrival_time", "departure_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "flight to Bali"], ["confirmation_number", "AA12BX"], ["transportation_type", "flight"], ["destination_id", 1], ["user_id", 2], ["arrival_time", "00:00:00"], ["departure_time", "12:00:00"], ["created_at", "2017-09-09 17:49:36.204628"], ["updated_at", "2017-09-09 17:49:36.204628"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "transportations" ("title", "confirmation_number", "transportation_type", "destination_id", "user_id", "arrival_time", "departure_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "flight to Bali"], ["confirmation_number", "AA12BX"], ["transportation_type", "flight"], ["destination_id", 1], ["user_id", 3], ["arrival_time", "00:00:00"], ["departure_time", "12:00:00"], ["created_at", "2017-09-09 17:49:36.211022"], ["updated_at", "2017-09-09 17:49:36.211022"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 3]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "transportations" ("title", "confirmation_number", "transportation_type", "destination_id", "user_id", "arrival_time", "departure_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "flight to Bali"], ["confirmation_number", "AA12BX"], ["transportation_type", "flight"], ["destination_id", 1], ["user_id", 4], ["arrival_time", "00:00:00"], ["departure_time", "12:00:00"], ["created_at", "2017-09-09 17:49:36.218188"], ["updated_at", "2017-09-09 17:49:36.218188"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 1], ["OFFSET", 4]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "transportations" ("title", "confirmation_number", "transportation_type", "destination_id", "user_id", "arrival_time", "departure_time", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "flight to Bali"], ["confirmation_number", "AA12BX"], ["transportation_type", "flight"], ["destination_id", 1], ["user_id", 5], ["arrival_time", "00:00:00"], ["departure_time", "12:00:00"], ["created_at", "2017-09-09 17:49:36.224377"], ["updated_at", "2017-09-09 17:49:36.224377"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" ORDER BY "destinations"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT  "destinations".* FROM "destinations" WHERE "destinations"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "accomodations" ("name", "address", "phone_number", "price", "destination_id", "check_in", "check_out", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Airbnb on private beach"], ["address", "Jalan Pantai Yeh Sumbul No.91, Medewi Yeh Sumbul, Bali, Yeh Sumbul, Negara, Kabupaten Jembrana, Bali 82261, Indonesia"], ["phone_number", "62 818-6231-7208"], ["price", 128.0], ["destination_id", 1], ["check_in", "2017-09-16 14:00:00"], ["check_out", "2017-09-20 11:00:00"], ["created_at", "2017-09-09 17:49:36.241180"], ["updated_at", "2017-09-09 17:49:36.241180"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTrip Load (0.5ms)[0m  [1m[34mSELECT  "trips".* FROM "trips" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (41.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "trips"[0m
+Started GET "/trips/index" for 127.0.0.1 at 2017-09-09 10:50:25 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TripsController#show as HTML
+  Parameters: {"id"=>"index"}
+Completed 406 Not Acceptable in 59ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::UnknownFormat (TripsController#show is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.1.3) lib/action_controller/metal/implicit_render.rb:53:in `default_render'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.1.3) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:186:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.1.3) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.1.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.3) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.3) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.3) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.3) lib/abstract_controller/base.rb:124:in `process'
+actionview (5.1.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.3) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.3) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.3) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.3) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.3) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.3) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/trips" for 127.0.0.1 at 2017-09-09 10:50:57 -0700
+Processing by TripsController#index as HTML
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+Completed 200 OK in 151ms (Views: 56.0ms | ActiveRecord: 4.2ms)
+
+
