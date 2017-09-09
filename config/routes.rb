@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :trips do
-    resources :packing_lists, only: [:index]
     resources :expenses
     resources :destinations, only: [:new, :create, :destroy, :index]
   end
