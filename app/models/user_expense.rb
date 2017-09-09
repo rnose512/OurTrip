@@ -1,0 +1,2 @@
+class UserExpense < ApplicationRecord
+end
