@@ -1,0 +1,19 @@
+<h1 class="login-header">Login</h1>
+
+<%= form_for(:sessions, url: login_path, html: { class: "login" }) do |f| %>
+
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.email_field :email, placeholder: 'Email' %>
+  <br>
+
+  <%= f.password_field :password, placeholder: 'Password' %>
+  <br>
+
+  <%= f.submit "Login" %>
+<% end %>
