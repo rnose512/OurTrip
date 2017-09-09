@@ -1,5 +1,5 @@
 class Expense < ApplicationRecord
-  has_many :expense_users
+  has_many :user_expenses
   belongs_to :event
   belongs_to :payer, class_name: "User"
 

@@ -1,7 +1,7 @@
 class Destination < ApplicationRecord
   has_many :events
   has_many :accomodations
-  has_many :expenses
+  has_many :expenses, through: :events
 
   belongs_to :trip
 
