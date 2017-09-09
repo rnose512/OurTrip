@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { AppRegistry, View, Text } from 'react-native';
-import Trips from './src/components/Trips';
+// import Trips from './src/components/Trips';
 import Header from './src/components/common/header';
+import Router from './src/Router'
+
 
 class OurTrip extends Component {
   render() {
@@ -9,7 +11,7 @@ class OurTrip extends Component {
     return (
       <View>
         <Header headerText={'Your Trips'}/>
-        <Trips />
+        <Router />
       </View>
     );
   }

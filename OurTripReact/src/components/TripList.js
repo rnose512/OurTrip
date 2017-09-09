@@ -13,10 +13,7 @@ class TripList extends Component {
 
   renderTrips() {
     return this.state.trips.map(trip =>
-      <View>
-        <Text key={trip.id}>{trip.name}</Text>
-        <Text key={trip.name}>{trip.start_date}</Text>
-      </View>
+      <TripDetail key={trip.title} trip={trip} />
       );
     }
 
