@@ -5,4 +5,6 @@ class Destination < ApplicationRecord
   has_many :expenses
 
   belongs_to :trips
+
+  validates :name, :trip_id, :start_date, :end_date, presence: true
 end
