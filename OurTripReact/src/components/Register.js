@@ -15,26 +15,21 @@ export default class Register extends Component {
       phone_number: '',
       emergency_contact: '',
       emergency_contact_phone_number: '',
+      registered: false,
+      accessToken: null
     }
 
     this.createUser = this.createUser.bind(this)
+    this.registerUser = this.registerUser.bind(this)
   }
 
   createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
 
-    fetch('http://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&password=' + password + '&phone_number=' + phone_number + '&emergency_contact=' + emergency_contact + '&emergency_contact_phone_number=' + emergency_contact_phone_number, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "content": this.state.value
-      })
-    })
+    fetch('http://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&password=' + password + '&phone_number=' + phone_number + '&emergency_contact=' + emergency_contact + '&emergency_contact_phone_number=' + emergency_contact_phone_number, {method: "POST" })
     .then(data => data.json())
     .then(jsonData => {
       if (jsonData.saved) {
+        this.setState({ accessToken: jsonData.accessToken, registered: true });
         AlertIOS.alert('Registration Successful!')
         Action.trips();
       } else {
@@ -42,6 +37,10 @@ export default class Register extends Component {
       }
     })
     .catch((error) => {}) // currently not catching errors
+  }
+
+  registerUser(){
+    this.createUser(this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)
   }
 
   render() {
@@ -54,10 +53,10 @@ export default class Register extends Component {
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
-            value={this.state.first_name}
             onChangeText={ first_name => this.setState({first_name})}
           />
       </Item>
+
       <Item>
         <Input
             placeholder="last name"
@@ -124,7 +123,7 @@ export default class Register extends Component {
           onChangeText={(emergency_contact_phone_number) => this.setState({emergency_contact_phone_number})}
         />
       </Item>
-       <Button style={styles.hasmargin} onPress={this.createUser(this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)}>
+       <Button style={styles.hasmargin} onPress= {this.registerUser}>
          <Text style={styles.buttontext}>REGISTER</Text>
         </Button>
     </Container>
