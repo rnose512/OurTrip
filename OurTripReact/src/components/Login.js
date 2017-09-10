@@ -10,31 +10,32 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      logged_in: false
+      logged_in: false,
+      accessToken: null
     }
     this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)
   }
 
   authenticateUser(email, password) {
-    fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password, {method: "POST"})
     .then(data => data.json())
-    .then(jsonData => {
+    .then((jsonData => {
       if (jsonData.found) {
+        console.log(jsonData.accessToken)
+        this.setState({ accessToken: jsonData.accessToken, logged_in: true });
         AlertIOS.alert('Login Successful!')
-        this.setState({logged_in: true})
         Actions.trips();
-
       } else {
+        this.setState({logged_in: false})
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
-    })
+    }))
     .catch((error) => {}) // currently not catching errors
   }
 
   loginUser() {
     this.authenticateUser(this.state.email, this.state.password)
-    console.log(this.state.email)
   }
 
   render() {
@@ -46,6 +47,7 @@ class Login extends Component {
               placeholder="user@gmail.com"
               label="Email"
               value={this.state.email}
+              autoCapitalize="none"
               onChangeText={email => this.setState({ email })}
             />
           </CardSection>
