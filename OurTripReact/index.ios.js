@@ -17,4 +17,3 @@ class OurTrip extends Component {
 }
 
 AppRegistry.registerComponent('OurTripReact', () => OurTrip)
->>>>>>> development-branch

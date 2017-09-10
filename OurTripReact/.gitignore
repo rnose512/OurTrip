@@ -51,9 +51,4 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
-<<<<<<< HEAD
-
 log/development.log
-=======
-log/development.log
->>>>>>> development-branch
