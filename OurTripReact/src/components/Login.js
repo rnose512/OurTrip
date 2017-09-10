@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
-
 
 class Login extends Component {
   constructor() {
@@ -25,7 +25,8 @@ class Login extends Component {
       if (jsonData.found) {
         AlertIOS.alert('Login Successful!')
         this.setState({logged_in: true})
-        console.log(this.state.logged_in)
+        Actions.trips();
+
       } else {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
@@ -45,45 +46,49 @@ class Login extends Component {
           />
         </CardSection>
 
-        <CardSection>
-          <Input
-            secureTextEntry
-            placeholder="password"
-            label="Password"
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+          <CardSection>
+            <Input
+              secureTextEntry
+              placeholder="password"
+              label="Password"
+              value={this.state.password}
+              onChangeText={password => this.setState({ password })}
 
-          />
-        </CardSection>
+            />
+          </CardSection>
 
-        <Text style={styles.errorTextStyle}>
-          {this.state.error}
-        </Text>
+          <Text style={styles.errorTextStyle}>
+            {this.state.error}
+          </Text>
 
         <CardSection>
           <Button onPress={this.authenticateUser}>
             <Text>Log In</Text>
 
-          </Button>
-        </CardSection>
-      </Card>
+        <Button style= {styles.hasMargin} onPress={Actions.register}>
+          <Text> Register</Text>
+        </Button>
+      </View>
     );
   }
 }
 
 const styles = {
+  center: {
+    alignSelf: 'center'
+  },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
   },
-  viewStyle: {
-    paddingTop: 400
-  },
-  textStyle: {
-    fontSize: 20
+  hasMargin: {
+    alignSelf: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
+    backgroundColor: 'blue'
   }
 };
-
 
 export default Login;

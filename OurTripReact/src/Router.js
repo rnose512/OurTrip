@@ -4,18 +4,34 @@ import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
 import Login from './components/Login'
+import Register from './components/Register'
 
 const RouterComponent = () => {
   return (
-    <Router>
-      <Scene>
-        <Scene key='TripList' component={Trips} title='hello' />
+
+    <Router sceneStyle={{paddingTop: 65}}>
+        <Scene
+          key="login"
+          component={Login}
+          title="Login"
+        />
+        <Scene
+          key= "register"
+          component= {Register}
+          title= "Register"
+        />
+        <Scene
+          key="trips"
+          component={Trips}
+          title="Trips"
+        />
+        <Scene key='TripList' component={Trips} />
         <Scene key='TripShow' component={TripShow} />
         <Scene key='Itinerary' component={Itinerary} />
-      </Scene>
     </Router>
-  );
-};
+    );
+  }
+
 
         // <Scene key='Login' component={Login} initial />
 
