@@ -10,7 +10,7 @@ Transportation.destroy_all
 Event.destroy_all
 Accomodation.destroy_all
 
-User.create!({
+User.create({
   first_name: "Hannie",
   last_name: "Dong",
   email: "hannie@email.com",
@@ -20,7 +20,7 @@ User.create!({
   emergency_contact_phone_number: "111-111-1111"
 })
 
-User.create!({
+User.create({
   first_name: "Hawken",
   last_name: "Ritter",
   email: "hawken@email.com",
@@ -30,7 +30,7 @@ User.create!({
   emergency_contact_phone_number: "333-333-3333"
 })
 
-User.create!({
+User.create({
   first_name: "Peter",
   last_name: "Thompson",
   email: "peter@email.com",
@@ -40,7 +40,7 @@ User.create!({
   emergency_contact_phone_number: "555-555-5555"
 })
 
-User.create!({
+User.create({
   first_name: "Ashley",
   last_name: "Teow",
   email: "ashley@email.com",
@@ -50,7 +50,7 @@ User.create!({
   emergency_contact_phone_number: "666-666-6666"
 })
 
-User.create!({
+User.create({
   first_name: "Rio",
   last_name: "Nose",
   email: "rio@email.com",
@@ -88,7 +88,7 @@ Event.create!({title: "birthday dinner", category: "food", description:"omnomnom
 	Expense.create!({price: 4.50, event_id: Event.first.id, payer_id: User.first.id})
 end
 
-10.times do 
+10.times do
 	UserExpense.create!({user_id: User.second.id, expense_id: [1,2,3,4,5].sample})
 end
 

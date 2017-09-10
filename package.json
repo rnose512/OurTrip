@@ -1,5 +1,7 @@
 {
   "name": "OurTrip",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "native-base": "^2.3.1"
+  }
 }

@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170909165207) do
     t.string "phone_number"
     t.string "emergency_contact"
     t.string "emergency_contact_phone_number"
+    t.string "access_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     	t.string :emergency_contact
     	t.string :emergency_contact_phone_number
 
+      t.string :access_token, null: false
       t.timestamps
     end
   end
