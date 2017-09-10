@@ -2,10 +2,10 @@ class EventsController < ApplicationController
 	def index
 		@events = Event.where(destination_id: params[:destination_id])
 		if @events
-			render json: @events.to_json
+			render json: @events.as_json
 		else
 			@error = "Error: No events found"
-			render json: @error.to_json
+			render json: @error.as_json
 		end
 	end
 
