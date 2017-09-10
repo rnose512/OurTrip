@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, AlertIOS } from 'react-native';
+import { Text, View,  AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
@@ -8,8 +8,8 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: 'hannie@email.com',
-      password: 'password',
+      email: '',
+      password: '',
       logged_in: false
     }
     this.loginUser = this.loginUser.bind(this)
