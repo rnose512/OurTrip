@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { View, Text, AlertIOS } from 'react-native';
 import { Button, Spinner } from './components/common';
