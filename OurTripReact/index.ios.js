@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, View, Text } from 'react-native';
+import { AppRegistry, View } from 'react-native';
 // import Trips from './src/components/Trips';
 import Header from './src/components/common/header';
 import Router from './src/Router'
@@ -17,3 +17,4 @@ class OurTrip extends Component {
 }
 
 AppRegistry.registerComponent('OurTripReact', () => OurTrip)
+>>>>>>> development-branch
