@@ -51,5 +51,4 @@ build-iPhoneSimulator/
 
 node_modules
 package-lock.json
-
 log/development.log
