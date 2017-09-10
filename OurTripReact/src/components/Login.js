@@ -36,15 +36,16 @@ class Login extends Component {
 
   render() {
     return (
-      <Card style={styles.viewStyle}>
-        <CardSection>
-          <Input
-            placeholder="user@gmail.com"
-            label="Email"
-            value={this.state.email}
-            onChangeText={email => this.setState({ email })}
-          />
-        </CardSection>
+      <View>
+        <Card>
+          <CardSection>
+            <Input
+              placeholder="user@gmail.com"
+              label="Email"
+              value={this.state.email}
+              onChangeText={email => this.setState({ email })}
+            />
+          </CardSection>
 
           <CardSection>
             <Input
@@ -61,12 +62,15 @@ class Login extends Component {
             {this.state.error}
           </Text>
 
-        <CardSection>
-          <Button onPress={this.authenticateUser}>
-            <Text>Log In</Text>
+          <CardSection>
+            <Button onPress={this.authenticateUser}>
+              <Text>Log In</Text>
+            </Button>
+          </CardSection>
+        </Card>
 
         <Button style= {styles.hasMargin} onPress={Actions.register}>
-          <Text> Register</Text>
+          <Text> Click here to register</Text>
         </Button>
       </View>
     );
