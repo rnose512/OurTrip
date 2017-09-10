@@ -7,18 +7,35 @@ import { Button, Input } from 'native-base';
 class Login extends Component {
   constructor() {
     super();
-    this.state = { email: 'hannie@email.com', password: 'password'};
+    this.state = {
+      email: 'hannie@email.com',
+      password: 'password',
+      logged_in: false,
+      accessToken: null
+    };
 
-    this.loginUser = this.loginUser.bind(this)
+    this.authenticateUser = this.authenticateUser.bind(this)
   }
 
-  loginUser() {
-    this.props.authenticateUser(this.state.email, this.state.password)
+
+  authenticateUser(email, password) {
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
+    .then(data => data.json())
+    .then(jsonData => {
+      if (jsonData.found) {
+        AlertIOS.alert('Login Successful!')
+        this.setState({logged_in: true})
+        console.log(this.state.logged_in)
+      } else {
+        AlertIOS.alert(jsonData.errors.join("\n"))
+      }
+    })
+    .catch((error) => {}) // currently not catching errors
   }
 
   render() {
     return (
-      <Card>
+      <Card style={styles.viewStyle}>
         <CardSection>
           <Input
             placeholder="user@gmail.com"
@@ -44,7 +61,7 @@ class Login extends Component {
         </Text>
 
         <CardSection>
-          <Button onPress={this.loginUser}>
+          <Button onPress={this.authenticateUser}>
             <Text>Log In</Text>
 
           </Button>
@@ -59,7 +76,14 @@ const styles = {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  viewStyle: {
+    paddingTop: 400
+  },
+  textStyle: {
+    fontSize: 20
   }
 };
+
 
 export default Login;

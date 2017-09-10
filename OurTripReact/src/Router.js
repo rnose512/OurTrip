@@ -1,19 +1,23 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import TripShow from './components/TripShow.js';
+import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
-import App from './app';
+import Login from './components/Login'
 
 const RouterComponent = () => {
   return (
     <Router>
-      <Scene key="App" component={App} initial />
-      <Scene key='TripList' component={Trips} />
-      <Scene key='TripShow' component={TripShow} />
-      <Scene key='Itinerary' component={Itinerary} />
+      <Scene>
+        <Scene key='TripList' component={Trips} title='hello' />
+        <Scene key='TripShow' component={TripShow} />
+        <Scene key='Itinerary' component={Itinerary} />
+      </Scene>
     </Router>
   );
 };
+
+        // <Scene key='Login' component={Login} initial />
+
 
 export default RouterComponent;
