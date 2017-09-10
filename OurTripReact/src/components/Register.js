@@ -18,7 +18,7 @@ export default class Register extends Component {
       emergecy_contact_phone_number: 'Enter your emergency contact phone number',
     }
 
-    this.registerUser = this.registerUser.bind(this)
+    this.createUser = this.createUser.bind(this)
     this.findUser = this.findUser.bind(this)
   }
 
@@ -36,7 +36,7 @@ export default class Register extends Component {
           [{text: 'OK', onPress: () => console.log('OK Pressed')}]
         )
       } else {
-        this.registerUser()
+        this.createUser()
       }
     })
     .catch(function (error) {
@@ -44,8 +44,20 @@ export default class Register extends Component {
     });
   }
 
-  registerUser(){
-    this.props.createUser(this.state.first_name,this.state.last_name,this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)
+  createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
+
+    fetch('https://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name, + '&email=' + email, + '&password=' + password, + '&phone_number=' + phone_number, + '&emergency_contact=' + emergency_contact, + '&emergency_contact_phone_number=' + emergency_contact_phone_number,   {method: 'POST'})
+    .then(data => data.json())
+    .then(jsonData => {
+      if (jsonData.saved) {
+        AlertIOS.alert('Registration Successful!')
+        this.setState({userId: jsonData.user.id})
+        this.updateCurrentPage('IndexPage')
+      } else {
+        AlertIOS.alert(jsonData.errors.join("\n"))
+      }
+    })
+    .catch((error) => {}) // currently not catching errors
   }
 
   render() {

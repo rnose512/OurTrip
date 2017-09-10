@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
-import TripShow from './components/TripShow.js';
+import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
 import Login from './components/Login'
@@ -10,6 +10,11 @@ const RouterComponent = () => {
   return (
 
     <Router sceneStyle={{paddingTop: 65}}>
+        <Scene
+          key="login"
+          component={Login}
+          title="Login"
+        />
         <Scene
           key= "register"
           component= {Register}
@@ -26,6 +31,9 @@ const RouterComponent = () => {
     </Router>
     );
   }
+
+
+        // <Scene key='Login' component={Login} initial />
 
 
 export default RouterComponent;

@@ -13,7 +13,9 @@ class TripShow extends Component {
   // }
   render() {
     return (
+      <View>
         <Text> HELLLOOOO TRIP SHOW </Text>
+      </View>
     );
   }
 

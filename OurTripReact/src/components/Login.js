@@ -7,29 +7,44 @@ import { Button, Input } from 'native-base';
 class Login extends Component {
   constructor() {
     super();
-    this.state = { email: '', password: ''};
+    this.state = {
+      email: 'hannie@email.com',
+      password: 'password',
+      logged_in: false,
+      accessToken: null
+    };
 
-    this.loginUser = this.loginUser.bind(this)
+    this.authenticateUser = this.authenticateUser.bind(this)
   }
 
-  loginUser() {
-    this.props.authenticateUser(this.state.email, this.state.password)
-    console.log(this.state.email)
-    
+
+  authenticateUser(email, password) {
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
+    .then(data => data.json())
+    .then(jsonData => {
+      if (jsonData.found) {
+        AlertIOS.alert('Login Successful!')
+        this.setState({logged_in: true})
+        Actions.trips();
+
+      } else {
+        AlertIOS.alert(jsonData.errors.join("\n"))
+      }
+    })
+    .catch((error) => {}) // currently not catching errors
   }
 
   render() {
     return (
-      <View >
-        <Card>
-          <CardSection>
-            <Input 
-              placeholder="user@gmail.com"
-              label="Email"
-              value={this.state.email}
-              onChangeText={email => this.setState({ email })}
-            />
-          </CardSection>
+      <Card style={styles.viewStyle}>
+        <CardSection>
+          <Input
+            placeholder="user@gmail.com"
+            label="Email"
+            value={this.state.email}
+            onChangeText={email => this.setState({ email })}
+          />
+        </CardSection>
 
           <CardSection>
             <Input
@@ -46,14 +61,11 @@ class Login extends Component {
             {this.state.error}
           </Text>
 
-          <CardSection>
-            <Button onPress={this.loginUser}>
-              <Text>Log In</Text>
-            </Button>
-          </CardSection>
-        </Card>
+        <CardSection>
+          <Button onPress={this.authenticateUser}>
+            <Text>Log In</Text>
 
-        <Button style= {styles.hasmargin} onPress={Actions.register}>
+        <Button style= {styles.hasMargin} onPress={Actions.register}>
           <Text> Register</Text>
         </Button>
       </View>
@@ -70,13 +82,13 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   },
-    hasmargin: {
+  hasMargin: {
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
     backgroundColor: 'blue'
-  },
+  }
 };
 
 export default Login;
