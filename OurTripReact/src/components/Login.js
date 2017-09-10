@@ -7,7 +7,7 @@ import { Button, Input } from 'native-base';
 class Login extends Component {
   constructor() {
     super();
-    this.state = { email: 'hannie@email.com', password: 'password'};
+    this.state = { email: '', password: ''};
 
     this.loginUser = this.loginUser.bind(this)
   }
@@ -18,10 +18,10 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
+      <View >
         <Card>
           <CardSection>
-            <Input
+            <Input 
               placeholder="user@gmail.com"
               label="Email"
               value={this.state.email}
@@ -51,7 +51,7 @@ class Login extends Component {
           </CardSection>
         </Card>
 
-        <Button onPress={Actions.register}>
+        <Button style= {styles.hasmargin} onPress={Actions.register}>
           <Text> Register</Text>
         </Button>
       </View>
@@ -60,11 +60,21 @@ class Login extends Component {
 }
 
 const styles = {
+  center: {
+    alignSelf: 'center'
+  },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
-  }
+  },
+    hasmargin: {
+    alignSelf: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
+    backgroundColor: 'blue'
+  },
 };
 
 export default Login;
