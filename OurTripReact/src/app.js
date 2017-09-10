@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, AlertIOS } from 'react-native';
 import { Button, Spinner } from './components/common';
-import {
-  Router,
-  Scene,
-  Actions,
-  Modal
-} from 'react-native-router-flux';
+import { Router, Scene, Actions, Modal } from 'react-native-router-flux';
 import Login from './components/Login';
-import axios from 'axios';
+import Register from './components/Register';
+import Trips from './components/Trips';
 
 class App extends Component {
   constructor() {
@@ -31,7 +27,8 @@ class App extends Component {
       if (jsonData.found) {
         AlertIOS.alert('Login Successful!')
         this.setState({logged_in: true})
-        console.log(this.state.logged_in)
+        Actions.trips();
+        
       } else {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
@@ -39,35 +36,50 @@ class App extends Component {
     .catch((error) => {}) // currently not catching errors
   }
 
-   //  createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
+    createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
 
-   //    axios.post('https://localhost:3000/register', {
-   //        first_name: first_name,
-   //        last_name: last_name,
-   //        email: email,
-   //        password: password,
-   //        phone_number: phone_number,
-   //        emergency_contact: emergency_contact,
-   //        emergency_contact_phone_number: emergency_contact_phone_number
-   //    })
-   //    .then((response) => {
-   //      this.setState({
-   //        accessToken: response.data.accessToken,
-   //        logged_in: true
-   //      });
-   //      Actions.user({accessToken: this.state.accessToken});
-   //    })
-   //    .catch(function (error) {
-   //      console.log(error.response);
-   //    });
-   // }
+      axios.post('https://localhost:3000/register', {
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          password: password,
+          phone_number: phone_number,
+          emergency_contact: emergency_contact,
+          emergency_contact_phone_number: emergency_contact_phone_number
+      })
+      .then((response) => {
+        this.setState({
+          accessToken: response.data.accessToken,
+          logged_in: true
+        });
+        Actions.user({accessToken: this.state.accessToken});
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      });
+   }
 
   render() {
     return (
-      <View>
-        <Login authenticateUser={this.authenticateUser} />
-        <Text> {console.log(this)}{console.log(this.state.logged_in)} {console.log(this.state.accessToken)}</Text>
-      </View>
+      <Router sceneStyle={{paddingTop: 65}}>
+
+          <Scene
+            key="login"
+            component={Login}
+            title="Login"
+            authenticateUser={this.authenticateUser}
+          />
+          <Scene
+            key="trips"
+            component={Trips}
+            title="Trips"
+          />
+          <Scene
+            key="register"
+            component={Register}
+            title="Register"
+          />
+    </Router>
     );
   }
 }
