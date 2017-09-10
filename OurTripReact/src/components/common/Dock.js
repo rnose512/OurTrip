@@ -5,7 +5,6 @@ class Dock extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header />
         <Content />
         <Footer>
           <FooterTab>

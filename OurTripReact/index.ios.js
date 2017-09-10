@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
    flexDirection: 'column',
   },
   routes: {
-    flex: 5,
+    flex: 6,
   },
   dock: {
     flex: 2,
