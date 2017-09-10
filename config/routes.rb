@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :trips do
-    resources :packing_lists, only: [:index]
     resources :expenses
     resources :destinations, only: [:new, :create, :destroy, :index]
   end
@@ -17,12 +15,12 @@ Rails.application.routes.draw do
     resources :transportations, except: [:show]
   end
 
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
-  get 'register', to: 'users#new'
-  post 'register', to: 'users#create'
+  get '/register', to: 'users#new'
+  post '/register', to: 'users#create'
 
 
 end
