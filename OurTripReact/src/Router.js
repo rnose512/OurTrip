@@ -2,7 +2,7 @@ import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 import TripShow from './components/TripShow.js';
 import Trips from './components/Trips';
-import Itinerary from './src/Itinerary'
+import Itinerary from './Itinerary'
 
 const RouterComponent = () => {
   return (

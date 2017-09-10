@@ -16,4 +16,4 @@ class OurTrip extends Component {
   }
 }
 
-AppRegistry.registerComponent('OurTripReact', () => OurTrip)
+AppRegistry.registerComponent('OurTripReact', () => App)
