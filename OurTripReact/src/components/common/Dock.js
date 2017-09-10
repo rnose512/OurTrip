@@ -9,11 +9,11 @@ class Dock extends Component {
         <Footer>
           <FooterTab>
             <Button vertical>
-              <Icon name="Trips" />
+              <Icon name="plane" ios="ios-plane" md="md-plane" />
               <Text>Trips</Text>
             </Button>
             <Button vertical>
-              <Icon name="Itinerary" />
+              <Icon name="paper" ios="ios-paper" md="md-paper" />
               <Text>Itinerary</Text>
             </Button>
             <Button vertical active>
