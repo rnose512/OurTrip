@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
@@ -10,13 +10,11 @@ class Login extends Component {
     this.state = {
       email: 'hannie@email.com',
       password: 'password',
-      logged_in: false,
-      accessToken: null
-    };
-
+      logged_in: false
+    }
+    this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)
   }
-
 
   authenticateUser(email, password) {
     fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
@@ -32,6 +30,11 @@ class Login extends Component {
       }
     })
     .catch((error) => {}) // currently not catching errors
+  }
+
+  loginUser() {
+    this.authenticateUser(this.state.email, this.state.password)
+    console.log(this.state.email)
   }
 
   render() {
@@ -63,7 +66,7 @@ class Login extends Component {
           </Text>
 
           <CardSection>
-            <Button onPress={this.authenticateUser}>
+            <Button onPress={this.loginUser}>
               <Text>Log In</Text>
             </Button>
           </CardSection>

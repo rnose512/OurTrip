@@ -22,30 +22,7 @@ export default class Register extends Component {
     this.findUser = this.findUser.bind(this)
   }
 
-  findUser(){
-    axios.get("https://make-it-happen-api.herokuapp.com/api/verify", {
-      params: {
-        email: this.state.email
-      }
-    })
-    .then((response)=> {
-      if(response.data.found) {
-          Alert.alert(
-          'Email already exists',
-          '',
-          [{text: 'OK', onPress: () => console.log('OK Pressed')}]
-        )
-      } else {
-        this.createUser()
-      }
-    })
-    .catch(function (error) {
-
-    });
-  }
-
   createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
-
     fetch('https://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name, + '&email=' + email, + '&password=' + password, + '&phone_number=' + phone_number, + '&emergency_contact=' + emergency_contact, + '&emergency_contact_phone_number=' + emergency_contact_phone_number,   {method: 'POST'})
     .then(data => data.json())
     .then(jsonData => {
@@ -114,7 +91,6 @@ export default class Register extends Component {
           placeholderTextColor='#949799'
           returnKeyType="go"
           keyboardType="default"
-          secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(phone_number) => this.setState({phone_number})}
@@ -126,7 +102,6 @@ export default class Register extends Component {
           placeholderTextColor='#949799'
           returnKeyType="go"
           keyboardType="default"
-          secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(emergency_contact) => this.setState({emergency_contact})}
@@ -138,13 +113,12 @@ export default class Register extends Component {
           placeholderTextColor='#949799'
           returnKeyType="go"
           keyboardType="default"
-          secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(emergency_contact_phone_number) => this.setState({emergency_contact_phone_number})}
         />
       </Item>
-       <Button block info style={styles.hasmargin} onPress={this.findUser}>
+       <Button block info style={styles.hasmargin} onPress={this.createUser}>
          <Text style={styles.buttontext}>REGISTER</Text>
         </Button>
     </Container>
