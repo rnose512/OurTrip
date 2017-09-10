@@ -9,9 +9,13 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: 'Enter your username',
+      first_name: 'Enter first name',
+      last_name: 'Enter last name',
       email: 'Enter your email',
       password: 'Enter your password',
+      phone_number: 'Enter phone number',
+      emergecy_contact: 'Enter your emergecy contact',
+      emergecy_contact_phone_number: 'Enter your emergency contact phone number',
     }
 
     this.registerUser = this.registerUser.bind(this)
@@ -41,7 +45,7 @@ export default class Register extends Component {
   }
 
   registerUser(){
-    this.props.createUser(this.state.username, this.state.email, this.state.password)
+    this.props.createUser(this.state.first_name,this.state.last_name,this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)
   }
 
   render() {
@@ -49,12 +53,22 @@ export default class Register extends Component {
     <Container style={styles.container}>
       <Item>
         <Input
-            placeholder="username"
+            placeholder="first name"
             placeholderTextColor='#949799'
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
-            onChangeText={(username) => this.setState({username})}
+            onChangeText={(first_name) => this.setState({first_name})}
+          />
+      </Item>
+      <Item>
+        <Input
+            placeholder="last name"
+            placeholderTextColor='#949799'
+            returnKeyType="next"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={(last_name) => this.setState({last_name})}
           />
       </Item>
       <Item>
@@ -82,7 +96,42 @@ export default class Register extends Component {
           onSubmitEditing={this.loginUser}
         />
       </Item>
-
+      <Item>
+        <Input
+          placeholder="phone number"
+          placeholderTextColor='#949799'
+          returnKeyType="go"
+          keyboardType="default"
+          secureTextEntry
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={(phone_number) => this.setState({phone_number})}
+        />
+      </Item>
+      <Item>
+        <Input
+          placeholder="Emergency contact"
+          placeholderTextColor='#949799'
+          returnKeyType="go"
+          keyboardType="default"
+          secureTextEntry
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={(emergency_contact) => this.setState({emergency_contact})}
+        />
+      </Item>
+      <Item>
+        <Input
+          placeholder="Emergency contact phone number"
+          placeholderTextColor='#949799'
+          returnKeyType="go"
+          keyboardType="default"
+          secureTextEntry
+          autoCapitalize="none"
+          autoCorrect={false}
+          onChangeText={(emergency_contact_phone_number) => this.setState({emergency_contact_phone_number})}
+        />
+      </Item>
        <Button block info style={styles.hasmargin} onPress={this.findUser}>
          <Text style={styles.buttontext}>REGISTER</Text>
         </Button>

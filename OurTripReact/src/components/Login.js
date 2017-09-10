@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
-
 
 class Login extends Component {
   constructor() {
@@ -18,38 +18,43 @@ class Login extends Component {
 
   render() {
     return (
-      <Card>
-        <CardSection>
-          <Input
-            placeholder="user@gmail.com"
-            label="Email"
-            value={this.state.email}
-            onChangeText={email => this.setState({ email })}
-          />
-        </CardSection>
+      <View>
+        <Card>
+          <CardSection>
+            <Input
+              placeholder="user@gmail.com"
+              label="Email"
+              value={this.state.email}
+              onChangeText={email => this.setState({ email })}
+            />
+          </CardSection>
 
-        <CardSection>
-          <Input
-            secureTextEntry
-            placeholder="password"
-            label="Password"
-            value={this.state.password}
-            onChangeText={password => this.setState({ password })}
+          <CardSection>
+            <Input
+              secureTextEntry
+              placeholder="password"
+              label="Password"
+              value={this.state.password}
+              onChangeText={password => this.setState({ password })}
 
-          />
-        </CardSection>
+            />
+          </CardSection>
 
-        <Text style={styles.errorTextStyle}>
-          {this.state.error}
-        </Text>
+          <Text style={styles.errorTextStyle}>
+            {this.state.error}
+          </Text>
 
-        <CardSection>
-          <Button onPress={this.loginUser}>
-            <Text>Log In</Text>
+          <CardSection>
+            <Button onPress={this.loginUser}>
+              <Text>Log In</Text>
+            </Button>
+          </CardSection>
+        </Card>
 
-          </Button>
-        </CardSection>
-      </Card>
+        <Button onPress={Actions.register}>
+          <Text> Register</Text>
+        </Button>
+      </View>
     );
   }
 }
