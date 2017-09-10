@@ -25,8 +25,7 @@ class App extends Component {
 
 
   authenticateUser(email, password) {
-    fetch('/login')
-    // fetch('http://localhost:3000/users/login?email=' + email + '&password=' + password)
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
     .then(data => data.json())
     .then(jsonData => {
       if (jsonData.found) {

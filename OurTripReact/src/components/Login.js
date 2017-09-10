@@ -46,6 +46,7 @@ class Login extends Component {
         <CardSection>
           <Button onPress={this.loginUser}>
             <Text>Log In</Text>
+
           </Button>
         </CardSection>
       </Card>

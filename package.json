@@ -3,6 +3,5 @@
   "private": true,
   "dependencies": {
     "native-base": "^2.3.1"
-  },
-  "proxy": "https://localhost:3000"
+  }
 }
