@@ -8,7 +8,6 @@ import Register from './components/Register'
 
 const RouterComponent = () => {
   return (
-
     <Router sceneStyle={{paddingTop: 65}}>
         <Scene
           key="login"

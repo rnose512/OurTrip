@@ -1,30 +1,5 @@
 //MAIN PAGE
-import React, { Component } from 'react';
-import { AppRegistry, View, Text, StyleSheet } from 'react-native';
-import RouterComponent from './src/Router';
+import { AppRegistry } from 'react-native';
+import OurTrip from './src/App';
 
-class OurTrip extends Component {
-  render() {
-    return (
-      <View style={styles.container} >
-        <RouterComponent style={styles.routes} />
-
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   flexDirection: 'column',
-  },
-  routes: {
-    flex: 6,
-  },
-  dock: {
-    flex: 2,
-  }
-})
-
-AppRegistry.registerComponent('OurTripReact', () => OurTrip)
+AppRegistry.registerComponent('OurTripReact', () => OurTrip);
