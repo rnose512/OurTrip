@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, AlertIOS } from 'react-native';
 import { Button, Spinner } from './components/common';
-import { Router, Scene, Actions, Modal } from 'react-native-router-flux';
-import Login from './components/Login';
-import Register from './components/Register';
-import Trips from './components/Trips';
+import Router from './Router';
 
 class App extends Component {
   constructor() {
@@ -27,8 +24,8 @@ class App extends Component {
       if (jsonData.found) {
         AlertIOS.alert('Login Successful!')
         this.setState({logged_in: true})
-        Actions.trips();
-        
+        Actions.main();
+
       } else {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
@@ -61,25 +58,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router sceneStyle={{paddingTop: 65}}>
-
-          <Scene
-            key="login"
-            component={Login}
-            title="Login"
-            authenticateUser={this.authenticateUser}
-          />
-          <Scene
-            key="trips"
-            component={Trips}
-            title="Trips"
-          />
-          <Scene
-            key="register"
-            component={Register}
-            title="Register"
-          />
-    </Router>
+      <Router />
     );
   }
 }
