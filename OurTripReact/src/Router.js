@@ -32,8 +32,4 @@ const RouterComponent = () => {
     );
   }
 
-
-        // <Scene key='Login' component={Login} initial />
-
-
 export default RouterComponent;
