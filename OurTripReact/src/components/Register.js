@@ -1,35 +1,42 @@
 import React, { Component } from 'react';
-import { StyleSheet, Alert } from 'react-native';
+import { StyleSheet, Alert, AlertIOS } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import axios from 'axios';
 
 export default class Register extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      first_name: 'Enter first name',
-      last_name: 'Enter last name',
-      email: 'Enter your email',
-      password: 'Enter your password',
-      phone_number: 'Enter phone number',
-      emergecy_contact: 'Enter your emergecy contact',
-      emergecy_contact_phone_number: 'Enter your emergency contact phone number',
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      phone_number: '',
+      emergency_contact: '',
+      emergency_contact_phone_number: '',
     }
 
     this.createUser = this.createUser.bind(this)
-    this.findUser = this.findUser.bind(this)
   }
 
   createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
-    fetch('https://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name, + '&email=' + email, + '&password=' + password, + '&phone_number=' + phone_number, + '&emergency_contact=' + emergency_contact, + '&emergency_contact_phone_number=' + emergency_contact_phone_number,   {method: 'POST'})
+
+    fetch('http://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&password=' + password + '&phone_number=' + phone_number + '&emergency_contact=' + emergency_contact + '&emergency_contact_phone_number=' + emergency_contact_phone_number, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        "content": this.state.value
+      })
+    })
     .then(data => data.json())
     .then(jsonData => {
       if (jsonData.saved) {
         AlertIOS.alert('Registration Successful!')
-        this.setState({userId: jsonData.user.id})
-        this.updateCurrentPage('IndexPage')
+        Action.trips();
       } else {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
@@ -47,7 +54,8 @@ export default class Register extends Component {
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
-            onChangeText={(first_name) => this.setState({first_name})}
+            value={this.state.first_name}
+            onChangeText={ first_name => this.setState({first_name})}
           />
       </Item>
       <Item>
@@ -75,21 +83,19 @@ export default class Register extends Component {
         <Input
           placeholder="password"
           placeholderTextColor='#949799'
-          returnKeyType="go"
+          returnKeyType="next"
           keyboardType="default"
           secureTextEntry
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(password) => this.setState({password})}
-          ref={(input) => this.passwordInput = input}
-          onSubmitEditing={this.loginUser}
         />
       </Item>
       <Item>
         <Input
           placeholder="phone number"
           placeholderTextColor='#949799'
-          returnKeyType="go"
+          returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
@@ -100,7 +106,7 @@ export default class Register extends Component {
         <Input
           placeholder="Emergency contact"
           placeholderTextColor='#949799'
-          returnKeyType="go"
+          returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
@@ -111,14 +117,14 @@ export default class Register extends Component {
         <Input
           placeholder="Emergency contact phone number"
           placeholderTextColor='#949799'
-          returnKeyType="go"
+          returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(emergency_contact_phone_number) => this.setState({emergency_contact_phone_number})}
         />
       </Item>
-       <Button block info style={styles.hasmargin} onPress={this.createUser}>
+       <Button style={styles.hasmargin} onPress={this.createUser(this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)}>
          <Text style={styles.buttontext}>REGISTER</Text>
         </Button>
     </Container>

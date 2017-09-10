@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, AlertIOS } from 'react-native';
+import { Text, View,  AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
@@ -8,33 +8,34 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: 'hannie@email.com',
-      password: 'password',
-      logged_in: false
+      email: '',
+      password: '',
+      logged_in: false,
+      accessToken: null
     }
     this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)
   }
 
   authenticateUser(email, password) {
-    fetch('http://localhost:3000/login?email=' + email + '&password=' + password)
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password, {method: "POST"})
     .then(data => data.json())
-    .then(jsonData => {
+    .then((jsonData => {
       if (jsonData.found) {
+        console.log(jsonData.accessToken)
+        this.setState({ accessToken: jsonData.accessToken, logged_in: true });
         AlertIOS.alert('Login Successful!')
-        this.setState({logged_in: true})
         Actions.trips();
-
       } else {
+        this.setState({logged_in: false})
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
-    })
+    }))
     .catch((error) => {}) // currently not catching errors
   }
 
   loginUser() {
     this.authenticateUser(this.state.email, this.state.password)
-    console.log(this.state.email)
   }
 
   render() {
@@ -46,6 +47,7 @@ class Login extends Component {
               placeholder="user@gmail.com"
               label="Email"
               value={this.state.email}
+              autoCapitalize="none"
               onChangeText={email => this.setState({ email })}
             />
           </CardSection>
