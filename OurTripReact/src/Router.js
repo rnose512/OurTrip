@@ -6,6 +6,7 @@ import Itinerary from './Itinerary';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
+import Expense from './components/Expense';
 
 const RouterComponent = () => {
   return (
@@ -24,6 +25,7 @@ const RouterComponent = () => {
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
         <Scene key='Profile' component={Profile} title="Profile"/>
+        <Scene key='Expense' component={Expense} title="Expense"/>
     </Router>
     );
   }
