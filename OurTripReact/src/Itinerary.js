@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
    bottom: 0,
   },
   itinerary: {
-    flex: 4,
+		
   },
   dock: {
     flex: 1,
