@@ -4,5 +4,5 @@ class Expense < ApplicationRecord
   belongs_to :event
   belongs_to :payer, class_name: "User"
 
-  validates :price, :event_id, :payer_id, :total_amount, presence: true
+  validates :event_id, :payer_id, :total_amount, presence: true
 end
