@@ -25,7 +25,7 @@ const RouterComponent = () => {
           component={Trips}
           title="Trips"
         />
-        <Scene key='TripShow' component={TripShow} title="TripShow"/>
+        <Scene key='TripShow' component={TripShow} title="Your Trip" initial/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
     </Router>
     );
