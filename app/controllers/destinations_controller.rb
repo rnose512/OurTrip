@@ -9,6 +9,12 @@ class DestinationsController < ApplicationController
 		end
 	end
 
+	def show
+		@destination = Destination.find(params[:id])
+		@attendees = Trip.find(params[:trip_id]).attendees
+		render json: [ @destination, @attendees ]
+	end
+
 	def create
 		# @destination = Destination.new(
 		# 	name: params[:name],
