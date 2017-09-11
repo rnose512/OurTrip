@@ -8,6 +8,7 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Expense from './components/Expense';
 import CreateTrip from './components/CreateTrip';
+import TripList from './components/TripList';
 
 const RouterComponent = () => {
   return (
@@ -24,9 +25,9 @@ const RouterComponent = () => {
         />
         <Scene onRight={() => Actions.CreateTrip()}
           rightTitle="New Trip"
-          key="Trips"
-          component={Trips}
-          title="Trips"
+          key="TripList"
+          component={TripList}
+          title="TripList"
         />
         <Scene key='CreateTrip' component={CreateTrip} title="Create New Trip"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>

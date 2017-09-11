@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
+import Dock from './common/Dock';
 
 class TripShow extends Component {
-  state = { 
+  state = {
     destinations: [] ,
     attendees: []
   };
@@ -15,16 +16,20 @@ class TripShow extends Component {
 
   renderAttendees() {
     return this.state.attendees.map(attendee =>
-      <Text style={styles.name}>{attendee.first_name}</Text>
+      <Text>{attendee.first_name}</Text>
     )
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.header}>Destination:</Text>
+        <View>
+          <Text style={styles.header}>Destination:</Text>
+        </View>
         <Text style={styles.header}>Attendees:</Text>
-        {this.renderAttendees()}
+        <View >
+          {this.renderAttendees()}
+        </View>
         <Dock style={styles.dock} />
       </View>
     );
@@ -35,19 +40,22 @@ class TripShow extends Component {
 const styles = {
   container: {
      flex: 1,
-     bottom: 0,  
-     alignSelf: 'center', 
+     bottom: 0,
   },
   header: {
     fontWeight: 'bold',
     fontSize: 20,
+    paddingBottom: 20,
+    alignSelf: 'center',
   },
   name: {
-    flex: 0,
     width: 100,
     height: 50,
     color: '#2E4057',
     flexDirection: 'row',
+  },
+  dock: {
+    flex: 1,
   }
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import axios from 'axios';
 import TripDetail from './TripDetail';
+import Dock from './common/Dock'
 
 class TripList extends Component {
   state = { trips: [] };
@@ -20,10 +21,25 @@ class TripList extends Component {
   render() {
     console.log(this.state);
     return (
-      <View>
+      <View style={styles.container}>
         {this.renderTrips()}
+        <Dock style={styles.dock} />
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+
+   bottom: 0,
+  },
+  trips: {
+    flex: 4,
+  },
+  dock: {
+    flex: 1,
+  }
+})
 export default TripList;
