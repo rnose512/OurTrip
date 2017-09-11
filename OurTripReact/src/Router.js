@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scene, Router } from 'react-native-router-flux';
+import { Scene, Router, Actions } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
@@ -19,12 +19,12 @@ const RouterComponent = () => {
           component= {Register}
           title= "Register"
         />
+
         <Scene
           key="trips"
           component={Trips}
           title="Trips"
         />
-        <Scene key='TripList' component={Trips} />
         <Scene key='TripShow' component={TripShow} />
         <Scene key='Itinerary' component={Itinerary} />
     </Router>
