@@ -4,10 +4,16 @@ import axios from 'axios';
 import TripDetail from './TripDetail';
 
 class TripList extends Component {
-  state = { trips: [] };
-
+  constructor(props){
+    super(props)
+    state = { trips: [] };
+  }
   componentWillMount() {
-    axios.get('http://localhost:3000/trips')
+    axios.get('http://localhost:3000/trips',{
+      params: {
+        access_token: this.props.accessToken
+      }
+    })
     .then(response => this.setState({ trips: response.data }));
     }
 

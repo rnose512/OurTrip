@@ -3,7 +3,14 @@ import { View, StyleSheet } from 'react-native';
 import TripList from './TripList';
 import Dock from './common/Dock';
 
-const Trips = () => {
+export default class Trips extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log(this.props.accessToken)
+  }
+
+  render(){
     return (
       <View style={styles.container}>
         <TripList style={styles.trips}/>
@@ -11,7 +18,7 @@ const Trips = () => {
       </View>
     );
   };
-
+}
   const styles = StyleSheet.create({
     container: {
      flex: 1,
@@ -25,4 +32,4 @@ const Trips = () => {
       flex: 1,
     }
   })
-export default Trips;
+
