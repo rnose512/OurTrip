@@ -15,8 +15,8 @@ class TripsController < ApplicationController
 
 	def show
 		trip = Trip.find(params[:id])
-		attendees = trip.attendees
-		render json: {attendees: attendees, trip: trip}
+		users = trip.users
+		render json: {users: users, trip: trip}
 
 	end
 

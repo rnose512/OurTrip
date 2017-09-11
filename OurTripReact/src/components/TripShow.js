@@ -6,17 +6,18 @@ import Dock from './common/Dock';
 class TripShow extends Component {
   state = {
     destinations: [] ,
-    attendees: []
+    users: []
   };
 
   componentWillMount() {
     axios.get('http://localhost:3000/trips/1/destinations/1')
-    .then(response => this.setState({ destinations: [response.data[0]], attendees: response.data[1] }));
+    .then(response => this.setState({ destinations: [response.data[0]], users: response.data[1] }))
+    .catch(error => console.log(error))
   }
 
-  renderAttendees() {
-    return this.state.attendees.map(attendee =>
-      <Text>{attendee.first_name}</Text>
+  renderUsers() {
+    return this.state.users.map(user =>
+      <Text>{user.first_name}</Text>
     )
   }
 
@@ -28,7 +29,7 @@ class TripShow extends Component {
         </View>
         <Text style={styles.header}>Attendees:</Text>
         <View >
-          {this.renderAttendees()}
+          {this.renderUsers()}
         </View>
         <Dock style={styles.dock} />
       </View>
