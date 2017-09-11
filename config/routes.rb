@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :trips do
     resources :expenses
-    resources :destinations, only: [:new, :create, :destroy, :index]
+    resources :destinations, only: [:new, :create, :show, :destroy, :index]
   end
 
   resources :packing_lists, only: [:index] do
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :destinations, except: [:new, :create, :destroy, :show, :index] do
+  resources :destinations, except: [:new, :create, :show, :destroy, :index] do
     resources :events
     resources :accomodations, except: [:show]
     resources :transportations, except: [:show]
