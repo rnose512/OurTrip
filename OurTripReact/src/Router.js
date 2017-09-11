@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import Expense from './components/Expense';
+import CreateTrip from './components/CreateTrip';
 
 const RouterComponent = () => {
   return (
@@ -21,7 +22,13 @@ const RouterComponent = () => {
           component={Register}
           title="Register"
         />
-        <Scene key="Trips" component={Trips} title="Trips"/>
+        <Scene onRight={() => Actions.tripCreate()}
+          rightTitle="New Trip"
+          key="Trips"
+          component={Trips}
+          title="Trips"
+        />
+        <Scene key='tripCreate' component={CreateTrip} title="Create New Trip"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
         <Scene key='Profile' component={Profile} title="Profile"/>
