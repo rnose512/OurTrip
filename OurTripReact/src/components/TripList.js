@@ -18,7 +18,7 @@ class TripList extends Component {
      this.setState({ trips: jsonData });
     })
   }
-  
+
   renderTrips() {
     {console.log(this.state.trips)}
     return this.state.trips.map(trip =>
@@ -30,7 +30,6 @@ class TripList extends Component {
     return (
       <View style={styles.container}>
         {this.renderTrips()}
-        <Dock style={styles.dock} />
       </View>
     );
   }
@@ -44,9 +43,6 @@ const styles = StyleSheet.create({
   },
   trips: {
     flex: 4,
-  },
-  dock: {
-    flex: 1,
   }
 })
 export default TripList;
