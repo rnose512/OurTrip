@@ -13,7 +13,7 @@ class TripShow extends Component {
   // }
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Dock style={styles.dock} />
       </View>
     );

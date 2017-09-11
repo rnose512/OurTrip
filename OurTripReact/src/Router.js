@@ -3,8 +3,10 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
-import Login from './components/Login'
-import Register from './components/Register'
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import Expense from './components/Expense';
 
 const RouterComponent = () => {
   return (
@@ -16,17 +18,14 @@ const RouterComponent = () => {
         />
         <Scene
           key= "register"
-          component= {Register}
+          component={Register}
           title="Register"
         />
-
-        <Scene
-          key="trips"
-          component={Trips}
-          title="Trips"
-        />
+        <Scene key="Trips" component={Trips} title="Trips"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
+        <Scene key='Profile' component={Profile} title="Profile"/>
+        <Scene key='Expense' component={Expense} title="Expense"/>
     </Router>
     );
   }
