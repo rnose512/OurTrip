@@ -31,7 +31,7 @@ export default class Register extends Component {
       if (jsonData.saved) {
         this.setState({ accessToken: jsonData.accessToken, registered: true });
         AlertIOS.alert('Registration Successful!')
-        Action.trips();
+        Actions.trips();
       } else {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
