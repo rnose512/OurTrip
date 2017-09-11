@@ -3,7 +3,10 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :generate_access_token
 
-  has_and_belongs_to_many :trips
+  has_many :user_trips
+  has_many :trips, through: :user_trips
+  has_many :user_expenses
+  has_many :expenses, through: :user_expenses
 
   validates :email, :first_name, :last_name, presence: true
   validates :email, uniqueness: true
