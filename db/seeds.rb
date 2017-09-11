@@ -1,5 +1,5 @@
 User.destroy_all
-TripsUser.destroy_all
+UserTrip.destroy_all
 Trip.destroy_all
 UserExpense.destroy_all
 Expense.destroy_all
@@ -74,22 +74,22 @@ Destination.create!({
 	end_date: "2017-09-30"
 	})
 
-TripsUser.create!({user_id: User.first.id, trip_id: Trip.first.id})
-TripsUser.create!({user_id: User.second.id, trip_id: Trip.first.id})
-TripsUser.create!({user_id: User.third.id, trip_id: Trip.first.id})
-TripsUser.create!({user_id: User.fourth.id, trip_id: Trip.first.id})
-TripsUser.create!({user_id: User.fifth.id, trip_id: Trip.first.id})
+UserTrip.create!({user_id: User.first.id, trip_id: Trip.first.id})
+UserTrip.create!({user_id: User.second.id, trip_id: Trip.first.id})
+UserTrip.create!({user_id: User.third.id, trip_id: Trip.first.id})
+UserTrip.create!({user_id: User.fourth.id, trip_id: Trip.first.id})
+UserTrip.create!({user_id: User.fifth.id, trip_id: Trip.first.id})
 
 Event.create!({title: "surfing", category: "activity", description:"fun taimz", start_time: "2017-09-16 18:40:00", end_time: "2017-09-16 18:40:00", destination_id: Destination.first.id})
 
 Event.create!({title: "birthday dinner", category: "food", description:"omnomnom", start_time: "2017-09-16 20:30:00", end_time: "2017-09-16 21:30:00", destination_id: Destination.first.id})
 
 10.times do
-	Expense.create!({price: 4.50, event_id: Event.first.id, payer_id: User.first.id})
+	Expense.create!({total_amount: 100, event_id: Event.first.id, payer_id: User.first.id})
 end
 
 10.times do
-	UserExpense.create!({user_id: User.second.id, expense_id: [1,2,3,4,5].sample})
+	UserExpense.create!({user_id: User.second.id, expense_id: [1,2,3,4,5].sample, amount: 20})
 end
 
 PackingList.create!({category: "Toiletries", trip_id: Trip.first.id})
