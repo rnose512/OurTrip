@@ -25,6 +25,7 @@ class TripShow extends Component {
         <Text style={styles.header}>Destination:</Text>
         <Text style={styles.header}>Attendees:</Text>
         {this.renderAttendees()}
+        <Dock style={styles.dock} />
       </View>
     );
   }

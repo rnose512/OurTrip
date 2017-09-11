@@ -25,7 +25,7 @@ class Login extends Component {
         console.log(jsonData.accessToken)
         this.setState({ accessToken: jsonData.accessToken, logged_in: true });
         AlertIOS.alert('Login Successful!')
-        Actions.trips();
+        Actions.Trips();
       } else {
         this.setState({logged_in: false})
         AlertIOS.alert(jsonData.errors.join("\n"))
