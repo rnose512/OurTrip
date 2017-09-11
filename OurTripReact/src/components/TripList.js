@@ -6,6 +6,7 @@ import TripDetail from './TripDetail';
 class TripList extends Component {
   constructor(props){
     super(props)
+    console.log(this.props.accessToken)
     state = { trips: [] };
   }
   componentWillMount() {
@@ -24,7 +25,6 @@ class TripList extends Component {
     }
 
   render() {
-    console.log(this.state);
     return (
       <View>
         {this.renderTrips()}

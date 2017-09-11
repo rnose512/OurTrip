@@ -21,11 +21,8 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
-      logged_in: false,
-      accessToken: null
     }
     this.loginUser = this.loginUser.bind(this)
-    this.authenticateUser = this.authenticateUser.bind(this)
   }
 
     _handleFacebookLogin() {
@@ -39,25 +36,8 @@ class Login extends Component {
     })
   }
 
-  authenticateUser(email, password) {
-    fetch('http://localhost:3000/login?email=' + email + '&password=' + password, {method: "POST"})
-    .then(data => data.json())
-    .then((jsonData => {
-      if (jsonData.found) {
-        console.log(jsonData.accessToken)
-        this.setState({ accessToken: jsonData.accessToken, logged_in: true });
-        AlertIOS.alert('Login Successful!')
-        Actions.Trips();
-      } else {
-        this.setState({logged_in: false})
-        AlertIOS.alert(jsonData.errors.join("\n"))
-      }
-    }))
-    .catch((error) => {}) // currently not catching errors
-  }
-
   loginUser() {
-    this.authenticateUser(this.state.email, this.state.password)
+    this.props.authenticateUser(this.state.email, this.state.password)
   }
 
   render() {

@@ -13,7 +13,7 @@ export default class Trips extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <TripList style={styles.trips}/>
+        <TripList style={styles.trips} accessToken={this.props.accessToken}/>
         <Dock style={styles.dock}/>
       </View>
     );
