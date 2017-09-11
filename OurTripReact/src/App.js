@@ -12,6 +12,24 @@ import CreateTrip from './components/CreateTrip';
 
 
 class OurTrip extends Component {
+
+  authenticateUser(email, password) {
+    fetch('http://localhost:3000/login?email=' + email + '&password=' + password, {method: "POST"})
+    .then(data => data.json())
+    .then((jsonData => {
+      if (jsonData.found) {
+        console.log(jsonData.accessToken)
+        this.setState({ accessToken: jsonData.accessToken, logged_in: true });
+        AlertIOS.alert('Login Successful!')
+        Actions.Trips();
+      } else {
+        this.setState({logged_in: false})
+        AlertIOS.alert(jsonData.errors.join("\n"))
+      }
+    }))
+    .catch((error) => {}) // currently not catching errors
+  }
+
 	render() {
   return (
     <Router sceneStyle={{paddingTop: 65}}>
