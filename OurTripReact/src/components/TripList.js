@@ -7,18 +7,19 @@ class TripList extends Component {
   constructor(props){
     super(props)
     console.log(this.props.accessToken)
-    state = { trips: [] };
+    this.state = { trips: [] };
   }
   componentWillMount() {
-    axios.get('http://localhost:3000/trips',{
-      params: {
-        access_token: this.props.accessToken
-      }
+    fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
+    .then((data) => data.json())
+    .then((jsonData) => {
+      console.log(jsonData)
+     this.setState({ trips: jsonData });
     })
-    .then(response => this.setState({ trips: response.data }));
-    }
-
+  }
+  
   renderTrips() {
+    {console.log(this.state.trips)}
     return this.state.trips.map(trip =>
       <TripDetail key={trip.title} trip={trip} />
       );

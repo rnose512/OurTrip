@@ -58,7 +58,6 @@ class OurTrip extends Component {
           key="Trips"
           component={Trips}
           title="Trips"
-          accessToken={this.state.accessToken}
         />
         <Scene key='tripCreate' component={CreateTrip} title="Create New Trip"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
