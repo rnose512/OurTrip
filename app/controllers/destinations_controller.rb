@@ -11,17 +11,24 @@ class DestinationsController < ApplicationController
 
 	def show
 		@destination = Destination.find(params[:id])
-		@attendees = Trip.find(params[:trip_id]).attendees
+		@attendees = Trip.find(params[:trip_id]).users
 		render json: [ @destination, @attendees ]
 	end
 
 	def create
-		# @destination = Destination.new(
-		# 	name: params[:name],
-		# 	trip_id: params[:trip_id],
-		# 	start_date: params[:start_date],
-		# 	end_date: params[:end_date]
-		# 	)
+		@destination = Destination.new(
+			name: params[:name],
+			trip_id: params[:trip_id],
+			start_date: params[:start_date],
+			end_date: params[:end_date]
+			)
+		if @destination.save
+			render json: @destination
+		else
+		render json: {
+				saved: false
+		}.to_json
+		end
 	end
 
 	def new

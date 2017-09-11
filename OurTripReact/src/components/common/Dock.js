@@ -22,16 +22,17 @@ class Dock extends Component {
               <Icon active name="logo-usd" ios="logo-usd" />
               <Text>Expense</Text>
             </Button>
-            <Button vertical onPress={Actions.Profile} >
-              <Icon name="person" ios="ios-person"/>
-              <Text>Profile</Text>
-            </Button>
           </FooterTab>
         </Footer>
       </Container>
     );
   }
 }
+// EXTRA BUTTON FOR WHATEVER WE WANT IT TO BE LATER
+// <Button vertical onPress={Actions.Profile} >
+//   <Icon name="person" ios="ios-person"/>
+//   <Text>Profile</Text>
+// </Button>
 
 const styles = StyleSheet.create({
   container: {

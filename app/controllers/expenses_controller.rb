@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-	def index
+	def index # /trips/:trip_id/expenses
 		@expenses = Trip.find(params[:trip_id]).expenses
 		if @expenses
 			render json: @expenses.to_json
@@ -9,21 +9,19 @@ class ExpensesController < ApplicationController
 		end
 	end
 
-	def create
+	def create # /trips/:trip_id/expenses
+
 	end
 
-	def new
-	end
+	# def edit
+	# end
 
-	def edit
-	end
+	# def show
+	# end
 
-	def show
-	end
+	# def update
+	# end
 
-	def update
-	end
-
-	def destroy
-	end
+	# def destroy
+	# end
 end
