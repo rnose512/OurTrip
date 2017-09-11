@@ -22,13 +22,13 @@ const RouterComponent = () => {
           component={Register}
           title="Register"
         />
-        <Scene onRight={() => Actions.tripCreate()}
+        <Scene onRight={() => Actions.CreateTrip()}
           rightTitle="New Trip"
           key="Trips"
           component={Trips}
           title="Trips"
         />
-        <Scene key='tripCreate' component={CreateTrip} title="Create New Trip"/>
+        <Scene key='CreateTrip' component={CreateTrip} title="Create New Trip"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
         <Scene key='Profile' component={Profile} title="Profile"/>
