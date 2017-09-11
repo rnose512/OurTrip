@@ -17,7 +17,7 @@ const RouterComponent = () => {
         <Scene
           key= "register"
           component= {Register}
-          title= "Register"
+          title="Register"
         />
 
         <Scene
@@ -25,8 +25,8 @@ const RouterComponent = () => {
           component={Trips}
           title="Trips"
         />
-        <Scene key='TripShow' component={TripShow} />
-        <Scene key='Itinerary' component={Itinerary} />
+        <Scene key='TripShow' component={TripShow} title="TripShow"/>
+        <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
     </Router>
     );
   }

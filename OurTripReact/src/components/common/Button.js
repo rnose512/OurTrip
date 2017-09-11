@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity onPress={onPress} style={buttonStyle} >
       <Text style={textStyle}>
         {children}
       </Text>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native'
-import Calendar from './Calendar'
-import axios from 'axios'
+import { View, Text, StyleSheet } from 'react-native';
+import Calendar from './Calendar';
+import axios from 'axios';
+import Dock from './components/common/Dock';
 
 class Itinerary extends Component {
 	state = {
@@ -15,11 +16,26 @@ class Itinerary extends Component {
 
 	render(){
 		return (
-			<View>
-				<Calendar events={this.state.events}/>
-			</View>	
+			<View style={styles.container} >
+				<Calendar style={styles.itinerary} events={this.state.events} />
+				<Dock style={styles.dock} />
+			</View>
 		)
 	}
 }
+
+const styles = StyleSheet.create({
+  container: {
+   flex: 1,
+   justifyContent: 'center',
+   bottom: 0,
+  },
+  itinerary: {
+    flex: 4,
+  },
+  dock: {
+    flex: 1,
+  }
+})
 
 export default Itinerary;
