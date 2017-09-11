@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon, Text } from 'native-base';
 import { StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
 class Dock extends Component {
   render() {
     return (
@@ -8,21 +10,21 @@ class Dock extends Component {
         <Content />
         <Footer>
           <FooterTab>
-            <Button vertical>
-              <Icon name="plane" ios="ios-plane" md="md-plane" />
+            <Button vertical onPress={Actions.Trips} >
+              <Icon name="plane" ios="ios-plane" />
               <Text>Trips</Text>
             </Button>
-            <Button vertical>
-              <Icon name="paper" ios="ios-paper" md="md-paper" />
+            <Button vertical onPress={Actions.Itinerary} >
+              <Icon name="paper" ios="ios-paper" />
               <Text>Itinerary</Text>
             </Button>
-            <Button vertical active>
-              <Icon active name="navigate" />
-              <Text>Navigate</Text>
+            <Button vertical onPress={Actions.Expense} >
+              <Icon active name="logo-usd" ios="logo-usd" />
+              <Text>Expense</Text>
             </Button>
-            <Button vertical>
-              <Icon name="person" />
-              <Text>Contact</Text>
+            <Button vertical onPress={Actions.Profile} >
+              <Icon name="person" ios="ios-person"/>
+              <Text>Profile</Text>
             </Button>
           </FooterTab>
         </Footer>
