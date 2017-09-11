@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
+import Dock from './common/Dock'
 
 class TripShow extends Component {
   state = { 
@@ -24,7 +25,7 @@ class TripShow extends Component {
       <View style={styles.container}>
         <Text style={styles.header}>Destination:</Text>
         <Text style={styles.header}>Attendees:</Text>
-        {this.renderAttendees()}
+        <Text style={styles.header}>{this.renderAttendees()}</Text>
         <Dock style={styles.dock} />
       </View>
     );
@@ -36,18 +37,14 @@ const styles = {
   container: {
      flex: 1,
      bottom: 0,  
-     alignSelf: 'center', 
   },
   header: {
+    alignSelf: 'center', 
     fontWeight: 'bold',
     fontSize: 20,
   },
-  name: {
-    flex: 0,
-    width: 100,
-    height: 50,
-    color: '#2E4057',
-    flexDirection: 'row',
+  dock: {
+    flex: 1,
   }
 }
 
