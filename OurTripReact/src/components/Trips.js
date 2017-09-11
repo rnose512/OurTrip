@@ -3,15 +3,22 @@ import { View, StyleSheet } from 'react-native';
 import TripList from './TripList';
 import Dock from './common/Dock';
 
-const Trips = () => {
+export default class Trips extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log(this.props.accessToken)
+  }
+
+  render(){
     return (
       <View style={styles.container}>
-        <TripList style={styles.trips}/>
+        <TripList style={styles.trips} accessToken={this.props.accessToken}/>
         <Dock style={styles.dock}/>
       </View>
     );
   };
-
+}
   const styles = StyleSheet.create({
     container: {
      flex: 1,
@@ -25,4 +32,4 @@ const Trips = () => {
       flex: 1,
     }
   })
-export default Trips;
+

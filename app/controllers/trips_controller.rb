@@ -1,7 +1,8 @@
 class TripsController < ApplicationController
 	def index
-		trips = Trip.all
-		render json: trips
+		@user = User.find_by(access_token: params[:access_token])
+		@trips = @user.trips
+		render json: @trips
 	end
 
 	def create
