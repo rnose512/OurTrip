@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :trips do
-    resources :expenses
+    resources :expenses, except: [:new]
     resources :destinations, only: [:new, :create, :show, :destroy, :index]
   end
 
