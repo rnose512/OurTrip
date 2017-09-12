@@ -119,19 +119,18 @@ const styles = {
     color: 'red'
   },
   button1: {
-    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#68B0AB',
     flex: 1,
     flexDirection: 'row',
     marginRight: 5,
-    borderBottomWidth: 5
   },
   button2: {
     alignSelf: 'center',
     backgroundColor: '#68B0AB',
     flex: 1,
     flexDirection: 'row',
-    borderBottomWidth: 5
   },
   facebookWrapper: {
     alignItems: 'center',

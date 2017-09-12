@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,  AlertIOS} from 'react-native';
+import { View,  AlertIOS, Image } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
@@ -92,13 +92,15 @@ class OurTrip extends Component {
 }
 
 const styles = {
+  backgroundImage: {
+    flex: 1,
+  },
   container: {
-   flex: 1,
    flexDirection: 'column',
   },
   routesStyle: {
     flex: 6
-  }
+  },
 }
 
 export default OurTrip;

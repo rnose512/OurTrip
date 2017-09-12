@@ -147,10 +147,13 @@ const styles = StyleSheet.create({
     margin: 10
   },
   hasmargin: {
-    marginLeft: 30,
+    marginLeft: 35,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: '#68B0AB'
+    backgroundColor: '#68B0AB',
+    width: 300,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttontext: {
     color: '#000000'
