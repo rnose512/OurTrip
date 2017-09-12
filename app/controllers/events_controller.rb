@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+
 	def index
+		@user = User.find_by(access_token: params[:access_token])
 		@events = Event.where(destination_id: params[:destination_id])
 		if @events
 			render json: @events.as_json
@@ -42,4 +44,5 @@ class EventsController < ApplicationController
 
 	def destroy
 	end
+
 end

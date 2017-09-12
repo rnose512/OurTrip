@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Alert, AlertIOS } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import axios from 'axios';
 
 class CreateEvent extends Component {
 	constructor(props) {
@@ -18,15 +19,21 @@ class CreateEvent extends Component {
 	}
 
 	createEvent(title, category, description, start_time, end_time) {
-		fetch('http://localhost:3000/destinations/1/events?title='+title+'&category='+category+'&description='+description+'&start_time='+start_time+'&end_time='+end_time, {method: "POST"})
-		.then(data => data.json())
-		.then(jsonData => {
-			if (jsonData.saved) {
-				console.log(jsonData)
-				Actions.Itinerary();
-			}
+		axios.post('http://localhost:3000/destinations/1/events', {
+			title: title,
+			category: category,
+			description: description,
+			start_time: start_time,
+			end_time: end_time
 		})
-		.catch(error => console.log(error))
+		.then(function (response) {
+			AlertIOS.alert("You have created an event!");
+			Actions.Itinerary();
+		})
+		.catch(function (error) {
+			console.log("this is an error");
+			console.log(error);
+		})
 	}
 
 	setEvent(){
@@ -110,6 +117,8 @@ const styles = StyleSheet.create({
     margin: 10
   },
   hasmargin: {
+		justifyContent: 'center',
+		alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
@@ -123,4 +132,14 @@ const styles = StyleSheet.create({
   }
 })
 
+// createEvent(title, category, description, start_time, end_time) {
+// 	fetch('http://localhost:3000/destinations/1/events?title='+title+'&category='+category+'&description='+description+'&start_time='+start_time+'&end_time='+end_time, {method: "POST"})
+// 	.then(data => data.json())
+// 	.then(jsonData => {
+// 		if (jsonData.saved) {
+// 			Actions.Itinerary();
+// 		}
+// 	})
+// 	.catch(error => console.log(error))
+// }
 export default CreateEvent;

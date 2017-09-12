@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,  AlertIOS} from 'react-native';
+import { View,  AlertIOS, Image } from 'react-native';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
@@ -71,31 +71,33 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
-      <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
-      <Scene key='TripShow' component={TripShow} title="TripShow"/>
-      <Scene 
-        onRight={() => Actions.CreateEvent()}
-        rightTitle="New Event"
-        key='Itinerary' 
-        component={Itinerary} 
-        title="Itinerary"
-        />
-      <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
-      <Scene key='Profile' component={Profile} title="Profile"/>
-      <Scene key='Expense' component={Expense} title="Expense"/>
+        <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
+        <Scene key='TripShow' component={TripShow} title="TripShow"/>
+        <Scene
+          onRight={() => Actions.CreateEvent()}
+          rightTitle="New Event"
+          key='Itinerary'
+          component={Itinerary}
+          title="Itinerary"
+          />
+        <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
+        <Scene key='Profile' component={Profile} title="Profile"/>
+        <Scene key='Expense' component={Expense} title="Expense"/>
     </Router>
     );
   }
 }
 
 const styles = {
+  backgroundImage: {
+    flex: 1,
+  },
   container: {
-   flex: 1,
    flexDirection: 'column',
   },
   routesStyle: {
     flex: 6
-  }
+  },
 }
 
 export default OurTrip;
