@@ -61,6 +61,12 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C915ECC5C4E46998E481519 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A60E1469E6846EFA25BF401 /* rubicon-icon-font.ttf */; };
 		B5E9E7D388234C139EC8BFC6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194FB1E09FB64B1299105A09 /* Ionicons.ttf */; };
+		C11235181F6863F90006173F /* HindVadodara-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235151F6863F90006173F /* HindVadodara-Regular.ttf */; };
+		C11235191F6863F90006173F /* HindVadodara-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235151F6863F90006173F /* HindVadodara-Regular.ttf */; };
+		C112351A1F6863F90006173F /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235161F6863F90006173F /* Pacifico-Regular.ttf */; };
+		C112351B1F6863F90006173F /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235161F6863F90006173F /* Pacifico-Regular.ttf */; };
+		C112351C1F6863F90006173F /* Shrikhand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235171F6863F90006173F /* Shrikhand-Regular.ttf */; };
+		C112351D1F6863F90006173F /* Shrikhand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11235171F6863F90006173F /* Shrikhand-Regular.ttf */; };
 		C40A436A056F4ABDBFD9560C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2BAE872098F499594FC454E /* MaterialIcons.ttf */; };
 		C59C4F9A031C4CCEA96F9F6F /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A44C586722B0488C8EEF22BC /* Foundation.ttf */; };
 		DB5A4DA02390495CBDB69718 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 113C7A1B392C4EF0B48788B4 /* Roboto_medium.ttf */; };
@@ -335,6 +341,12 @@
 		A2BAE872098F499594FC454E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		A44C586722B0488C8EEF22BC /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		B73D1439BD6A48EA89A103A9 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		C11234F51F6863DB0006173F /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HindVadodara-Regular.ttf"; path = "../assets/fonts/HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
+		C11234F61F6863DB0006173F /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pacifico-Regular.ttf"; path = "../assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		C11234F71F6863DB0006173F /* Shrikhand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shrikhand-Regular.ttf"; path = "../assets/fonts/Shrikhand-Regular.ttf"; sourceTree = "<group>"; };
+		C11235151F6863F90006173F /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HindVadodara-Regular.ttf"; path = "../assets/fonts/HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
+		C11235161F6863F90006173F /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pacifico-Regular.ttf"; path = "../assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		C11235171F6863F90006173F /* Shrikhand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shrikhand-Regular.ttf"; path = "../assets/fonts/Shrikhand-Regular.ttf"; sourceTree = "<group>"; };
 		F1BE21F80EB4455A9A85004E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -557,6 +569,9 @@
 		831C6F191F6614BD00C321D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C11234F51F6863DB0006173F /* HindVadodara-Regular.ttf */,
+				C11234F61F6863DB0006173F /* Pacifico-Regular.ttf */,
+				C11234F71F6863DB0006173F /* Shrikhand-Regular.ttf */,
 				831C6EE01F6614B600C321D9 /* Bolts.framework */,
 				831C6EE11F6614B600C321D9 /* FBSDKCoreKit.framework */,
 				831C6EE21F6614B600C321D9 /* FBSDKLoginKit.framework */,
@@ -604,6 +619,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				C11235151F6863F90006173F /* HindVadodara-Regular.ttf */,
+				C11235161F6863F90006173F /* Pacifico-Regular.ttf */,
+				C11235171F6863F90006173F /* Shrikhand-Regular.ttf */,
 				13B07FAE1A68108700A75B9A /* OurTripReact */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* OurTripReactTests */,
@@ -1034,8 +1052,11 @@
 				C40A436A056F4ABDBFD9560C /* MaterialIcons.ttf in Resources */,
 				2BE7D6DA681546B697FA4C90 /* Octicons.ttf in Resources */,
 				DB5A4DA02390495CBDB69718 /* Roboto_medium.ttf in Resources */,
+				C11235181F6863F90006173F /* HindVadodara-Regular.ttf in Resources */,
+				C112351C1F6863F90006173F /* Shrikhand-Regular.ttf in Resources */,
 				16A4F47EA3DE44748B864FFE /* Roboto.ttf in Resources */,
 				8C915ECC5C4E46998E481519 /* rubicon-icon-font.ttf in Resources */,
+				C112351A1F6863F90006173F /* Pacifico-Regular.ttf in Resources */,
 				433103ED048B48119DD3F003 /* SimpleLineIcons.ttf in Resources */,
 				DCCE8A696BD04DB98C3CFBB0 /* Zocial.ttf in Resources */,
 			);
@@ -1045,6 +1066,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C112351D1F6863F90006173F /* Shrikhand-Regular.ttf in Resources */,
+				C112351B1F6863F90006173F /* Pacifico-Regular.ttf in Resources */,
+				C11235191F6863F90006173F /* HindVadodara-Regular.ttf in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

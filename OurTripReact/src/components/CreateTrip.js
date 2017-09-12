@@ -54,8 +54,8 @@ class CreateTrip extends Component {
    return (
      <View style={styles.container}>
       <Card>
-        <CardSection style={styles.card}>
-          <Input style={styles.card}
+        <CardSection>
+          <Input
             placeholder="Trip Name"
             placeholderTextColor='#949799'
             returnKeyType="next"
@@ -106,9 +106,6 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   },
-  card: {
-    
-  },
   button: {
     backgroundColor: '#68B0AB',
     width: 350,
@@ -119,7 +116,7 @@ const styles = {
     marginTop: 30,
   },
   buttonText: {
-    color: 'blue',
+    color: '#FFF',
     fontSize: 20,
     textAlign: 'center',
   },
