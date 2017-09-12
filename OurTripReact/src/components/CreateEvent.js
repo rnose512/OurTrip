@@ -94,7 +94,7 @@ class CreateEvent extends Component {
           onChangeText={ end_time => this.setState({end_time})}
 				/>
 			</Item>
-      <Button style={styles.hasmargin} onPress= {this.setEvent}>
+      <Button style={styles.button} onPress= {this.setEvent}>
 	      <Text style={styles.buttontext}>Save Event</Text>
       </Button>
 		</Container>
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
+    bottom: 0,
   },
   input: {
     backgroundColor: '#fff',
@@ -116,30 +117,23 @@ const styles = StyleSheet.create({
     padding: 3,
     margin: 10
   },
-  hasmargin: {
-		justifyContent: 'center',
-		alignSelf: 'center',
+  button: {
+    backgroundColor: '#68B0AB',
+    width: 350,
+    paddingTop: 15,
+    alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: '#68B0AB'
   },
   buttontext: {
-    color: '#000000'
+    color: '#FFF',
+    fontSize: 20,
+    textAlign: 'center',
   },
   dock: {
     flex: 1,
   }
 })
 
-// createEvent(title, category, description, start_time, end_time) {
-// 	fetch('http://localhost:3000/destinations/1/events?title='+title+'&category='+category+'&description='+description+'&start_time='+start_time+'&end_time='+end_time, {method: "POST"})
-// 	.then(data => data.json())
-// 	.then(jsonData => {
-// 		if (jsonData.saved) {
-// 			Actions.Itinerary();
-// 		}
-// 	})
-// 	.catch(error => console.log(error))
-// }
 export default CreateEvent;
