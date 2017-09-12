@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, AlertIOS } from 'react-native';
+import { View, StyleSheet, AlertIOS, TouchableOpacity } from 'react-native';
 import Dock from './common/Dock';
 import axios from 'axios';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
-import { Card, CardSection, Spinner } from './common';
+import { Card, CardSection } from './common';
+import DateTimePicker from 'react-native-modal-datetime-picker'
 
 class CreateTrip extends Component {
 
@@ -16,11 +17,17 @@ class CreateTrip extends Component {
       name: '',
       start_date: '',
       end_date: '',
-      creator_id: null
+      creator_id: null,
+      isDateTimePickerVisible: false,
+      pickerMode: 'datetime'
     }
 
     this.newTrip = this.newTrip.bind(this)
     this.postTrip = this.postTrip.bind(this)
+    this._showDateTimePicker = this._showDateTimePicker.bind(this)
+    this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
+    this._handleStartDatePicked = this._handleStartDatePicked.bind(this)
+    this._handleEndDatePicked = this._handleEndDatePicked.bind(this)
   }
 
 
@@ -44,7 +51,19 @@ class CreateTrip extends Component {
     });
   }
 
+  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
+  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+
+  _handleStartDatePicked = (date) => {
+    this.setState({start_time: date})
+    this._hideDateTimePicker();
+  };
+
+  _handleEndDatePicked = (date) => {
+    this.setState({end_time: date})
+    this._hideDateTimePicker();
+  };
 
   postTrip(){
     this.newTrip(this.state.name, this.state.start_date, this.state.end_date)
@@ -64,27 +83,31 @@ class CreateTrip extends Component {
             onChangeText={ name => this.setState({name})}
             />
         </CardSection>
-
         <CardSection>
-          <Input
-              placeholder="Start Date"
-              placeholderTextColor='#949799'
-              returnKeyType="next"
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={(start_date) => this.setState({start_date})}
+          <Item>
+            <TouchableOpacity onPress={this._showDateTimePicker}>
+              <Text>Start date & time</Text>
+            </TouchableOpacity>
+            <DateTimePicker
+              isVisible={this.state.isDateTimePickerVisible}
+              onConfirm={this._handleStartDatePicked}
+              onCancel={this._hideDateTimePicker}
+              mode={this.state.pickerMode}
             />
+          </Item>
         </CardSection>
-
         <CardSection>
-          <Input
-              placeholder= "End Date"
-              placeholderTextColor='#949799'
-              returnKeyType="next"
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={(end_date) => this.setState({end_date})}
+          <Item>
+            <TouchableOpacity onPress={this._showDateTimePicker}>
+              <Text>End date & time</Text>
+            </TouchableOpacity>
+            <DateTimePicker
+              isVisible={this.state.isDateTimePickerVisible}
+              onConfirm={this._handleEndDatePicked}
+              onCancel={this._hideDateTimePicker}
+              mode={this.state.pickerMode}
             />
+          </Item>
         </CardSection>
       </Card>
 
