@@ -76,11 +76,11 @@ class OurTrip extends Component {
         />
         <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
-        <Scene 
+        <Scene
           onRight={() => Actions.CreateEvent()}
           rightTitle="New Event"
-          key='Itinerary' 
-          component={Itinerary} 
+          key='Itinerary'
+          component={Itinerary}
           title="Itinerary"
           />
         <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>

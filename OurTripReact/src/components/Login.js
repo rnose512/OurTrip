@@ -71,15 +71,16 @@ class Login extends Component {
           </Text>
 
           <CardSection>
-            <Button onPress={this.loginUser}>
-              <Text>Log In</Text>
+            <Button style={styles.button1} onPress={this.loginUser}>
+              <Text style={styles.buttonText}>Log In</Text>
+            </Button>
+
+            <Button style={styles.button2} onPress={Actions.register}>
+              <Text style={styles.buttonText}>Click here to register</Text>
             </Button>
           </CardSection>
         </Card>
 
-        <Button style= {styles.hasMargin} onPress={Actions.register}>
-          <Text> Click here to register</Text>
-        </Button>
         <Text style={styles.center}>Or</Text>
 
         <Button style={styles.facebookWrapper}>
@@ -117,18 +118,29 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   },
-  hasMargin: {
+  button1: {
     alignSelf: 'center',
-    marginLeft: 30,
-    marginRight: 30,
-    marginTop: 30,
-    backgroundColor: '#68B0AB'
+    backgroundColor: '#68B0AB',
+    flex: 1,
+    flexDirection: 'row',
+    marginRight: 5,
+    borderBottomWidth: 5
+  },
+  button2: {
+    alignSelf: 'center',
+    backgroundColor: '#68B0AB',
+    flex: 1,
+    flexDirection: 'row',
+    borderBottomWidth: 5
   },
   facebookWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingLeft: 100,
     backgroundColor: 'white'
+  },
+  buttonText: {
+    textAlign: 'center',
   }
 };
 
