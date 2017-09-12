@@ -82,7 +82,6 @@ class OurTrip extends Component {
           key='Itinerary' 
           component={Itinerary} 
           title="Itinerary"
-          initial
           />
         <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
         <Scene key='Profile' component={Profile} title="Profile"/>

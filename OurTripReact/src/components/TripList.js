@@ -13,12 +13,13 @@ class TripList extends Component {
     fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
     .then((data) => data.json())
     .then((jsonData) => {
-     this.setState({ trips: jsonData.trips });
+     this.setState({ trips: jsonData });
     })
   }
 
   renderTrips() {
     {console.log(this.state.trips)}
+    {console.log(this.props.accessToken)}
     return this.state.trips.map(trip =>
       <TripDetail key={trip.id} trip={trip} />
       );
