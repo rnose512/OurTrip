@@ -32,6 +32,7 @@ class Login extends Component {
         alert("Unable to sign in, Sign In Cancelled by user");
       } else {
         alert("Login success with permissions;" + result.grantedPermissions.toString())
+        Actions.trips({accessToken: this.props.accessToken});
       }
     })
   }

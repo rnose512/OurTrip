@@ -10,6 +10,7 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Expense from './components/Expense';
 import CreateTrip from './components/CreateTrip';
+import CreateExpense from './components/CreateExpense';
 
 
 class OurTrip extends Component {
@@ -61,6 +62,7 @@ class OurTrip extends Component {
           title="Trips"
         />
         <Scene key='tripCreate' component={CreateTrip} title="Create New Trip"/>
+        <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene 
           onRight={() => Actions.CreateEvent()}

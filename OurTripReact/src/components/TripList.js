@@ -7,15 +7,13 @@ import Dock from './common/Dock'
 class TripList extends Component {
   constructor(props){
     super(props)
-    console.log(this.props.accessToken)
     this.state = { trips: [] };
   }
   componentWillMount() {
     fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
     .then((data) => data.json())
     .then((jsonData) => {
-      console.log(jsonData)
-     this.setState({ trips: jsonData });
+     this.setState({ trips: jsonData.trips });
     })
   }
 

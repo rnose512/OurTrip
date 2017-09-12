@@ -48,8 +48,9 @@ ActiveRecord::Schema.define(version: 20170911185324) do
   end
 
   create_table "expenses", force: :cascade do |t|
+    t.string "name"
     t.float "total_amount"
-    t.integer "event_id"
+    t.integer "trip_id"
     t.integer "payer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
