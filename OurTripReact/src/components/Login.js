@@ -121,7 +121,7 @@ const styles = {
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: 'blue'
+    backgroundColor: '#68B0AB'
   },
   facebookWrapper: {
     alignItems: 'center',
