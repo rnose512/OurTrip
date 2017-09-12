@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Container, Item, Input, Button } from 'native-base';
 import Dock from './common/Dock';
+import axios from 'axios';
 
 class CreateExpense extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state ={
       name: '',
       total_amount: '',
@@ -15,38 +17,27 @@ class CreateExpense extends Component {
     this.callCreateExpense = this.callCreateExpense.bind(this)
   }
 
-  // componentWillMount() {
-  //   fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
-  //   .then((data) => data.json())
-  //   .then((jsonData) => {
-  //     console.log(jsonData)
-  //    this.setState({ trips: jsonData.trips });
-  //   })
-  // }
-
-  renderTrips() {
-    return this.state.trips.map(trip =>
-      <TripDetail key={trip.id} trip={trip} />
-      );
-    }
+  componentWillMount() {
+    fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
+    .then((data) => data.json())
+    .then((jsonData) => {
+     this.setState({ trips: jsonData });
+    })
+  }
 
   createExpense(name, total_amount) {
-    const trip_id = this.state.trips.map(trip => {trip.id})
-    console.log(trip_id)
-    debugger
-    fetch('http://localhost:3000/trips/1/expenses?name=' + name +'&total_amount=' + total_amount, {method: "POST" })
-    .then(data => data.json())
-    .then(jsonData => {
-      if (jsonData.saved) {
-        this.setState({ accessToken: jsonData.accessToken, registered: true });
-        AlertIOS.alert('Registration Successful!')
-
-        Actions.trips();
-      } else {
-        AlertIOS.alert(jsonData.errors.join("\n"))
-      }
+    axios.post('http://localhost:3000/trips/1/expenses', {
+      name: name,
+      total_amount: total_amount,
+      accessToken: this.props.accessToken
     })
-    .catch((error) => {})
+    .then(function(response) {
+      AlertIOS.alert("You have created an expense!")
+      Actions.Expense();
+    })
+    .catch(function(error) {
+      console.log(error)
+    })
   }
 
   callCreateExpense() {
@@ -54,6 +45,7 @@ class CreateExpense extends Component {
   }
 
   render() {
+    console.log(this.props.accessToken)
    return (
     <Container style={styles.container}>
           <Item>

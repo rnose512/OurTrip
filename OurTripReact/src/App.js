@@ -18,31 +18,15 @@ class OurTrip extends Component {
   constructor() {
     super();
     this.state = {
-      logged_in: false,
       accessToken: null
     }
-    this.authenticateUser = this.authenticateUser.bind(this)
+
+    this.updateAccessToken = this.updateAccessToken.bind(this)
   }
 
-  authenticateUser(email, password) {
-    fetch('http://localhost:3000/login?email=' + email + '&password=' + password, {method: "POST"})
-    .then(data => data.json())
-    .then((jsonData => {
-      if (jsonData.found) {
-        console.log(jsonData.accessToken)
-        this.setState({ accessToken: jsonData.accessToken, logged_in: true });
-        AlertIOS.alert('Login Successful!')
-        Actions.Trips({accessToken: this.state.accessToken});
-      } else {
-        this.setState({logged_in: false})
-        AlertIOS.alert(jsonData.errors.join("\n"))
-      }
-    }))
-    .catch((error) => {console.log(error)}) // currently not catching errors
-  }
-
-  navigateUserToCreateTrip(){
-    Actions.CreateTrip({accessToken: this.state.accessToken})
+  updateAccessToken(token) {
+    this.setState({accessToken: token});
+    console.log(this.state.accessToken)
   }
 
 	render() {
@@ -52,7 +36,8 @@ class OurTrip extends Component {
         key="login"
         component={Login}
         title="Login"
-        authenticateUser={this.authenticateUser}
+        updateAccessToken={this.updateAccessToken}
+        accessToken={this.state.accessToken}
       />
       <Scene
         key= "register"
@@ -71,18 +56,25 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
-        <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
-        <Scene key='TripShow' component={TripShow} title="TripShow"/>
-        <Scene
-          onRight={() => Actions.CreateEvent()}
-          rightTitle="New Event"
-          key='Itinerary'
-          component={Itinerary}
-          title="Itinerary"
-          />
-        <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
-        <Scene key='Profile' component={Profile} title="Profile"/>
-        <Scene key='Expense' component={Expense} title="Expense"/>
+      <Scene
+        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
+        rightTitle="New Expense"
+        key='Expense'
+        component={Expense}
+        title="Expense"
+        accessToken={this.state.accessToken}
+/>
+      <Scene key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
+      <Scene key='TripShow' component={TripShow} title="TripShow"/>
+      <Scene
+        onRight={() => Actions.CreateEvent()}
+        rightTitle="New Event"
+        key='Itinerary'
+        component={Itinerary}
+        title="Itinerary"
+        />
+      <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
+      <Scene key='Profile' component={Profile} title="Profile"/>
     </Router>
     );
   }
