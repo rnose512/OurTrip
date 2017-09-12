@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import Expense from './components/Expense';
 import CreateTrip from './components/CreateTrip';
 import CreateExpense from './components/CreateExpense';
+import Dock from './components/common/Dock'
 
 
 class OurTrip extends Component {
@@ -47,33 +48,29 @@ class OurTrip extends Component {
 	render() {
   return (
     <Router sceneStyle={{paddingTop: 65}}>
-        <Scene
-          key="login"
-          component={Login}
-          title="Login"
-          authenticateUser={this.authenticateUser}
-          accessToken={this.state.accessToken}
-        />
-        <Scene
-          key= "register"
-          component={Register}
-          title="Register"
-        />
+      <Scene
+        key="login"
+        component={Login}
+        title="Login"
+        authenticateUser={this.authenticateUser}
+      />
+      <Scene
+        key= "register"
+        component={Register}
+        title="Register"
+      />
 
-        <Scene onRight={() => Actions.refresh({ accessToken: true})}
-          rightTitle="New Trip"
-          key="Trips"
-          component={Trips}
-          title="Trips"
-          accessToken={this.state.accessToken}
-
-        />
-        <Scene
-          key='CreateTrip'
-          component={CreateTrip}
-          title="Create New Trip"
-          accessToken={this.state.accessToken}
-        />
+      <Scene onRight={() => Actions.refresh({ accessToken: true})}
+        rightTitle="New Trip"
+        key="Trips"
+        component={Trips}
+        title="Trips"
+      />
+      <Scene
+        key='CreateTrip'
+        component={CreateTrip}
+        title="Create New Trip"
+      />
         <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene

@@ -12,16 +12,17 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.create(
-			title: params[:title],
-			category: params[:category].downcase,
-			description: params[:description],
-			start_time: params[:start_time],
-			end_time: params[:end_time],
-			destination_id: params[:destination_id]
-			)
-		if @event.save
-				render json: {event: @event}.to_json
+		event = Event.new(
+				title: params[:title], 
+				category: params[:category].downcase, 
+				description: params[:description], 
+				start_time: params[:start_time], 
+				end_time: params[:end_time], 
+				destination_id: params[:destination_id])
+		if event.save
+			render json: {
+				saved: true
+			}.to_json
 		else
 			render json: {
 				saved: false
