@@ -20,7 +20,7 @@ export default class Trips extends Component {
     return (
       <View style={styles.container}>
         <TripList style={styles.trips} accessToken={this.props.accessToken}/>
-        <Dock style={styles.dock}/>
+        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
   };
