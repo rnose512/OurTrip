@@ -9,6 +9,7 @@ class TripList extends Component {
     super(props)
     this.state = { trips: [] };
   }
+
   componentWillMount() {
     fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
     .then((data) => data.json())
@@ -18,8 +19,6 @@ class TripList extends Component {
   }
 
   renderTrips() {
-    {console.log(this.state.trips)}
-    {console.log(this.props.accessToken)}
     return this.state.trips.map(trip =>
       <TripDetail key={trip.id} trip={trip} />
       );

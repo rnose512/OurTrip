@@ -3,6 +3,7 @@ import { Text, View,  AlertIOS } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
+import axios from 'axios';
 
 
 const FBSDK = require('react-native-fbsdk');
@@ -16,13 +17,17 @@ const {
 } = FBSDK;
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(props)
+
     this.state = {
       email: '',
-      password: '',
+      password: ''
     }
     this.loginUser = this.loginUser.bind(this)
+    this.authenticateUser = this.authenticateUser.bind(this)
+    this.updateToken = this.updateToken.bind(this)
   }
 
     _handleFacebookLogin() {
@@ -37,8 +42,29 @@ class Login extends Component {
     })
   }
 
+  updateToken(token){
+    this.props.updateAccessToken(token)
+  }
+
+    authenticateUser(email, password) {
+      var self = this;
+      axios.post('http://localhost:3000/login', {
+        email: email,
+        password: password
+      })
+        .then(function(response) {
+          self.updateToken(response.data.accessToken)
+          Actions.Trips({accessToken: response.data.accessToken});
+        })
+        .catch(function(response) {
+          console.log(error)
+        })
+
+      console.log(this.props.accessToken)
+  }
+
   loginUser() {
-    this.props.authenticateUser(this.state.email, this.state.password)
+    this.authenticateUser(this.state.email, this.state.password)
   }
 
   render() {

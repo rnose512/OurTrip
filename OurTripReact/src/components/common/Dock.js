@@ -9,6 +9,7 @@ class Dock extends Component {
     super(props);
   }
 
+
   render() {
     return (
       <Container style={styles.container}>
@@ -23,7 +24,7 @@ class Dock extends Component {
               <Icon name="paper" ios="ios-paper" />
               <Text>Itinerary</Text>
             </Button>
-            <Button vertical onPress={Actions.Expense} >
+            <Button vertical onPress={Actions.Expense} accessToken={this.props.accessToken} >
               <Icon active name="logo-usd" ios="logo-usd" />
               <Text>Expense</Text>
             </Button>
