@@ -85,7 +85,7 @@ Event.create!({title: "surfing", category: "activity", description:"fun taimz", 
 Event.create!({title: "birthday dinner", category: "food", description:"omnomnom", start_time: "2017-09-16 20:30:00", end_time: "2017-09-16 21:30:00", destination_id: Destination.first.id})
 
 10.times do
-	Expense.create!({total_amount: 100, event_id: Event.first.id, payer_id: User.first.id})
+	Expense.create!({name: "Uber", total_amount: 100, trip_id: Trip.first.id, payer_id: User.first.id})
 end
 
 10.times do

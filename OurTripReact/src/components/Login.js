@@ -32,6 +32,7 @@ class Login extends Component {
         alert("Unable to sign in, Sign In Cancelled by user");
       } else {
         alert("Login success with permissions;" + result.grantedPermissions.toString())
+        Actions.trips({accessToken: this.props.accessToken});
       }
     })
   }
@@ -121,7 +122,7 @@ const styles = {
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: 'blue'
+    backgroundColor: '#68B0AB'
   },
   facebookWrapper: {
     alignItems: 'center',

@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: 'blue'
+    backgroundColor: '#68B0AB'
   },
   buttontext: {
     color: '#000000'

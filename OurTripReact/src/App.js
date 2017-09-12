@@ -4,11 +4,13 @@ import { Scene, Router, Actions } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
+import CreateEvent from './components/CreateEvent'
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import Expense from './components/Expense';
 import CreateTrip from './components/CreateTrip';
+import CreateExpense from './components/CreateExpense';
 
 
 class OurTrip extends Component {
@@ -72,9 +74,17 @@ class OurTrip extends Component {
           title="Create New Trip"
           accessToken={this.state.accessToken}
         />
-
+        <Scene key='expenseCreate' component={CreateExpense} title="Add New Expense"/>
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
-        <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
+        <Scene 
+          onRight={() => Actions.CreateEvent()}
+          rightTitle="New Event"
+          key='Itinerary' 
+          component={Itinerary} 
+          title="Itinerary"
+          initial
+          />
+        <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
         <Scene key='Profile' component={Profile} title="Profile"/>
         <Scene key='Expense' component={Expense} title="Expense"/>
     </Router>
