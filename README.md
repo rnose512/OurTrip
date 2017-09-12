@@ -13,6 +13,7 @@
 * [Workflows](#workflows)
 
 <a name="description" />
+
 ### Description: 
 
 -----------------------------------------------
@@ -20,11 +21,13 @@
 _Description goes here_
 
 <a name="productvision" />
+
 ### product vision: 
 
 -----------------------------------------------
 
 <a name="userstories" />
+
 ### User stories: 
 
 -----------------------------------------------
@@ -40,6 +43,7 @@ _Description goes here_
 - With adding an expense, user can specify who needs to pay for that expense 
 
 <a name="schemadesign" />
+
 ### Schema design: 
 
 -----------------------------------------------
@@ -47,6 +51,7 @@ _Description goes here_
 ![Schema Design](/SchemaDesign.png "Schema Design")
 
 <a name="techstack" />
+
 ### Tech Stack: 
 
 -----------------------------------------------
@@ -62,61 +67,10 @@ _Description goes here_
 - Facebook API
 
 <a name="gameplan" />
+
 ### GAMEPLAN: 
 
 -----------------------------------------------
-
-##### Thursday 9/7
-AM: Planning (Schema, associations, wireframing)
-PM: Learning React Native
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Friday 9/8
-AM: rails
-PM: Learning Pubnub/Splitwise/Facebook
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Saturday 9/9
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Sunday 9/10
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Monday 9/11
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Tuesday 9/12
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Wednesday 9/13
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Thursday 9/14
-_Roles:_
-* Scrum
-* Git master
-* Devops
 
 ####  Workhour expectations
 9AM-6PM
@@ -127,6 +81,7 @@ _Roles:_
 3. 6:00 PM
 
 <a name="workflows" />
+
 ### Workflows: 
 
 -----------------------------------------------
@@ -146,6 +101,7 @@ _Roles:_
 * [Rio Nose](https://github.com/rnose512)
 
 #### Resources:
+
 * [React Native Styling](https://medium.com/the-react-native-log/tips-for-styling-your-react-native-apps-3f61608655eb)
 * [React Native Tutorial](https://facebook.github.io/react-native/docs/tutorial.html)
 * [Date time picker for iOS](https://facebook.github.io/react-native/docs/datepickerios.html)
