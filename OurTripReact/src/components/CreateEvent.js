@@ -24,20 +24,16 @@ class CreateEvent extends Component {
 			category: category,
 			description: description,
 			start_time: start_time,
-			end_time: end_time,
-			access_token: this.props.accessToken
+			end_time: end_time
 		})
 		.then(function (response) {
-			console.log(response.data.access_token)
-			console.log(response)
 			AlertIOS.alert("You have created an event!");
-			Actions.Itinerary({accessToken: response.data.access_token});
+			Actions.Itinerary();
 		})
 		.catch(function (error) {
-			console.log("this is an error")
-			console.log(this.props.accessToken)
+			console.log("this is an error");
 			console.log(error);
-		});
+		})
 	}
 
 	setEvent(){
