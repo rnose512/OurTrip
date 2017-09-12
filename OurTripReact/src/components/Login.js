@@ -23,6 +23,7 @@ class Login extends Component {
       password: '',
     }
     this.loginUser = this.loginUser.bind(this)
+    this._handleFacebookLogin = this._handleFacebookLogin.bind(this)
   }
 
     _handleFacebookLogin() {
@@ -32,7 +33,8 @@ class Login extends Component {
         alert("Unable to sign in, Sign In Cancelled by user");
       } else {
         alert("Login success with permissions;" + result.grantedPermissions.toString())
-        Actions.trips({accessToken: this.props.accessToken});
+        console.log(this.props.accessToken)
+        Actions.Trips({accessToken: this.props.accessToken});
       }
     })
   }
@@ -87,20 +89,7 @@ class Login extends Component {
         <LoginButton
           publishPermissions={["publish_actions"]}
           onLoginFinished={
-            (error, result) => {
-              if (error) {
-                alert("login has error: " + result.error);
-              } else if (result.isCancelled) {
-                alert("login is cancelled.");
-              } else {
-                AccessToken.getCurrentAccessToken().then(
-                  (data) => {
-                    alert(data.accessToken.toString())
-                    initUser(accessToken)
-                  }
-                )
-              }
-            }
+            this._handleFacebookLogin
           }
           onLogoutFinished={() => alert("logout.")}/>
           </Button>
