@@ -5,6 +5,6 @@ class Trip < ApplicationRecord
   has_many :user_trips
   has_many :users, through: :user_trips
   belongs_to :creator, class_name: "User"
-  has_many :expenses, through: :destinations
+  has_many :expenses
 
 end

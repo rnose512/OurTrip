@@ -1,8 +1,8 @@
 class Expense < ApplicationRecord
   has_many :user_expenses
   has_many :users, through: :user_expenses
-  belongs_to :event
+  belongs_to :trip
   belongs_to :payer, class_name: "User"
 
-  validates :event_id, :payer_id, :total_amount, presence: true
+  validates :trip_id, :payer_id, :total_amount, :name, presence: true
 end
