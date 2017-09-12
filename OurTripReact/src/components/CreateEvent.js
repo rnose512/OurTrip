@@ -22,6 +22,7 @@ class CreateEvent extends Component {
 		.then(data => data.json())
 		.then(jsonData => {
 			if (jsonData.saved) {
+				console.log(jsonData)
 				Actions.Itinerary();
 			}
 		})
