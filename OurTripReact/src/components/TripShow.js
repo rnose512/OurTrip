@@ -18,7 +18,7 @@ class TripShow extends Component {
   renderUsers() {
     return this.state.users.map(user =>
       <Text>{user.first_name}</Text>
-    )``
+    )
   }
 
   render() {
