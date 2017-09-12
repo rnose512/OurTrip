@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import TripList from './TripList';
 import Dock from './common/Dock';
+import { Actions } from 'react-native-router-flux';
 
 export default class Trips extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.accessToken)
+  }
+
+  componentWillReceiveProps (props) {
+    if (props.accessToken) {
+      Actions.CreateTrip({ accessToken: this.props.accessToken });
+    }
   }
 
   render(){

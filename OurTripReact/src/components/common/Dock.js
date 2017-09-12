@@ -4,6 +4,11 @@ import { StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class Dock extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Container style={styles.container}>

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Dock from './common/Dock';
 
-const Expense = () => {
+class Expense extends Component {
+  constructor(){
+    super()
+  }
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.expense}>Expense page bitches</Text>
-      <Dock style={styles.dock} />
-    </View>
-  );
-};
+  render(){
+    return (
+      <View style={styles.container}>
+        <Text style={styles.expense}>Expense page bitches</Text>
+        <Dock style={styles.dock} />
+      </View>
+    );
+  }
+}
 
 const styles = {
   container: {

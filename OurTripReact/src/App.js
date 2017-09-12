@@ -35,7 +35,11 @@ class OurTrip extends Component {
         AlertIOS.alert(jsonData.errors.join("\n"))
       }
     }))
-    .catch((error) => {}) // currently not catching errors
+    .catch((error) => {console.log(error)}) // currently not catching errors
+  }
+
+  navigateUserToCreateTrip(){
+    Actions.CreateTrip({accessToken: this.state.accessToken})
   }
 
 	render() {
@@ -53,13 +57,22 @@ class OurTrip extends Component {
           component={Register}
           title="Register"
         />
-        <Scene onRight={() => Actions.tripCreate()}
+
+        <Scene onRight={() => Actions.refresh({ accessToken: true})}
           rightTitle="New Trip"
           key="Trips"
           component={Trips}
           title="Trips"
+          accessToken={this.state.accessToken}
+
         />
-        <Scene key='tripCreate' component={CreateTrip} title="Create New Trip"/>
+        <Scene
+          key='CreateTrip'
+          component={CreateTrip}
+          title="Create New Trip"
+          accessToken={this.state.accessToken}
+        />
+
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
         <Scene key='Profile' component={Profile} title="Profile"/>

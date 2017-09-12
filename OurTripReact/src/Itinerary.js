@@ -5,9 +5,9 @@ import axios from 'axios';
 import Dock from './components/common/Dock';
 
 class Itinerary extends Component {
-	state = {
-		events: []
-	}
+  	state = {
+  		events: []
+  	}
 
 	componentWillMount() {
 		axios.get('http://localhost:3000/destinations/1/events')
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
    bottom: 0,
   },
   itinerary: {
-		
+
   },
   dock: {
     flex: 1,

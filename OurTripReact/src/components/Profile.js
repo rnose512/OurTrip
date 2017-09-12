@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.profile}>Yo Dog</Text>
-      <Dock style={styles.dock} />
+      <Dock accessToken={this.props.accessToken} style={styles.dock} />
     </View>
   );
 };

@@ -30,6 +30,7 @@ const RouterComponent = () => {
           title="TripList"
         />
         <Scene key='CreateTrip' component={CreateTrip} title="Create New Trip"/>
+
         <Scene key='TripShow' component={TripShow} title="TripShow"/>
         <Scene key='Itinerary' component={Itinerary} title="Itinerary"/>
         <Scene key='Profile' component={Profile} title="Profile"/>
