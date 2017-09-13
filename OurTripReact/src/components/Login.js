@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View,  AlertIOS } from 'react-native';
+import { Text, View,  AlertIOS, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
@@ -22,8 +22,8 @@ class Login extends Component {
     console.log(props)
 
     this.state = {
-      email: '',
-      password: ''
+      email: 'rio@email.com',
+      password: 'password'
     }
     this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)
@@ -71,7 +71,7 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground source={require('../images/login-background.jpg')} style={styles.container}>
         <Card>
           <CardSection>
             <Input
@@ -102,29 +102,35 @@ class Login extends Component {
             <Button style={styles.button1} onPress={this.loginUser}>
               <Text style={styles.buttonText}>Log In</Text>
             </Button>
-
+          </CardSection>
+          <CardSection>
             <Button style={styles.button2} onPress={Actions.register}>
               <Text style={styles.buttonText}>Click here to register</Text>
             </Button>
           </CardSection>
+          <Button style={styles.facebookWrapper}>
+          <LoginButton
+            publishPermissions={["publish_actions"]}
+            onLoginFinished={
+              this._handleFacebookLogin
+            }
+            onLogoutFinished={() => alert("logout.")}/>
+            </Button>
         </Card>
-
-        <Text style={styles.center}>Or</Text>
-
-        <Button style={styles.facebookWrapper}>
-        <LoginButton
-          publishPermissions={["publish_actions"]}
-          onLoginFinished={
-            this._handleFacebookLogin
-          }
-          onLogoutFinished={() => alert("logout.")}/>
-          </Button>
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = {
+  container:{
+    flex: 1,
+    width: undefined,
+    height: undefined,
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   center: {
     alignSelf: 'center'
   },
@@ -136,25 +142,30 @@ const styles = {
   button1: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#68B0AB',
-    flex: 1,
-    flexDirection: 'row',
-    marginRight: 5,
+    backgroundColor: 'transparent',
+    height: 30,
+    width: 190,
+    marginBottom: 8,
+    marginLeft: 15
   },
   button2: {
     alignSelf: 'center',
-    backgroundColor: '#68B0AB',
-    flex: 1,
-    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    height: 30,
+    width: 190,
+    marginBottom: 8,
+    marginLeft: 15,
+    marginTop: 10
   },
   facebookWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: 100,
-    backgroundColor: 'white'
+    backgroundColor: 'transparent'
   },
   buttonText: {
     textAlign: 'center',
+    color: 'white',
   }
 };
 

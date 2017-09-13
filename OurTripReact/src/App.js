@@ -33,6 +33,9 @@ class OurTrip extends Component {
   return (
     <Router sceneStyle={{paddingTop: 65}}>
       <Scene
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+        titleStyle={{color:'transparent', backgroundColor: 'transparent'}}
+        style={styles.navBar}
         key="login"
         component={Login}
         title="Login"
@@ -87,9 +90,9 @@ const styles = {
   container: {
    flexDirection: 'column',
   },
-  routesStyle: {
-    flex: 6
-  },
+  navBar: {
+    backgroundColor: 'transparent'
+  }
 }
 
 export default OurTrip;
