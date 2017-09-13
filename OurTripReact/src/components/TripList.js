@@ -8,6 +8,7 @@ class TripList extends Component {
   constructor(props){
     super(props)
     this.state = { trips: [] };
+    this.renderTrips.bind(this)
   }
 
   componentWillMount() {
@@ -21,7 +22,7 @@ class TripList extends Component {
 
   renderTrips() {
     return this.state.trips.map(trip =>
-      <TripDetail key={trip.id} trip={trip} />
+      <TripDetail key= {trip.id} trip={trip} accessToken={this.props.accessToken} />
       );
     }
 
