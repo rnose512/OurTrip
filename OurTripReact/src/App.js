@@ -43,12 +43,15 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
       />
       <Scene
+        hideNavBar={false}
         key= "register"
         component={Register}
         title="Register"
       />
 
-      <Scene onRight={() => Actions.refresh({ accessToken: true})}
+      <Scene 
+        hideNavBar={false}
+        onRight={() => Actions.refresh({ accessToken: true})}
         hideNavBar={false}
         rightTitle="New Trip"
         key="Trips"
@@ -56,11 +59,14 @@ class OurTrip extends Component {
         title="Trips"
       />
       <Scene
+        hideNavBar={false}
         key='CreateTrip'
         component={CreateTrip}
         title="Create New Trip"
       />
+      <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
       <Scene
+        hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Expense"
         key='Expense'
@@ -68,10 +74,10 @@ class OurTrip extends Component {
         title="Expense"
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
-/>
-      <Scene key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
-      <Scene key='TripShow' component={TripShow} title="TripShow"/>
+      />
+      <Scene hideNavBar={false} key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
       <Scene
+        hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Event"
         key='Itinerary'
@@ -80,8 +86,7 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
         />
-      <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
-      <Scene key='Profile' component={Profile} title="Profile"/>
+      <Scene hideNavBar={false} key='CreateEvent' component={CreateEvent} title="Create New Event"/>
     </Router>
     );
   }
