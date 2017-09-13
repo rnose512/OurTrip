@@ -124,12 +124,14 @@ class Login extends Component {
 
 const styles = {
   container:{
-    flex: 1,
-    width: undefined,
-    height: undefined,
     backgroundColor:'transparent',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   center: {
     alignSelf: 'center'

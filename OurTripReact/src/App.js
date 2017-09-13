@@ -33,7 +33,7 @@ class OurTrip extends Component {
   return (
     <Router sceneStyle={{paddingTop: 65}}>
       <Scene
-        navigationBarStyle={{backgroundColor: 'transparent'}}
+        hideNavBar={true}
         titleStyle={{color:'transparent', backgroundColor: 'transparent'}}
         style={styles.navBar}
         key="login"
