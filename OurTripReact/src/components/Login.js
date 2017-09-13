@@ -22,8 +22,8 @@ class Login extends Component {
     console.log(props)
 
     this.state = {
-      email: '',
-      password: ''
+      email: 'hawken@email.com',
+      password: 'password'
     }
     this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)

@@ -8,6 +8,7 @@ export default class Trips extends Component {
 
   constructor(props) {
     super(props);
+    console.log(props)
   }
 
   componentWillReceiveProps (props) {
@@ -20,7 +21,6 @@ export default class Trips extends Component {
     return (
       <View style={styles.container}>
         <TripList style={styles.trips} accessToken={this.props.accessToken}/>
-        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
   };

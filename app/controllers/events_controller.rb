@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 		@user = User.find_by(access_token: params[:access_token])
 		@events = Event.where(destination_id: params[:destination_id])
 		if @events
-			render json: @events.as_json
+			render json: { events: @events}.to_json
 		else
 			@error = "Error: No events found"
 			render json: @error.as_json
@@ -13,11 +13,11 @@ class EventsController < ApplicationController
 
 	def create
 		event = Event.new(
-				title: params[:title], 
-				category: params[:category].downcase, 
-				description: params[:description], 
-				start_time: params[:start_time], 
-				end_time: params[:end_time], 
+				title: params[:title],
+				category: params[:category].downcase,
+				description: params[:description],
+				start_time: params[:start_time],
+				end_time: params[:end_time],
 				destination_id: params[:destination_id])
 		if event.save
 			render json: {
