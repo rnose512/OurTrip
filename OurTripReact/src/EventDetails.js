@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
 const EventDetails = (props) => {
+
+
+
 	return (
 		<View style={styles.containerStyle}>
 			<Text>{props.event.title}</Text>
 			<Text>{props.event.description}</Text>
 			<Text>{props.event.start_time}</Text>
 			<Text>{props.event.end_time}</Text>
-		</View>	
+		</View>
 	)
 }
 
