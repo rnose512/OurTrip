@@ -66,15 +66,18 @@ class OurTrip extends Component {
         component={Expense}
         title="Expense"
         accessToken={this.state.accessToken}
+        updateAccessToken={this.updateAccessToken}
 />
       <Scene key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
       <Scene key='TripShow' component={TripShow} title="TripShow"/>
       <Scene
-        onRight={() => Actions.CreateEvent()}
+        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
         title="Itinerary"
+        accessToken={this.state.accessToken}
+        updateAccessToken={this.updateAccessToken}
         />
       <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
       <Scene key='Profile' component={Profile} title="Profile"/>
