@@ -10,15 +10,15 @@ class Itinerary extends Component {
   	}
 
 	componentWillMount() {
-		axios.get('http://localhost:3000/destinations/1/events')
-			.then(response => this.setState({ events: response.data }))
+		axios.get('http://localhost:3000/destinations/5/events')
+			.then(response => this.setState({ events: response.data.events }))
 	}
 
 	render(){
 		return (
 			<View style={styles.container} >
 				<Calendar style={styles.itinerary} events={this.state.events} />
-				<Dock style={styles.dock} />
+				<Dock style={styles.dock} accessToken={this.props.accessToken}/>
 			</View>
 		)
 	}

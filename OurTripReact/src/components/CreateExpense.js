@@ -48,30 +48,30 @@ class CreateExpense extends Component {
     console.log(this.props.accessToken)
    return (
     <Container style={styles.container}>
-          <Item>
-            <Input
-                placeholder="expense name"
-                placeholderTextColor='#949799'
-                returnKeyType="next"
-                autoCapitalize="none"
-                autoCorrect={false}
-                onChangeText={ name => this.setState({name})}
-              />
-          </Item>
+      <Item>
+        <Input
+            placeholder="expense name"
+            placeholderTextColor='#949799'
+            returnKeyType="next"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={ name => this.setState({name})}
+          />
+      </Item>
 
-          <Item>
-            <Input
-                placeholder="last name"
-                placeholderTextColor='#949799'
-                returnKeyType="next"
-                autoCapitalize="none"
-                autoCorrect={false}
-                onChangeText={(total_amount) => this.setState({total_amount})}
-              />
-          </Item>
-          <Button style={styles.hasmargin} onPress= {this.callCreateExpense}>
-            <Text style={styles.buttontext}>Add Expense</Text>
-          </Button>
+      <Item>
+        <Input
+            placeholder="last name"
+            placeholderTextColor='#949799'
+            returnKeyType="next"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={(total_amount) => this.setState({total_amount})}
+          />
+      </Item>
+      <Button style={styles.hasmargin} onPress= {this.callCreateExpense}>
+        <Text style={styles.buttontext}>Add Expense</Text>
+      </Button>
     </Container>
     )
   }
