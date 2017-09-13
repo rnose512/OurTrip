@@ -4,13 +4,16 @@ import { View, Text } from 'react-native';
 import Dock from './common/Dock';
 
 class TripShow extends Component {
-  state = {
-    destinations: [] ,
-    users: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      destinations: [] ,
+      users: []
+    };
+}
 
   componentWillMount() {
-    axios.get('http://localhost:3000/trips/1/destinations/1')
+    axios.get('http://localhost:3000/trips/5/destinations/5')
     .then(response => this.setState({ destinations: [response.data[0]], users: response.data[1] }))
     .catch(error => console.log(error))
   }
@@ -21,17 +24,24 @@ class TripShow extends Component {
     )
   }
 
+  renderDestinations() {
+    return this.state.destinations.map(destination =>
+      <Text>{destination.name}</Text>
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <View>
           <Text style={styles.header}>Destination:</Text>
+        <View>
+          {this.renderDestinations()}
         </View>
         <Text style={styles.header}>Attendees:</Text>
         <View >
           {this.renderUsers()}
         </View>
-        <Dock style={styles.dock} />
+        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
   }
