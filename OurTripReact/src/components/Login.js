@@ -4,6 +4,7 @@ import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
 import axios from 'axios';
+import FadeInView from './animation/FadeInView';
 
 
 const FBSDK = require('react-native-fbsdk');
@@ -72,10 +73,12 @@ class Login extends Component {
   render() {
     return (
       <ImageBackground source={require('../images/login-background.jpg')} style={styles.container}>
+        <FadeInView>
         <Card>
           <CardSection>
             <Input
-              placeholder="user@gmail.com"
+              placeholder="email"
+              placeholderTextColor="white"
               label="Email"
               value={this.state.email}
               autoCapitalize="none"
@@ -87,6 +90,7 @@ class Login extends Component {
             <Input
               secureTextEntry
               placeholder="password"
+              placeholderTextColor="white"
               label="Password"
               value={this.state.password}
               onChangeText={password => this.setState({ password })}
@@ -117,6 +121,7 @@ class Login extends Component {
             onLogoutFinished={() => alert("logout.")}/>
             </Button>
         </Card>
+        </FadeInView>
       </ImageBackground>
     );
   }
@@ -163,7 +168,8 @@ const styles = {
   facebookWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    marginTop: 50
   },
   buttonText: {
     textAlign: 'center',
