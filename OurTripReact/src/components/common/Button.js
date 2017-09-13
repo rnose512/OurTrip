@@ -19,7 +19,7 @@ class Button extends Component {
 
   render(){  
     return (
-      <TouchableOpacity onPress={onPress} style={buttonStyle} >
+      <TouchableOpacity onPress={this.onPress} style={buttonStyle} >
         <Text style={textStyle}>
           +
         </Text>
