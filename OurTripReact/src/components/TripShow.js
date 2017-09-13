@@ -21,11 +21,18 @@ class TripShow extends Component {
     )
   }
 
+  renderDestinations() {
+    return this.state.destinations.map(destination =>
+      <Text>{destination.name}</Text>
+    )
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <View>
           <Text style={styles.header}>Destination:</Text>
+        <View>
+          {this.renderDestinations()}
         </View>
         <Text style={styles.header}>Attendees:</Text>
         <View >

@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
 import { Text, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
+class Button extends Component {
+  constructor(props){
+    super(props);
+    state = {
+      users: []
+    }
+  }
 
-  return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle} >
-      <Text style={textStyle}>
-        {children}
-      </Text>
-    </TouchableOpacity>
-  );
+  componentWillMount() {
+    axios.get('http://localhost:3000/users')
+    .then(response => this.setState({ users: response.data}))
+    .catch(error => console.log(error))
+  }
+
+  render(){  
+    return (
+      <TouchableOpacity onPress={onPress} style={buttonStyle} >
+        <Text style={textStyle}>
+          +
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 };
 
 const styles = {
@@ -35,4 +49,4 @@ const styles = {
   }
 };
 
-export { Button };
+export default Button;
