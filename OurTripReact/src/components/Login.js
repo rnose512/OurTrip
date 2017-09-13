@@ -163,7 +163,8 @@ const styles = {
   facebookWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    marginTop: 50
   },
   buttonText: {
     textAlign: 'center',
