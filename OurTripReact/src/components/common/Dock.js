@@ -10,8 +10,16 @@ class Dock extends Component {
     console.log(props)
   }
 
-  getToken() {
+  getTokenExpense() {
     Actions.Expense({accessToken: this.props.accessToken})
+  }
+
+  getTokenItinerary() {
+    Actions.Itinerary({accessToken: this.props.accessToken})
+  }
+
+  getTokenTrips() {
+    Actions.Trips({accessToken: this.props.accessToken})
   }
 
   render() {
@@ -20,15 +28,15 @@ class Dock extends Component {
         <Content />
         <Footer>
           <FooterTab>
-            <Button vertical onPress={Actions.Trips} >
+            <Button vertical onPress={this.getTokenTrips.bind(this)} accessToken={this.props.accessToken} >
               <Icon name="plane" ios="ios-plane" />
               <Text>Trips</Text>
             </Button>
-            <Button vertical onPress={Actions.Itinerary} >
+            <Button vertical onPress={this.getTokenItinerary.bind(this)} accessToken={this.props.accessToken} >
               <Icon name="paper" ios="ios-paper" />
               <Text>Itinerary</Text>
             </Button>
-            <Button vertical onPress={this.getToken.bind(this)} accessToken={this.props.accessToken} >
+            <Button vertical onPress={this.getTokenExpense.bind(this)} accessToken={this.props.accessToken} >
               <Icon active name="logo-usd" ios="logo-usd" />
               <Text>Expense</Text>
             </Button>

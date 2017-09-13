@@ -11,8 +11,8 @@ class Expense extends Component {
     console.log(props)
     this.state = {
       trips: [],
-      attendees: [],
-      user_expenses: [] }
+      expenses: '',
+      user_expenses: '' }
   }
 
   componentWillMount() {
@@ -23,9 +23,9 @@ class Expense extends Component {
     })
     .then(function(response) {
       console.log(response)
-      self.setState({attendees: response.data.attendees})
+      self.setState({expenses: response.data.expenses})
       self.setState({trips: response.data.trips})
-      self.setState({user_expenses: response.data.user_expenses[1]})
+      self.setState({user_expenses: response.data.user_expenses})
     })
     .catch(function(response) {
       console.log(error)
@@ -36,7 +36,7 @@ class Expense extends Component {
     console.log(this.props.accessToken)
     return (
       <View style={styles.container}>
-        <Text style={styles.expense}>Expense page bitches</Text>
+        <Text style={styles.expense}>{this.state.expenses}</Text>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
