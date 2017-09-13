@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
 import Dock from './common/Dock';
+import Button from './common/Button'
 
 class TripShow extends Component {
   state = {
@@ -30,7 +31,8 @@ class TripShow extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.header}>Destination:</Text>
+        <Text style={styles.header}>Destination:</Text>
+        <Button />
         <View>
           {this.renderDestinations()}
         </View>
