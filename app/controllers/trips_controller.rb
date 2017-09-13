@@ -4,7 +4,8 @@ class TripsController < ApplicationController
     def index
         @user = User.find_by(access_token: params[:access_token])
         @trips = @user.trips
-        render json: @trips
+        @attendees = @trips[0].users
+        render json: { trips: @trips, attendees: @attendees }
     end
 
     def create

@@ -7,8 +7,12 @@ class Dock extends Component {
 
   constructor(props) {
     super(props);
+    console.log(props)
   }
 
+  getToken() {
+    Actions.Expense({accessToken: this.props.accessToken})
+  }
 
   render() {
     return (
@@ -24,7 +28,7 @@ class Dock extends Component {
               <Icon name="paper" ios="ios-paper" />
               <Text>Itinerary</Text>
             </Button>
-            <Button vertical onPress={Actions.Expense} accessToken={this.props.accessToken} >
+            <Button vertical onPress={this.getToken.bind(this)} accessToken={this.props.accessToken} >
               <Icon active name="logo-usd" ios="logo-usd" />
               <Text>Expense</Text>
             </Button>

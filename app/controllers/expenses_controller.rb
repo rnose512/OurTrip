@@ -3,8 +3,15 @@ class ExpensesController < ApplicationController
 	def index # /trips/:trip_id/expenses
 		@user = User.find_by(access_token: params[:access_token])
 		@expenses = Trip.find(params[:trip_id]).expenses
+		@trip = Trip.find(params[:trip_id])
+		@attendees = @trip.users
+		@user_expenses = []
+		@attendees.each do |attendee|
+
+		end
+# User.second.user_expenses.reduce(0){|total, expense| total + expense.amount}
 		if @expenses
-			render json: @expenses.to_json
+			render json: { expenses: @expenses, attendees: @attendees, user_expenses: @user_expenses  }.to_json
 		else
 			@error = "Error: No expenses found"
 			render json: @error.to_json
