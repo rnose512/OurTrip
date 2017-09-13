@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { Component }from 'react';
 import { Text, View } from 'react-native';
 import { Button } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-const TripDetail = ({trip}) => {
+class TripDetail extends Component {
 
+  constructor(props){
+    super(props)
+
+    this.navigateUser = this.navigateUser.bind(this)
+  }
+
+  navigateUser(){
+    Actions.TripShow({accessToken: this.props.accessToken})
+  }
+
+render(){
   return (
-    <Button onPress={Actions.TripShow} style={styles.buttonStyle}>
-      <Text key={trip.id} style={styles.textStyle}>{trip.name}</Text>
+    <Button onPress={this.navigateUser} style={styles.buttonStyle}>
+      <Text style={styles.textStyle}>{this.props.trip.name}</Text>
     </Button>
   );
 };
+}
 
 const styles = {
   textStyle: {

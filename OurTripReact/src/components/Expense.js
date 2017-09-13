@@ -33,10 +33,11 @@ class Expense extends Component {
   }
 
   render(){
-    console.log(this.props.accessToken)
+    console.log(this.state.expenses)
     return (
       <View style={styles.container}>
         <Text style={styles.expense}>{this.state.expenses}</Text>
+        <Text style={styles.expense}>{this.state.user_expenses}</Text>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
