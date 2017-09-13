@@ -12,7 +12,8 @@ class Expense extends Component {
     this.state = {
       trips: [],
       expenses: '',
-      user_expenses: '' }
+      user_expenses: '',
+      net: null }
   }
 
   componentWillMount() {
@@ -27,17 +28,21 @@ class Expense extends Component {
       self.setState({trips: response.data.trips})
       self.setState({user_expenses: response.data.user_expenses})
     })
+    .then(function(response) {
+      self.setState({net: (self.state.expenses - self.state.user_expenses)})
+    })
     .catch(function(response) {
       console.log(error)
     })
   }
 
+
   render(){
-    console.log(this.state.expenses)
     return (
       <View style={styles.container}>
-        <Text style={styles.expense}>{this.state.expenses}</Text>
-        <Text style={styles.expense}>{this.state.user_expenses}</Text>
+        <Text style={styles.expense}>What you owe: {this.state.expenses}</Text>
+        <Text style={styles.expense}>What you are owed: {this.state.user_expenses}</Text>
+        <Text>Net Total: {this.state.net}</Text>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>
     );
