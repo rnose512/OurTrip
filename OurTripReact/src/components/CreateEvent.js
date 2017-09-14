@@ -41,6 +41,10 @@ class CreateEvent extends Component {
   };
 
 	createEvent(title, category, description, start_time, end_time) {
+		console.log(title)
+		console.log(start_time)
+		console.log(end_time)
+		var self = this
 		axios.post('http://localhost:3000/destinations/1/events', {
 			title: title,
 			category: category,
@@ -49,8 +53,7 @@ class CreateEvent extends Component {
 			end_time: end_time
 		})
 		.then(function (response) {
-			AlertIOS.alert("You have created an event!");
-			Actions.Itinerary();
+			Actions.Itinerary({accessToken: self.props.accessToken});
 		})
 		.catch(function (error) {
 			console.log("this is an error");

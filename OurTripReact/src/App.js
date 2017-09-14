@@ -70,7 +70,7 @@ class OurTrip extends Component {
       <Scene hideNavBar={false} key='CreateAttendeeList' component={CreateAttendeeList} title="Add Attendees"/>
       <Scene
         hideNavBar={false}
-        onRight={() => Actions.refresh({ accessToken: true })}
+        onRight={() => Actions.CreateExpense({ accessToken: true })}
         rightTitle="New Expense"
         key='Expense'
         component={Expense}
@@ -83,7 +83,7 @@ class OurTrip extends Component {
         title="Add New Expense"/>
       <Scene
         hideNavBar={false}
-        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}      
+        onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}      
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
@@ -91,7 +91,11 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
         />
-      <Scene hideNavBar={false} key='CreateEvent' component={CreateEvent} title="Create New Event"/>
+      <Scene 
+        hideNavBar={false} 
+        key='CreateEvent' 
+        component={CreateEvent} 
+        title="Create New Event"/>
     </Router>
     );
   }

@@ -43,14 +43,14 @@ class CreateEvent extends Component {
   };
 
 	createDestination(name, start_date, end_date) {
+		var self = this
 		axios.post('http://localhost:3000/trips/1/destinations', {
 			name: name,
 			start_date: start_date,
 			end_date: end_date
 		})
 		.then(function (response) {
-			AlertIOS.alert("You have created an destination!");
-			Actions.TripShow({accessToken: this.props.accessToken});
+			Actions.TripShow({accessToken: self.props.accessToken});
 		})
 		.catch(function (error) {
 			console.log("this is an error");
