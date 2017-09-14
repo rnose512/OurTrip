@@ -66,50 +66,40 @@ class CreateTrip extends Component {
   }
 
   render() {
-    return (
-      <ImageBackground source={require('../images/new-trip-background.jpg')} style={styles.container}>
-       <View>
-        <Card>
-          <CardSection>
-            <Input
-              placeholder="Trip Name"
-              placeholderTextColor='#949799'
-              returnKeyType="next"
-              autoCapitalize="none"
-              autoCorrect={false}
-              onChangeText={ name => this.setState({name})}
-              />
-          </CardSection>
-          <CardSection>
-            <Item>
-              <TouchableOpacity onPress={this._showDateTimePicker}>
-                <Text>Start date & time</Text>
-              </TouchableOpacity>
-              <DateTimePicker
-                isVisible={this.state.isDateTimePickerVisible}
-                onConfirm={this._handleStartDatePicked}
-                onCancel={this._hideDateTimePicker}
-                mode={this.state.pickerMode}
-              />
-            </Item>
-          </CardSection>
-          <CardSection>
-            <Item>
-              <TouchableOpacity onPress={this._showDateTimePicker}>
-                <Text>End date & time</Text>
-              </TouchableOpacity>
-              <DateTimePicker
-                isVisible={this.state.isDateTimePickerVisible}
-                onConfirm={this._handleEndDatePicked}
-                onCancel={this._hideDateTimePicker}
-                mode={this.state.pickerMode}
-              />
-            </Item>
-          </CardSection>
-        </Card>
+  return (
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View >
+        <View style={styles.form}>
+          <Input style={styles.textForm}
+            placeholder='Trip Name'
+            placeholderTextColor='black'
+            returnKeyType="next"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={ name => this.setState({name})}
+          />
+        </View>
+          <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+            <Text style={styles.buttonText}>Start date & time</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this._handleStartDatePicked}
+            onCancel={this._hideDateTimePicker}
+            mode={this.state.pickerMode}
+          />
 
+          <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+            <Text style={styles.buttonText}>End date & time</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this._handleEndDatePicked}
+            onCancel={this._hideDateTimePicker}
+            mode={this.state.pickerMode}
+          />
         <Button style={styles.button} onPress= {this.postTrip}>
-           <Text style={styles.buttonText}>Create Trip</Text>
+          <Text style={styles.buttonText}>Create Trip</Text>
         </Button>
       </View>
     </ImageBackground>
@@ -119,32 +109,80 @@ class CreateTrip extends Component {
 
 const styles = {
   container: {
-    backgroundColor:'transparent',
+    flex: 1,
+    position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    position: 'absolute'
   },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
   },
+  textView: {
+    justifyContent: 'center',
+    marginTop: 100,
+    backgroundColor: 'transparent'
+  },
+  textForm: {
+    textAlign: 'center',
+    color: 'black'
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+  },
+  form: {
+    flex: 2,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 100,
+    backgroundColor: 'beige',
+    opacity: .2,
+  },
+  date: {
+    flex: 4,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 50,
+    backgroundColor: 'beige',
+    opacity: .2
+  },
+  date2: {
+    flex: 4,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    marginBottom: 30,
+    backgroundColor: 'beige',
+    opacity: .2
+  },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 30,
+    borderColor: 'white'
   },
   buttonText: {
-    color: '#FFF',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {

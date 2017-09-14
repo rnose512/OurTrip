@@ -54,12 +54,15 @@ class OurTrip extends Component {
       <Scene
         hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: true})}
+        hideNavBar={false}
+        navigationBarStyle={{backgroundColor: 'transparent'}}
         rightTitle="New Trip"
         key="Trips"
         component={Trips}
         title="Trips"
       />
       <Scene
+        navigationBarStyle={{backgroundColor: 'transparent'}}
         hideNavBar={false}
         key='CreateTrip'
         component={CreateTrip}
@@ -76,10 +79,10 @@ class OurTrip extends Component {
         component={Expense}
         title="Expense"
       />
-      <Scene 
-        hideNavBar={false} 
-        key='CreateExpense' 
-        component={CreateExpense} 
+      <Scene
+        hideNavBar={false}
+        key='CreateExpense'
+        component={CreateExpense}
         title="Add New Expense"/>
       <Scene
         hideNavBar={false}

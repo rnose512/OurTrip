@@ -77,6 +77,7 @@ class Login extends Component {
         <Card>
           <CardSection>
             <Input
+              style={styles.input}
               placeholder="email"
               placeholderTextColor="white"
               textColor="white"
@@ -89,6 +90,7 @@ class Login extends Component {
 
           <CardSection>
             <Input
+              style={styles.input}
               secureTextEntry
               placeholder="password"
               placeholderTextColor="white"
@@ -140,6 +142,9 @@ const styles = {
     right: 0,
     bottom: 0
   },
+  input: {
+    color: 'white'
+  },
   center: {
     alignSelf: 'center'
   },
@@ -180,6 +185,7 @@ const styles = {
   buttonText: {
     textAlign: 'center',
     color: 'white',
+
   }
 };
 
