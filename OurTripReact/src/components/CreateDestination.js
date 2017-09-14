@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
+import { ImageBackground, TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
@@ -66,7 +66,7 @@ class CreateEvent extends Component {
    return (
     <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
       <View>
-        <View style={styles.titleform}>
+        <View style={styles.form}>
 					<Input style={styles.textForm}
 						placeholder="where are you going?"
 						placeholderTextColor='#949799'
@@ -132,26 +132,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
   },
-  titleform:{
-    flex: .8,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 65,
-    backgroundColor: 'beige',
-    opacity: .8,
-  },
   form: {
-    flex: .8,
+    flex: .2,
     justifyContent: 'center',
     marginLeft: 20,
     marginRight: 20,
-    marginTop: 10,
+    marginTop: 100,
     backgroundColor: 'beige',
     opacity: .8,
   },
   date: {
-    flex: .5,
+    flex: .4,
     justifyContent: 'center',
     marginLeft: 20,
     marginRight: 20,
@@ -160,7 +151,7 @@ const styles = StyleSheet.create({
     opacity: .5
   },
   date2: {
-    flex: .5,
+    flex: .4,
     justifyContent: 'center',
     marginLeft: 20,
     marginRight: 20,
@@ -170,7 +161,7 @@ const styles = StyleSheet.create({
     opacity: .5
   },
   button: {
-    flex: .3,
+    flex: .1,
     justifyContent: 'center',
     flexDirection: 'row',
     backgroundColor: '#BDBDBD',
