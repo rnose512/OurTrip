@@ -45,4 +45,3 @@ export default class Trips extends Component {
       flex: 1,
     }
   })
-

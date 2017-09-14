@@ -51,7 +51,7 @@ class OurTrip extends Component {
         title="Register"
       />
 
-      <Scene 
+      <Scene
         hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: true})}
         rightTitle="New Trip"

@@ -5,6 +5,7 @@ import { Card, CardSection } from './common';
 import { FormLabel, FormInput } from 'react-native-elements'
 import Dock from './common/Dock';
 import axios from 'axios';
+import { FormLabel, FormInput } from 'react-native-elements'
 
 class CreateExpense extends Component {
   constructor(props) {
@@ -28,10 +29,11 @@ class CreateExpense extends Component {
     .then((jsonData) => {
      self.setState({ attendees: jsonData.attendees })
     })
+    console.log('reached create expense')
   }
 
   createExpense(name, total_amount) {
-    axios.post('http://localhost:3000/trips/1/expenses', {
+    axios.post('http://localhost:3000/trips/5/expenses', {
       name: name,
       total_amount: total_amount,
       accessToken: this.props.accessToken
@@ -115,7 +117,6 @@ class CreateExpense extends Component {
   }
 
   render() {
-    console.log(this.props.accessToken)
    return (
     <Container style={styles.container}>
       <FormLabel>Name</FormLabel>
@@ -170,6 +171,9 @@ const styles = StyleSheet.create({
   },
   dock: {
     flex: 1,
+  },
+  cardSection: {
+
   }
 })
 

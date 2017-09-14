@@ -63,6 +63,7 @@ class CreateEvent extends Component {
 	}
 
   render() {
+    {console.log(this.props.accessToken)}
    return (
      <View style={styles.container}>
       <Card>
@@ -76,6 +77,7 @@ class CreateEvent extends Component {
           onChangeText={ title => this.setState({title})}
 				/>
 				</CardSection>
+
 
 				<CardSection>
 					<Input
