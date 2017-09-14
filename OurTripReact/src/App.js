@@ -31,7 +31,7 @@ class OurTrip extends Component {
 
 	render() {
   return (
-    <Router sceneStyle={{paddingTop: 65}} barButtonTextStyle={styles.barButtonTextStyle} titleStyle={styles.navBarTitle}>
+    <Router sceneStyle={{paddingTop: 65}}  titleStyle={styles.navBarTitle}>
       <Scene
         hideNavBar={true}
         titleStyle={{color:'transparent', backgroundColor: 'transparent'}}
