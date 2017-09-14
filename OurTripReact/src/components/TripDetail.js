@@ -34,7 +34,7 @@ const styles = {
     paddingBottom: 10,
   },
   buttonStyle: {
-    borderTopWidth: 4,
+    borderTopWidth: 1,
     borderBottomWidth: 1,
     alignSelf: 'stretch',
     backgroundColor: '#fff',

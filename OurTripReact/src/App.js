@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,  AlertIOS, Image } from 'react-native';
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions, Route } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
@@ -33,7 +33,7 @@ class OurTrip extends Component {
 
 	render() {
   return (
-    <Router sceneStyle={{paddingTop: 65}} barButtonTextStyle={styles.barButtonTextStyle} titleStyle={styles.navBarTitle}>
+    <Router sceneStyle={{paddingTop: 65}}  titleStyle={styles.navBarTitle}>
       <Scene
         hideNavBar={true}
         titleStyle={{color:'transparent', backgroundColor: 'transparent'}}
@@ -46,7 +46,7 @@ class OurTrip extends Component {
       />
       <Scene
         hideNavBar={false}
-        key= "register"
+        key="register"
         component={Register}
         title="Register"
       />
@@ -75,13 +75,15 @@ class OurTrip extends Component {
         key='Expense'
         component={Expense}
         title="Expense"
-        accessToken={this.state.accessToken}
-        updateAccessToken={this.updateAccessToken}
       />
-      <Scene hideNavBar={false} key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
+      <Scene 
+        hideNavBar={false} 
+        key='CreateExpense' 
+        component={CreateExpense} 
+        title="Add New Expense"/>
       <Scene
         hideNavBar={false}
-        onRight={() => Actions.refresh({ accessToken: true })}
+        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}      
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}

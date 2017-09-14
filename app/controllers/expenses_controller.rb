@@ -15,10 +15,12 @@ class ExpensesController < ApplicationController
 	end
 
 	def create # /trips/:trip_id/expenses
-		trip = Trip.find(params[:trip_id])
-		expense = trip.expenses.new(name: params[:name], total_amount: params[:total_amount], trip_id: trip.id, payer_id: current_user.id)
-		if expense.save
-			render json: { expense: expense, access_token: @user.access_token}.to_json
+		@trip = Trip.find(params[:trip_id])
+		@expense = Expense.new(name: params[:name], total_amount: params[:total_amount], trip_id: @trip.id, payer_id: current_user.id)
+		@user_expense = UserExpense.new(user_id: params[:user_id], expense_id: @expense.id, amount: params[:value])
+
+		if @expense.save && @user_expense.save
+			render json: { expense: @expense, access_token: @user.access_token, user_expense: @user_expense}.to_json
 		else
       render json: {
         saved: false
