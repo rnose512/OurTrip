@@ -5,7 +5,6 @@ import { Card, CardSection } from './common';
 import { FormLabel, FormInput } from 'react-native-elements'
 import Dock from './common/Dock';
 import axios from 'axios';
-import { FormLabel, FormInput } from 'react-native-elements'
 
 class CreateExpense extends Component {
   constructor(props) {
