@@ -66,13 +66,11 @@ class CreateTrip extends Component {
   }
 
   render() {
-   return (
-     <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
-     <View >
-
+  return (
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View >
         <View style={styles.form}>
-          <Input
-          style={styles.textForm}
+          <Input style={styles.textForm}
             placeholder='Trip Name'
             placeholderTextColor='black'
             returnKeyType="next"
@@ -81,34 +79,29 @@ class CreateTrip extends Component {
             onChangeText={ name => this.setState({name})}
           />
         </View>
+          <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+            <Text style={styles.buttonText}>Start date & time</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this._handleStartDatePicked}
+            onCancel={this._hideDateTimePicker}
+            mode={this.state.pickerMode}
+          />
 
-            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
-              <Text style={styles.buttonText}>Start date & time</Text>
-            </TouchableOpacity>
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleStartDatePicked}
-              onCancel={this._hideDateTimePicker}
-              mode={this.state.pickerMode}
-            />
-
-
-            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
-              <Text style={styles.buttonText}>End date & time</Text>
-            </TouchableOpacity>
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleEndDatePicked}
-              onCancel={this._hideDateTimePicker}
-              mode={this.state.pickerMode}
-            />
-
-
-
-      <Button style={styles.button} onPress= {this.postTrip}>
-         <Text style={styles.buttonText}>Create Trip</Text>
-      </Button>
-    </View>
+          <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+            <Text style={styles.buttonText}>End date & time</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this._handleEndDatePicked}
+            onCancel={this._hideDateTimePicker}
+            mode={this.state.pickerMode}
+          />
+        <Button style={styles.button} onPress= {this.postTrip}>
+          <Text style={styles.buttonText}>Create Trip</Text>
+        </Button>
+      </View>
     </ImageBackground>
     )
   }
@@ -146,13 +139,11 @@ const styles = {
   form: {
     flex: 2,
     justifyContent: 'center',
-    textAlign: 'center',
     marginLeft: 20,
     marginRight: 20,
     marginTop: 100,
     backgroundColor: 'beige',
     opacity: .2,
-
   },
   date: {
     flex: 4,
@@ -171,6 +162,7 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
+    marginBottom: 30,
     backgroundColor: 'beige',
     opacity: .2
   },
