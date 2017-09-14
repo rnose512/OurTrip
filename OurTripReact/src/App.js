@@ -60,7 +60,6 @@ class OurTrip extends Component {
         title="Trips"
       />
       <Scene
-        initial
         navigationBarStyle={{backgroundColor: 'transparent'}}
         hideNavBar={false}
         key='CreateTrip'

@@ -69,20 +69,20 @@ class CreateTrip extends Component {
    return (
      <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
      <View >
-      <Card>
-        <CardSection>
+
+        <View style={styles.form}>
           <Input
-            style={styles.form}
-            placeholder="Trip Name"
-            placeholderTextColor='white'
+          style={styles.textForm}
+            placeholder='Trip Name'
+            placeholderTextColor='black'
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={ name => this.setState({name})}
-            />
-        </CardSection>
-        <CardSection>
-            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+          />
+        </View>
+
+            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
               <Text style={styles.buttonText}>Start date & time</Text>
             </TouchableOpacity>
             <DateTimePicker
@@ -91,9 +91,9 @@ class CreateTrip extends Component {
               onCancel={this._hideDateTimePicker}
               mode={this.state.pickerMode}
             />
-        </CardSection>
-        <CardSection>
-            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+
+
+            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
               <Text style={styles.buttonText}>End date & time</Text>
             </TouchableOpacity>
             <DateTimePicker
@@ -102,8 +102,8 @@ class CreateTrip extends Component {
               onCancel={this._hideDateTimePicker}
               mode={this.state.pickerMode}
             />
-        </CardSection>
-      </Card>
+
+
 
       <Button style={styles.button} onPress= {this.postTrip}>
          <Text style={styles.buttonText}>Create Trip</Text>
@@ -118,7 +118,6 @@ const styles = {
   container: {
     flex: 1,
     position: 'absolute',
-    backgroundColor:'transparent',
     justifyContent: 'center',
     alignItems: 'center',
     top: 0,
@@ -131,22 +130,67 @@ const styles = {
     alignSelf: 'center',
     color: 'red'
   },
+  textView: {
+    justifyContent: 'center',
+    marginTop: 100,
+    backgroundColor: 'transparent'
+  },
+  textForm: {
+    textAlign: 'center',
+    color: 'black'
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+  },
   form: {
-    marginLeft: 20
+    flex: 2,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 100,
+    backgroundColor: 'beige',
+    opacity: .2,
+
+  },
+  date: {
+    flex: 4,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 50,
+    backgroundColor: 'beige',
+    opacity: .2
+  },
+  date2: {
+    flex: 4,
+    justifyContent: 'center',
+    textAlign: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    backgroundColor: 'beige',
+    opacity: .2
   },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
-
+    marginTop: 10,
+    marginBottom: 30,
+    borderColor: 'white'
   },
   buttonText: {
-    color: 'white',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {
