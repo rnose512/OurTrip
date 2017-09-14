@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Alert, AlertIOS } from 'react-native';
+import { ImageBackground, View, StyleSheet, Alert, AlertIOS } from 'react-native';
 import { Container, Button, Header, Content, ListItem, CheckBox, Text, Body } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
@@ -42,22 +42,24 @@ class CreateEvent extends Component {
 
   render() {
    return (
-     <View style={styles.container}>
-     	<Content>
-     		<ListItem>
-            <CheckBox checked={this.state.checkbox_chk} onPress={
-            	this.checkBox.bind(this)
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View style={styles.container}>
+       	<Content>
+       		<ListItem>
+              <CheckBox checked={this.state.checkbox_chk} onPress={
+              	this.checkBox.bind(this)
 
-            } />
-            <Body>
-              <Text>{this.state.user_first_name} {this.state.user_last_name}</Text>
-            </Body>
-          </ListItem>
-     	</Content>
-      <Button style={styles.button} onPress= {this.setAttendance.bind(this)}>
-	      <Text style={styles.buttontext}>Add Attendee</Text>
-      </Button>
-		</View>
+              } />
+              <Body>
+                <Text>{this.state.user_first_name} {this.state.user_last_name}</Text>
+              </Body>
+            </ListItem>
+       	</Content>
+        <Button style={styles.button} onPress= {this.setAttendance.bind(this)}>
+  	      <Text style={styles.buttontext}>Add Attendee</Text>
+        </Button>
+  		</View>
+    </ImageBackground>
     )
   }
 }
@@ -68,17 +70,22 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: .1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 30,
+    borderColor: 'white'
   },
-  buttontext: {
-    color: '#FFF',
-    fontSize: 20,
+  buttonText: {
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {
