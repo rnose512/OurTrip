@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, AlertIOS, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, AlertIOS, TouchableOpacity, ImageBackground } from 'react-native';
 import Dock from './common/Dock';
 import axios from 'axios';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
@@ -67,7 +67,8 @@ class CreateTrip extends Component {
 
   render() {
    return (
-     <View style={styles.container}>
+     <ImageBackground source={require('../images/new-trip-background.jpg')} style={styles.container}>
+     <View >
       <Card>
         <CardSection>
           <Input
@@ -111,14 +112,22 @@ class CreateTrip extends Component {
          <Text style={styles.buttonText}>Create Trip</Text>
       </Button>
     </View>
+    </ImageBackground>
     )
   }
 }
 
 const styles = {
   container: {
-    flex: 1,
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
     bottom: 0,
+    position: 'absolute'
+
   },
   errorTextStyle: {
     fontSize: 20,
