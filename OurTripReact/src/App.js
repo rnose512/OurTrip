@@ -68,28 +68,28 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
-      <Scene 
-        hideNavBar={false} 
-        key='TripShow' component={TripShow} 
+      <Scene
+        hideNavBar={false}
+        key='TripShow' component={TripShow}
         title="Trip Details"
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />
-      <Scene 
-        hideNavBar={false} 
-        key='CreateDestination' 
+      <Scene
+        hideNavBar={false}
+        key='CreateDestination'
         component={CreateDestination} title="Add Destinations"
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />
-      <Scene 
-        hideNavBar={false} 
-        key='CreateAttendeeList' 
-        component={CreateAttendeeList} 
+      <Scene
+        hideNavBar={false}
+        key='CreateAttendeeList'
+        component={CreateAttendeeList}
         title="Add Attendees"
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />
       <Scene
         hideNavBar={false}
-        onRight={() => Actions.CreateExpense({ accessToken: true })}
+        onRight={() => Actions.CreateExpense({ accessToken: this.state.accessToken })}
         rightTitle="New Expense"
         key='Expense'
         component={Expense}
@@ -105,8 +105,8 @@ class OurTrip extends Component {
       />
       <Scene
         hideNavBar={false}
+        onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}
         navigationBarStyle={{backgroundColor: 'transparent'}}
-        onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}      
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
@@ -115,10 +115,10 @@ class OurTrip extends Component {
         updateAccessToken={this.updateAccessToken}
         initial
         />
-      <Scene 
-        hideNavBar={false} 
-        key='CreateEvent' 
-        component={CreateEvent} 
+      <Scene
+        hideNavBar={false}
+        key='CreateEvent'
+        component={CreateEvent}
         title="Create New Event"
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />

@@ -18,7 +18,7 @@ class Expense extends Component {
 
   componentWillMount() {
     var self = this;
-    axios.get('http://localhost:3000/trips/5/expenses', {
+    axios.get('http://localhost:3000/trips/1/expenses', {
     params:
       {access_token: self.props.accessToken}
     })
@@ -40,8 +40,8 @@ class Expense extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <Text style={styles.expense}>What you owe: {this.state.expenses}</Text>
-        <Text style={styles.expense}>What you are owed: {this.state.user_expenses}</Text>
+        <Text style={styles.expense}>What you owe: {this.state.user_expenses}</Text>
+        <Text style={styles.expense}>What you are owed: {this.state.expenses}</Text>
         <Text>Net Total: {this.state.net}</Text>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </View>

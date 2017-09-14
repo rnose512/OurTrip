@@ -3,7 +3,7 @@ class TripsController < ApplicationController
 
     def index
         @trips = @user.trips
-        @attendees = @trips[0].users
+        @attendees = Trip.find(1).users
         render json: { trips: @trips, attendees: @attendees }
     end
 

@@ -2,11 +2,13 @@ class ExpensesController < ApplicationController
 	before_action :set_user
 	def index # /trips/:trip_id/expenses
 		@trip = Trip.find(params[:trip_id])
+		@attendees = @trip.users.map { |attendee| attendee = attendee.first_name }
 		@user = User.find_by(access_token: params[:access_token])
-		@what_you_are_owed = @user.expenses.reduce(0) { |total, expense| total + expense.total_amount } - (@user.expenses.reduce(0) { |total, expense| total + expense.total_amount } / @trip.users.count)
-		@what_you_owe = @user.user_expenses.reduce(0) { |total, expense| total + expense.amount }
+		@what_you_are_owed = @user.loans.reduce(0) { |total, expense| total + expense.total_amount }
+		@what_you_owe = @user.debts.reduce(0) { |total, expense| total + expense.total_amount }
+		@attendees = @trip.users.map { |attendee| attendee = attendee.first_name }
 
-		if @user.expenses && @user.user_expenses
+		if @user.debts && @user.loans
 			render json: { expenses: @what_you_are_owed, user_expenses: @what_you_owe, user: @user, trip: @trip  }.to_json
 		else
 			@error = "Error: No expenses found"
@@ -15,12 +17,14 @@ class ExpensesController < ApplicationController
 	end
 
 	def create # /trips/:trip_id/expenses
-		@trip = Trip.find(params[:trip_id])
-		@expense = Expense.new(name: params[:name], total_amount: params[:total_amount], trip_id: @trip.id, payer_id: current_user.id)
-		@user_expense = UserExpense.new(user_id: params[:user_id], expense_id: @expense.id, amount: params[:value])
-
-		if @expense.save && @user_expense.save
-			render json: { expense: @expense, access_token: @user.access_token, user_expense: @user_expense}.to_json
+		@trip = Trip.find(1)
+		@user = User.find_by(access_token: params[:access_token])
+		@expense = @user.loans.new(name: params[:name], total_amount: params[:total_amount], trip_id: @trip.id, payer_id: @user.id)
+		p @user
+	p params
+		p @expense.errors.full_messages
+		if @expense.save
+			render json: { expense: @expense, access_token: @user.access_token, hawken: @hawken, hannie: @hannie, ashley: @ashley, peter: @peter, rio: @rio, attendees: @attendees }.to_json
 		else
       render json: {
         saved: false
