@@ -27,8 +27,8 @@ class TripShow extends Component {
     console.log(this.props.accessToken)
     axios('http://localhost:3000/trips/1/destinations')
     .then(response => {
-      this.setState({ 
-        destinations: response.data 
+      this.setState({
+        destinations: response.data
       });
       console.log(this.state.destinations)
     })
@@ -63,7 +63,7 @@ class TripShow extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <Text style={styles.header}>Destination:</Text>
         <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" />
         <View>
@@ -75,7 +75,7 @@ class TripShow extends Component {
           {this.renderUsers()}
         </View>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
-      </ScrollView>
+      </View>
     );
   }
 
