@@ -40,6 +40,7 @@ export default class Trips extends Component {
     },
     trips: {
       marginTop: 70,
+      opacity: .5
     },
     dock: {
       flex: 1,
