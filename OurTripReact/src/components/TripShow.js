@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import Dock from './common/Dock';
 import Button from './common/Button';
 import { Actions } from 'react-native-router-flux';
@@ -8,8 +8,8 @@ import CreateDestination from './CreateDestination';
 import CreateAttendeeList from './CreateAttendeeList';
 
 class TripShow extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       destinations: [] ,
       users: [],
@@ -24,6 +24,7 @@ class TripShow extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props.accessToken)
     axios('http://localhost:3000/trips/1/destinations')
     .then(response => {
       this.setState({ 
@@ -46,13 +47,13 @@ class TripShow extends Component {
 
   renderUsers() {
     return this.state.users.map(user =>
-      <Text>{user.first_name}</Text>
+      <Text key={user.id}>{user.first_name}</Text>
     )
   }
 
   renderDestinations() {
     return this.state.destinations.map(destination =>
-      <Text>{destination.name}</Text>
+      <Text key={destination.id}>{destination.name}</Text>
     )
   }
 
@@ -62,9 +63,9 @@ class TripShow extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text style={styles.header}>Destination:</Text>
-        <Button onPress={Actions.CreateDestination} buttonTitle="Add Destinations" />
+        <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" />
         <View>
           {this.renderDestinations()}
         </View>
@@ -74,7 +75,7 @@ class TripShow extends Component {
           {this.renderUsers()}
         </View>
         <Dock style={styles.dock} accessToken={this.props.accessToken}/>
-      </View>
+      </ScrollView>
     );
   }
 
@@ -99,6 +100,7 @@ const styles = {
   },
   dock: {
     flex: 1,
+    position: 'fixed'
   }
 }
 

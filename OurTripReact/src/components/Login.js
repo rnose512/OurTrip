@@ -155,7 +155,7 @@ const styles = {
     height: 30,
     width: 190,
     borderColor: 'white',
-    borderWidth: 0.5,
+    borderWidth: 1,
     marginBottom: 8,
     marginLeft: 15
   },
@@ -166,7 +166,7 @@ const styles = {
     height: 30,
     width: 190,
     borderColor: 'white',
-    borderWidth: 0.5,
+    borderWidth: 1,
     marginBottom: 8,
     marginLeft: 15,
     marginTop: 10
