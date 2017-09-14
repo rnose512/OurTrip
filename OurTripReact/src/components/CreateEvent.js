@@ -15,6 +15,8 @@ class CreateEvent extends Component {
 			description: '',
 			start_time: '',
 			end_time: '',
+			start_time_format: 'Start date',
+			end_time_format: 'End date',
 			isDateTimePickerVisible: false,
 			pickerMode: 'datetime'
 		}
@@ -26,17 +28,23 @@ class CreateEvent extends Component {
 		this._handleEndDatePicked = this._handleEndDatePicked.bind(this)
 	}
 
-	_showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+	_showDateTimePicker = () => {
+		this.setState({ isDateTimePickerVisible: true })
+	}
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
   _handleStartDatePicked = (date) => {
+  	console.log("start date")
     this.setState({start_time: date})
+    this.setState({start_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()  + " " + date.getHours().toString() + ":" + date.getMinutes().toString()})
     this._hideDateTimePicker();
   };
 
   _handleEndDatePicked = (date) => {
+  	console.log("end date")
     this.setState({end_time: date})
+    this.setState({end_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString() + " " + date.getHours().toString() + ":" + date.getMinutes().toString()})
     this._hideDateTimePicker();
   };
 
@@ -104,7 +112,7 @@ class CreateEvent extends Component {
 				</CardSection>
 	      <CardSection>
 	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>Start date & time</Text>
+	          <Text>{this.state.start_time_format}</Text>
 	        </TouchableOpacity>
 	        <DateTimePicker
 	          isVisible={this.state.isDateTimePickerVisible}
@@ -115,7 +123,7 @@ class CreateEvent extends Component {
 	      </CardSection>
 	      <CardSection>
 	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>End date & time</Text>
+	          <Text>{this.state.end_time_format}</Text>
 	        </TouchableOpacity>
 	        <DateTimePicker
 	          isVisible={this.state.isDateTimePickerVisible}
