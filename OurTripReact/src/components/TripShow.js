@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, ImageBackground } from 'react-native';
 import Dock from './common/Dock';
 import Button from './common/Button';
 import { Actions } from 'react-native-router-flux';
@@ -47,13 +47,13 @@ class TripShow extends Component {
 
   renderUsers() {
     return this.state.users.map(user =>
-      <Text key={user.id}>{user.first_name}</Text>
+      <Text key={user.id} style={styles.whiteText}>{user.first_name}</Text>
     )
   }
 
   renderDestinations() {
     return this.state.destinations.map(destination =>
-      <Text key={destination.id}>{destination.name}</Text>
+      <Text key={destination.id} style={styles.whiteText}>{destination.name}</Text>
     )
   }
 
@@ -63,19 +63,24 @@ class TripShow extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.header}>Destination:</Text>
-        <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" />
-        <View>
-          {this.renderDestinations()}
+      <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+        <ScrollView style={styles.trips}>
+        <View style={styles.box}>
+          <Text style={styles.header}>Destination:</Text>
+          <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" style={styles.buttonStyle} />
+          <View>
+            {this.renderDestinations()}
+          </View>
+        <View style={styles.box}>
+          <Text style={styles.header}>Attendees:</Text>
+          <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" style={styles.buttonStyle} />
+          <View >
+            {this.renderUsers()}
+          </View>
         </View>
-        <Text style={styles.header}>Attendees:</Text>
-        <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" />
-        <View >
-          {this.renderUsers()}
-        </View>
-        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
-      </View>
+          <Dock style={styles.dock} accessToken={this.props.accessToken}/>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 
@@ -83,14 +88,24 @@ class TripShow extends Component {
 
 const styles = {
   container: {
-     flex: 1,
-     bottom: 0,
+    position: 'absolute',
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   header: {
     fontWeight: 'bold',
     fontSize: 20,
     paddingBottom: 20,
     alignSelf: 'center',
+  },
+  trips: {
+    marginTop: 70,
+    opacity: .8
   },
   name: {
     width: 100,
@@ -101,6 +116,23 @@ const styles = {
   dock: {
     flex: 1,
     position: 'fixed'
+  },
+  buttonStyle: {
+    borderTopWidth: 4,
+    borderBottomWidth: 1,
+    alignSelf: 'stretch',
+    backgroundColor: '#fff',
+    borderColor: '#2E4057',
+    marginTop: 4,
+    marginBottom: 4
+  },
+  box: {
+    margin: 10,
+    padding: 10,
+    opacity: .8
+  },
+  whiteText: {
+    color: '#FFF1C9'
   }
 }
 

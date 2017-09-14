@@ -1,56 +1,30 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
-import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
+import { ImageBackground, View, StyleSheet, Alert, AlertIOS } from 'react-native';
+import { Container, Button, Header, Content, ListItem, CheckBox, Text, Body } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
-import { Card, CardSection } from './common';
-import DateTimePicker from 'react-native-modal-datetime-picker'
 
 class CreateEvent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			start_date: '',
-			end_date: '',
-			start_date_format: 'Start date',
-			end_date_format: 'End date',
-			isDateTimePickerVisible: false,
-			pickerMode: 'date'
+			user_first_name: '',
+			user_last_name: '',
+			checkbox_chk: false
 		}
-		this.createDestination = this.createDestination.bind(this)
-		this.setDestination = this.setDestination.bind(this)
-		this._showDateTimePicker = this._showDateTimePicker.bind(this)
-		this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
-		this._handleStartDatePicked = this._handleStartDatePicked.bind(this)
-		this._handleEndDatePicked = this._handleEndDatePicked.bind(this)
 	}
 
-	_showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+	componentWillMount() {
+		axios.get('http://localhost:3000/user_trips')
+			.then(response => 
+				this.setState({ user_first_name: response.data.non_attending_users[0].first_name, user_last_name: response.data.non_attending_users[0].last_name }))
+	}
 
-  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
-
-  _handleStartDatePicked = (date) => {
-    this.setState({start_date: date})
-    this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
-  };
-
-  _handleEndDatePicked = (date) => {
-    this.setState({end_date: date})
-    this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
-  };
-
-	createDestination(name, start_date, end_date) {
-		axios.post('http://localhost:3000/trips/1/destinations', {
-			name: name,
-			start_date: start_date,
-			end_date: end_date
-		})
+	createAttendance() {
+		var self = this
+		axios.post('http://localhost:3000/user_trips')
 		.then(function (response) {
-			AlertIOS.alert("You have created an destination!");
-			Actions.TripShow({accessToken: this.props.accessToken});
+			Actions.TripShow({accessToken: self.props.accessToken});
 		})
 		.catch(function (error) {
 			console.log("this is an error");
@@ -58,51 +32,34 @@ class CreateEvent extends Component {
 		})
 	}
 
-	setDestination(){
-		this.createDestination(this.state.name, this.state.start_date, this.state.end_date)
+	checkBox(){
+		this.setState({checkbox_chk: true})
+	}
+
+	setAttendance(){
+		this.createAttendance()
 	}
 
   render() {
    return (
-     <View style={styles.container}>
-      <Card>
-        <CardSection>
-				<Input
-					placeholder="where are you going?"
-					placeholderTextColor='#949799'
-          returnKeyType="next"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={ name => this.setState({name})}
-				/>
-				</CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.start_date_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleStartDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.end_date_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleEndDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-      </Card>
-      <Button style={styles.button} onPress= {this.setDestination}>
-	      <Text style={styles.buttontext}>Save Destination</Text>
-      </Button>
-		</View>
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View style={styles.container}>
+       	<Content>
+       		<ListItem>
+              <CheckBox checked={this.state.checkbox_chk} onPress={
+              	this.checkBox.bind(this)
+
+              } />
+              <Body>
+                <Text>{this.state.user_first_name} {this.state.user_last_name}</Text>
+              </Body>
+            </ListItem>
+       	</Content>
+        <Button style={styles.button} onPress= {this.setAttendance.bind(this)}>
+  	      <Text style={styles.buttontext}>Add Attendee</Text>
+        </Button>
+  		</View>
+    </ImageBackground>
     )
   }
 }
@@ -113,17 +70,22 @@ const styles = StyleSheet.create({
     bottom: 0,
   },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: .1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 30,
+    borderColor: 'white'
   },
-  buttontext: {
-    color: '#FFF',
-    fontSize: 20,
+  buttonText: {
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {

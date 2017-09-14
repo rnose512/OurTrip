@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
+import { ImageBackground, TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
@@ -64,45 +64,41 @@ class CreateEvent extends Component {
 
   render() {
    return (
-     <View style={styles.container}>
-      <Card>
-        <CardSection>
-				<Input
-					placeholder="where are you going?"
-					placeholderTextColor='#949799'
-          returnKeyType="next"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={ name => this.setState({name})}
-				/>
-				</CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.start_date_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleStartDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.end_date_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleEndDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-      </Card>
-      <Button style={styles.button} onPress= {this.setDestination}>
-	      <Text style={styles.buttontext}>Save Destination</Text>
-      </Button>
-		</View>
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View>
+        <View style={styles.form}>
+					<Input style={styles.textForm}
+						placeholder="where are you going?"
+						placeholderTextColor='#949799'
+	          returnKeyType="next"
+	          autoCapitalize="none"
+	          autoCorrect={false}
+	          onChangeText={ name => this.setState({name})}
+					/>
+				</View>
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+          <Text style={styles.buttontext}>{this.state.start_date_format}</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleStartDatePicked}
+          onCancel={this._hideDateTimePicker}
+          mode={this.state.pickerMode}
+        />
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+          <Text style={styles.buttontext}>{this.state.end_date_format}</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleEndDatePicked}
+          onCancel={this._hideDateTimePicker}
+          mode={this.state.pickerMode}
+        />
+	      <Button style={styles.button} onPress= {this.setDestination}>
+		      <Text style={styles.buttontext}>Save Destination</Text>
+	      </Button>
+			</View>
+		</ImageBackground>
     )
   }
 }
@@ -110,20 +106,77 @@ class CreateEvent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
     bottom: 0,
   },
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  },
+  textView: {
+    justifyContent: 'center',
+    marginTop: 100,
+    backgroundColor: 'transparent'
+  },
+  textForm: {
+    textAlign: 'center',
+    color: 'black'
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+  },
+  form: {
+    flex: .2,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 100,
+    backgroundColor: 'beige',
+    opacity: .8,
+  },
+  date: {
+    flex: .4,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    backgroundColor: 'beige',
+    opacity: .5
+  },
+  date2: {
+    flex: .4,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    marginBottom: 20,
+    backgroundColor: 'beige',
+    opacity: .5
+  },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: .1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 20,
+    borderColor: 'white'
   },
   buttontext: {
-    color: '#FFF',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {

@@ -59,7 +59,7 @@ class OurTrip extends Component {
         rightTitle="New Trip"
         key="Trips"
         component={Trips}
-        title="Trips"
+        title="Your Trips"
       />
       <Scene
         navigationBarStyle={{backgroundColor: 'transparent'}}
@@ -68,9 +68,25 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
-      <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
-      <Scene hideNavBar={false} key='CreateDestination' component={CreateDestination} title="Add Destinations"/>
-      <Scene hideNavBar={false} key='CreateAttendeeList' component={CreateAttendeeList} title="Add Attendees"/>
+      <Scene
+        hideNavBar={false}
+        key='TripShow' component={TripShow}
+        title="Trip Details"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+      />
+      <Scene
+        hideNavBar={false}
+        key='CreateDestination'
+        component={CreateDestination} title="Add Destinations"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+      />
+      <Scene
+        hideNavBar={false}
+        key='CreateAttendeeList'
+        component={CreateAttendeeList}
+        title="Add Attendees"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+      />
       <Scene
         hideNavBar={false}
         onRight={() => Actions.CreateExpense({ accessToken: this.state.accessToken })}
@@ -78,27 +94,34 @@ class OurTrip extends Component {
         key='Expense'
         component={Expense}
         title="Expense"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
       />
       <Scene
         hideNavBar={false}
         key='CreateExpense'
         component={CreateExpense}
-        title="Add New Expense"/>
+        title="Add New Expense"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+      />
       <Scene
         hideNavBar={false}
         onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}
+        navigationBarStyle={{backgroundColor: 'transparent'}}
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
         title="Itinerary"
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
+        initial
         />
       <Scene
         hideNavBar={false}
         key='CreateEvent'
         component={CreateEvent}
-        title="Create New Event"/>
+        title="Create New Event"
+        navigationBarStyle={{backgroundColor: 'transparent'}}
+      />
     </Router>
     );
   }
