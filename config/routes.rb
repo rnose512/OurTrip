@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :transportations, except: [:show]
   end
 
+  resources :user_expenses, only: [:create]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

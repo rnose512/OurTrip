@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,  AlertIOS, Image } from 'react-native';
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions, Route } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
@@ -32,6 +32,7 @@ class OurTrip extends Component {
 	render() {
   return (
     <Router sceneStyle={{paddingTop: 65}}>
+
       <Scene
         key="login"
         component={Login}
@@ -40,7 +41,7 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
       />
       <Scene
-        key= "register"
+        key="register"
         component={Register}
         title="Register"
       />
@@ -56,19 +57,21 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
+
       <Scene
         onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Expense"
         key='Expense'
         component={Expense}
         title="Expense"
-        accessToken={this.state.accessToken}
-        updateAccessToken={this.updateAccessToken}
-/>
+      />
       <Scene key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
+
+
       <Scene key='TripShow' component={TripShow} title="TripShow"/>
+
       <Scene
-        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
+        onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
@@ -77,6 +80,7 @@ class OurTrip extends Component {
         updateAccessToken={this.updateAccessToken}
         />
       <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
+
       <Scene key='Profile' component={Profile} title="Profile"/>
     </Router>
     );
