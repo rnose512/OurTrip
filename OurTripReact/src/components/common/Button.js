@@ -19,9 +19,9 @@ class Button extends Component {
 
   render(){  
     return (
-      <TouchableOpacity onPress={onPress} style={buttonStyle} >
-        <Text style={textStyle}>
-          +
+      <TouchableOpacity onPress={this.props.onPress} style={styles.buttonStyle} >
+        <Text style={styles.textStyle}>
+          {this.props.buttonTitle}
         </Text>
       </TouchableOpacity>
     );
@@ -38,8 +38,6 @@ const styles = {
     paddingBottom: 10
   },
   buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
     backgroundColor: '#fff',
     borderRadius: 5,
     borderWidth: 1,

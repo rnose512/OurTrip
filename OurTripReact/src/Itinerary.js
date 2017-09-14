@@ -10,7 +10,7 @@ class Itinerary extends Component {
   	}
 
 	componentWillMount() {
-		axios.get('http://localhost:3000/destinations/5/events')
+		axios.get('http://localhost:3000/destinations/1/events')
 			.then(response => this.setState({ events: response.data.events }))
 	}
 

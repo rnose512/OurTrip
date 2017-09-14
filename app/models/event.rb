@@ -12,5 +12,4 @@ class Event < ApplicationRecord
   def convert_end_time
      self.end_time = self.start_time.strftime("%B %-d, %Y at %l:%M %p")
   end
-
 end

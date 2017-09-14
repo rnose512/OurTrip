@@ -10,16 +10,16 @@ class CreateEvent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			title: '',
-			category: '',
-			description: '',
-			start_time: '',
-			end_time: '',
+			name: '',
+			start_date: '',
+			end_date: '',
+			start_date_format: 'Start date',
+			end_date_format: 'End date',
 			isDateTimePickerVisible: false,
-			pickerMode: 'datetime'
+			pickerMode: 'date'
 		}
-		this.createEvent = this.createEvent.bind(this)
-		this.setEvent = this.setEvent.bind(this)
+		this.createDestination = this.createDestination.bind(this)
+		this.setDestination = this.setDestination.bind(this)
 		this._showDateTimePicker = this._showDateTimePicker.bind(this)
 		this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
 		this._handleStartDatePicked = this._handleStartDatePicked.bind(this)
@@ -31,26 +31,26 @@ class CreateEvent extends Component {
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
 
   _handleStartDatePicked = (date) => {
-    this.setState({start_time: date})
+    this.setState({start_date: date})
+    this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this._hideDateTimePicker();
   };
 
   _handleEndDatePicked = (date) => {
-    this.setState({end_time: date})
+    this.setState({end_date: date})
+    this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this._hideDateTimePicker();
   };
 
-	createEvent(title, category, description, start_time, end_time) {
-		axios.post('http://localhost:3000/destinations/1/events', {
-			title: title,
-			category: category,
-			description: description,
-			start_time: start_time,
-			end_time: end_time
+	createDestination(name, start_date, end_date) {
+		axios.post('http://localhost:3000/trips/1/destinations', {
+			name: name,
+			start_date: start_date,
+			end_date: end_date
 		})
 		.then(function (response) {
-			AlertIOS.alert("You have created an event!");
-			Actions.Itinerary();
+			AlertIOS.alert("You have created an destination!");
+			Actions.TripShow({accessToken: this.props.accessToken});
 		})
 		.catch(function (error) {
 			console.log("this is an error");
@@ -58,50 +58,27 @@ class CreateEvent extends Component {
 		})
 	}
 
-	setEvent(){
-		this.createEvent(this.state.title, this.state.category, this.state.description, this.state.start_time, this.state.end_time)
+	setDestination(){
+		this.createDestination(this.state.name, this.state.start_date, this.state.end_date)
 	}
 
   render() {
-    {console.log(this.props.accessToken)}
    return (
      <View style={styles.container}>
       <Card>
         <CardSection>
 				<Input
-					placeholder="title"
+					placeholder="where are you going?"
 					placeholderTextColor='#949799'
           returnKeyType="next"
           autoCapitalize="none"
           autoCorrect={false}
-          onChangeText={ title => this.setState({title})}
+          onChangeText={ name => this.setState({name})}
 				/>
-				</CardSection>
-
-
-				<CardSection>
-					<Input
-						placeholder="category"
-						placeholderTextColor='#949799'
-	          returnKeyType="next"
-	          autoCapitalize="none"
-	          autoCorrect={false}
-	          onChangeText={ category => this.setState({category})}
-					/>
-				</CardSection>
-				<CardSection>
-					<Input
-						placeholder="description"
-						placeholderTextColor='#949799'
-	          returnKeyType="next"
-	          autoCapitalize="none"
-	          autoCorrect={false}
-	          onChangeText={ description => this.setState({description})}
-					/>
 				</CardSection>
 	      <CardSection>
 	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>Start date & time</Text>
+	          <Text>{this.state.start_date_format}</Text>
 	        </TouchableOpacity>
 	        <DateTimePicker
 	          isVisible={this.state.isDateTimePickerVisible}
@@ -112,7 +89,7 @@ class CreateEvent extends Component {
 	      </CardSection>
 	      <CardSection>
 	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>End date & time</Text>
+	          <Text>{this.state.end_date_format}</Text>
 	        </TouchableOpacity>
 	        <DateTimePicker
 	          isVisible={this.state.isDateTimePickerVisible}
@@ -122,8 +99,8 @@ class CreateEvent extends Component {
 	        />
 	      </CardSection>
       </Card>
-      <Button style={styles.button} onPress= {this.setEvent}>
-	      <Text style={styles.buttontext}>Save Event</Text>
+      <Button style={styles.button} onPress= {this.setDestination}>
+	      <Text style={styles.buttontext}>Save Destination</Text>
       </Button>
 		</View>
     )
