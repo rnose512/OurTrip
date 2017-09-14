@@ -50,7 +50,7 @@ class CreateEvent extends Component {
 		})
 		.then(function (response) {
 			AlertIOS.alert("You have created an destination!");
-			Actions.TripShow();
+			Actions.TripShow({accessToken: this.props.accessToken});
 		})
 		.catch(function (error) {
 			console.log("this is an error");

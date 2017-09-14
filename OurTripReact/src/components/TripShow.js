@@ -15,15 +15,31 @@ class TripShow extends Component {
       users: [],
       buttonTitle: ""
   };
+
+  this.updateUsers = this.updateUsers.bind(this);
 }
 
+  updateUsers(newUsers) {
+    this.setState({ users: this.state.users + newUsers })
+  }
+
   componentWillMount() {
-    axios.get('http://localhost:3000/trips/1/destinations')
-    .then(response => this.setState({ destinations: [response.data]}))
+    axios('http://localhost:3000/trips/1/destinations')
+    .then(response => {
+      this.setState({ 
+        destinations: response.data 
+      });
+      console.log(this.state.destinations)
+    })
     .catch(error => console.log(error))
 
-    axios.get('http://localhost:3000/trips/1/destinations/1')
-    .then(response => this.setState({users: [response.data]}))
+    axios('http://localhost:3000/trips/1/destinations/1')
+    .then(response => {
+      this.setState({
+        users: response.data[0]
+      });
+      console.log(this.state.users[0])
+    })
     .catch(error => console.log(error))
 
   }
@@ -41,7 +57,7 @@ class TripShow extends Component {
   }
 
   renderDestinationForm() {
-    Actions.CreateDestination();
+    Actions.CreateDestination({accessToken: this.props.accessToken});
   }
 
   render() {

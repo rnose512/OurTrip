@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
-import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
+import { Container, Header, Content, Text, ListItem, CheckBox, Body } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
 import { Card, CardSection } from './common';
-import DateTimePicker from 'react-native-modal-datetime-picker'
 
-class CreateEvent extends Component {
+class CreateAttendeeList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -152,4 +151,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CreateEvent;
+export default CreateAttendeeList;

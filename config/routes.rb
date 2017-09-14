@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :trips do
     resources :expenses, except: [:new]
     resources :destinations, only: [:new, :create, :show, :destroy, :index]
+    resources :trip_users, only: [:create]
   end
 
   resources :packing_lists, only: [:index] do
@@ -22,6 +23,4 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   get '/register', to: 'users#new'
   post '/register', to: 'users#create'
-
-
 end

@@ -1,6 +1,6 @@
 class DestinationsController < ApplicationController
 	def index
-		@destinations = Destination.where(trip_id: params[:trip_id])
+		@destinations = Destination.where(trip_id: params[:trip_id]).sort_by{|destination| destination.start_date}
 		if @destinations
 			render json: @destinations.to_json
 		else
