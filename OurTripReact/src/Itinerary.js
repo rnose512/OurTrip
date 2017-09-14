@@ -5,9 +5,12 @@ import axios from 'axios';
 import Dock from './components/common/Dock';
 
 class Itinerary extends Component {
-  	state = {
+  constructor(props){
+    super(props)
+  	this.state = {
   		events: []
   	}
+  }
 
 	componentWillMount() {
 		axios.get('http://localhost:3000/destinations/1/events')
