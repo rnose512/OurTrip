@@ -19,9 +19,9 @@ class Button extends Component {
 
   render(){  
     return (
-      <TouchableOpacity onPress={this.onPress} style={styles.buttonStyle} >
+      <TouchableOpacity onPress={this.props.onPress} style={styles.buttonStyle} >
         <Text style={styles.textStyle}>
-          Add a destination
+          {this.props.buttonTitle}
         </Text>
       </TouchableOpacity>
     );

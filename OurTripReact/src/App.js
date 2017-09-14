@@ -11,7 +11,9 @@ import Profile from './components/Profile';
 import Expense from './components/Expense';
 import CreateTrip from './components/CreateTrip';
 import CreateExpense from './components/CreateExpense';
-import Dock from './components/common/Dock'
+import Dock from './components/common/Dock';
+import CreateDestination from './components/CreateDestination';
+import CreateAttendeeList from './components/CreateAttendeeList';
 
 
 class OurTrip extends Component {
@@ -64,6 +66,8 @@ class OurTrip extends Component {
         title="Create New Trip"
       />
       <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
+      <Scene hideNavBar={false} key='CreateDestination' component={CreateDestination} title="Add Destinations"/>
+      <Scene hideNavBar={false} key='CreateAttendeeList' component={CreateAttendeeList} title="Add Attendees"/>
       <Scene
         hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: true })}
