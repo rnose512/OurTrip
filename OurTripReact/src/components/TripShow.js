@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, ImageBackground } from 'react-native';
 import Dock from './common/Dock';
 import Button from './common/Button';
 import { Actions } from 'react-native-router-flux';
@@ -63,19 +63,21 @@ class TripShow extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.header}>Destination:</Text>
-        <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" />
-        <View>
-          {this.renderDestinations()}
-        </View>
-        <Text style={styles.header}>Attendees:</Text>
-        <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" />
-        <View >
-          {this.renderUsers()}
-        </View>
-        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
-      </ScrollView>
+      <ImageBackground source={require('../images/tripshow.jpeg')} style={styles.container}>
+        <ScrollView style={styles.trips}>
+          <Text style={styles.header}>Destination:</Text>
+          <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" style={styles.buttonStyle} />
+          <View>
+            {this.renderDestinations()}
+          </View>
+          <Text style={styles.header}>Attendees:</Text>
+          <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" style={styles.buttonStyle} />
+          <View >
+            {this.renderUsers()}
+          </View>
+          <Dock style={styles.dock} accessToken={this.props.accessToken}/>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 
@@ -83,14 +85,24 @@ class TripShow extends Component {
 
 const styles = {
   container: {
-     flex: 1,
-     bottom: 0,
+    position: 'absolute',
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
   },
   header: {
     fontWeight: 'bold',
     fontSize: 20,
     paddingBottom: 20,
     alignSelf: 'center',
+  },
+  trips: {
+    marginTop: 70,
+    opacity: .8
   },
   name: {
     width: 100,
@@ -100,7 +112,15 @@ const styles = {
   },
   dock: {
     flex: 1,
-    position: 'fixed'
+  },
+  buttonStyle: {
+    borderTopWidth: 4,
+    borderBottomWidth: 1,
+    alignSelf: 'stretch',
+    backgroundColor: '#fff',
+    borderColor: '#2E4057',
+    marginTop: 4,
+    marginBottom: 4
   }
 }
 

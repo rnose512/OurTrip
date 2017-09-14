@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Alert, AlertIOS, ImageBackground } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import axios from 'axios';
@@ -76,22 +76,20 @@ class CreateEvent extends Component {
   render() {
     {console.log(this.props.accessToken)}
    return (
-     <View style={styles.container}>
-      <Card>
-        <CardSection>
-				<Input
-					placeholder="title"
-					placeholderTextColor='#949799'
-          returnKeyType="next"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={ title => this.setState({title})}
-				/>
-				</CardSection>
-
-
-				<CardSection>
-					<Input
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View>
+        <View style={styles.titleform}>
+					<Input style={styles.textForm}
+						placeholder="title"
+						placeholderTextColor='#949799'
+	          returnKeyType="next"
+	          autoCapitalize="none"
+	          autoCorrect={false}
+	          onChangeText={ title => this.setState({title})}
+					/>
+				</View>
+				<View style={styles.form}>
+					<Input style={styles.textForm}
 						placeholder="category"
 						placeholderTextColor='#949799'
 	          returnKeyType="next"
@@ -99,9 +97,9 @@ class CreateEvent extends Component {
 	          autoCorrect={false}
 	          onChangeText={ category => this.setState({category})}
 					/>
-				</CardSection>
-				<CardSection>
-					<Input
+				</View>
+				<View style={styles.form}>
+					<Input style={styles.textForm}
 						placeholder="description"
 						placeholderTextColor='#949799'
 	          returnKeyType="next"
@@ -109,34 +107,30 @@ class CreateEvent extends Component {
 	          autoCorrect={false}
 	          onChangeText={ description => this.setState({description})}
 					/>
-				</CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.start_time_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleStartDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-	      <CardSection>
-	        <TouchableOpacity onPress={this._showDateTimePicker}>
-	          <Text>{this.state.end_time_format}</Text>
-	        </TouchableOpacity>
-	        <DateTimePicker
-	          isVisible={this.state.isDateTimePickerVisible}
-	          onConfirm={this._handleEndDatePicked}
-	          onCancel={this._hideDateTimePicker}
-	          mode={this.state.pickerMode}
-	        />
-	      </CardSection>
-      </Card>
-      <Button style={styles.button} onPress= {this.setEvent}>
-	      <Text style={styles.buttontext}>Save Event</Text>
-      </Button>
-		</View>
+				</View>
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+          <Text style={styles.buttontext}>{this.state.start_time_format}</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleStartDatePicked}
+          onCancel={this._hideDateTimePicker}
+          mode={this.state.pickerMode}
+        />
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+          <Text style={styles.buttonText}>{this.state.end_time_format}</Text>
+        </TouchableOpacity>
+        <DateTimePicker
+          isVisible={this.state.isDateTimePickerVisible}
+          onConfirm={this._handleEndDatePicked}
+          onCancel={this._hideDateTimePicker}
+          mode={this.state.pickerMode}
+        />
+	      <Button style={styles.button} onPress= {this.setEvent}>
+		      <Text style={styles.buttontext}>Save Event</Text>
+	      </Button>
+			</View>
+		</ImageBackground>
     )
   }
 }
@@ -144,20 +138,86 @@ class CreateEvent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 0,
+    left: 0,
+    right: 0,
     bottom: 0,
   },
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
+  },
+  textView: {
+    justifyContent: 'center',
+    marginTop: 100,
+    backgroundColor: 'transparent'
+  },
+  textForm: {
+    textAlign: 'center',
+    color: 'black'
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+  },
+  titleform:{
+    flex: .8,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 65,
+    backgroundColor: 'beige',
+    opacity: .8,
+  },
+  form: {
+    flex: .8,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    backgroundColor: 'beige',
+    opacity: .8,
+  },
+  date: {
+    flex: .5,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    backgroundColor: 'beige',
+    opacity: .5
+  },
+  date2: {
+    flex: .5,
+    justifyContent: 'center',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10,
+    marginBottom: 20,
+    backgroundColor: 'beige',
+    opacity: .5
+  },
   button: {
-    backgroundColor: '#68B0AB',
+    flex: .3,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#BDBDBD',
     width: 350,
     paddingTop: 15,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 20,
+    borderColor: 'white'
   },
   buttontext: {
-    color: '#FFF',
-    fontSize: 20,
+    color: 'black',
+    fontSize: 15,
     textAlign: 'center',
   },
   dock: {

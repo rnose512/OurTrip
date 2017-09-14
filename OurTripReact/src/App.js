@@ -59,7 +59,7 @@ class OurTrip extends Component {
         rightTitle="New Trip"
         key="Trips"
         component={Trips}
-        title="Trips"
+        title="Your Trips"
       />
       <Scene
         navigationBarStyle={{backgroundColor: 'transparent'}}
@@ -68,7 +68,7 @@ class OurTrip extends Component {
         component={CreateTrip}
         title="Create New Trip"
       />
-      <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
+      <Scene hideNavBar={false} key='TripShow' component={TripShow} title="Trip Details"/>
       <Scene hideNavBar={false} key='CreateDestination' component={CreateDestination} title="Add Destinations"/>
       <Scene hideNavBar={false} key='CreateAttendeeList' component={CreateAttendeeList} title="Add Attendees"/>
       <Scene
