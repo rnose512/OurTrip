@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Container, Item, Input, Button } from 'native-base';
 import { Card, CardSection } from './common';
+import { FormLabel, FormInput } from 'react-native-elements'
 import Dock from './common/Dock';
 import axios from 'axios';
 import { FormLabel, FormInput } from 'react-native-elements'
@@ -45,8 +46,7 @@ class CreateExpense extends Component {
       console.log(error)
     })
 
-
-    axios.post('http://localhost:3000/trips/5/expenses', {
+  axios.post('http://localhost:3000/trips/1/expenses', {
       accessToken: this.props.accessToken,
       user_id: 21,
       amount: this.state.value
@@ -59,7 +59,7 @@ class CreateExpense extends Component {
       console.log(error)
     })
 
-    axios.post('http://localhost:3000/trips/5/expenses', {
+    axios.post('http://localhost:3000/trips/1/expenses', {
       accessToken: this.props.accessToken,
       user_id: 22,
       amount: this.state.value
@@ -72,7 +72,7 @@ class CreateExpense extends Component {
       console.log(error)
     })
 
-    axios.post('http://localhost:3000/trips/5/expenses', {
+    axios.post('http://localhost:3000/trips/1/expenses', {
       accessToken: this.props.accessToken,
       user_id: 23,
       amount: this.state.value
@@ -85,7 +85,7 @@ class CreateExpense extends Component {
       console.log(error)
     })
 
-    axios.post('http://localhost:3000/trips/5/expenses', {
+    axios.post('http://localhost:3000/trips/1/expenses', {
       accessToken: this.props.accessToken,
       user_id: 24,
       amount: this.state.value
@@ -98,7 +98,7 @@ class CreateExpense extends Component {
       console.log(error)
     })
 
-    axios.post('http://localhost:3000/trips/5/expenses', {
+    axios.post('http://localhost:3000/trips/1/expenses', {
       accessToken: this.props.accessToken,
       user_id: 25,
       amount: this.state.value
@@ -119,39 +119,39 @@ class CreateExpense extends Component {
   render() {
    return (
     <Container style={styles.container}>
-    <FormLabel>Name</FormLabel>
-      <FormInput
-        placeholder="expense name"
-        onChangeText={name => this.setState({ name })}/>
-    <FormLabel>How much was it?</FormLabel>
-      <FormInput
-        placeholder="expense amount"
-        onChangeText={total_amount => this.setState({ total_amount })}/>
+      <FormLabel>Name</FormLabel>
+        <FormInput
+          placeholder="expense name"
+          onChangeText={name => this.setState({ name })}/>
+      <FormLabel>How much was it?</FormLabel>
+        <FormInput
+          placeholder="expense amount"
+          onChangeText={total_amount => this.setState({ total_amount })}/>
 
-    <FormLabel>Rio: </FormLabel>
-      <FormInput
-        placeholder="$0"
-        onChangeText={value => this.setState({ value })}/>
+      <FormLabel>Rio: </FormLabel>
+        <FormInput
+          placeholder="$0"
+          onChangeText={value => this.setState({ value })}/>
 
-    <FormLabel>Hawken: </FormLabel>
-      <FormInput
-        placeholder="$0"
-        onChangeText={value => this.setState({ value })}/>
+      <FormLabel>Hawken: </FormLabel>
+        <FormInput
+          placeholder="$0"
+          onChangeText={value => this.setState({ value })}/>
 
-    <FormLabel>Hannie: </FormLabel>
-      <FormInput
-        placeholder="$0"
-        onChangeText={value => this.setState({ value })}/>
+      <FormLabel>Hannie: </FormLabel>
+        <FormInput
+          placeholder="$0"
+          onChangeText={value => this.setState({ value })}/>
 
-    <FormLabel>Peter: </FormLabel>
-      <FormInput
-        placeholder="$0"
-        onChangeText={value => this.setState({ value })}/>
+      <FormLabel>Peter: </FormLabel>
+        <FormInput
+          placeholder="$0"
+          onChangeText={value => this.setState({ value })}/>
 
-    <FormLabel>Ashley: </FormLabel>
-      <FormInput
-        placeholder="$0"
-        onChangeText={value => this.setState({ value })}/>
+      <FormLabel>Ashley: </FormLabel>
+        <FormInput
+          placeholder="$0"
+          onChangeText={value => this.setState({ value })}/>
       <Button style={styles.hasmargin} onPress= {this.callCreateExpense()}>
         <Text style={styles.buttontext}>Add Expense</Text>
       </Button>

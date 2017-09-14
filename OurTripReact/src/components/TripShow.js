@@ -2,20 +2,46 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Text } from 'react-native';
 import Dock from './common/Dock';
+import Button from './common/Button';
+import { Actions } from 'react-native-router-flux';
+import CreateDestination from './CreateDestination';
+import CreateAttendeeList from './CreateAttendeeList';
 
 class TripShow extends Component {
   constructor() {
     super();
     this.state = {
       destinations: [] ,
-      users: []
-    };
+      users: [],
+      buttonTitle: ""
+  };
+
+  this.updateUsers = this.updateUsers.bind(this);
 }
 
+  updateUsers(newUsers) {
+    this.setState({ users: this.state.users + newUsers })
+  }
+
   componentWillMount() {
-    axios.get('http://localhost:3000/trips/5/destinations/5')
-    .then(response => this.setState({ destinations: [response.data[0]], users: response.data[1] }))
+    axios('http://localhost:3000/trips/1/destinations')
+    .then(response => {
+      this.setState({ 
+        destinations: response.data 
+      });
+      console.log(this.state.destinations)
+    })
     .catch(error => console.log(error))
+
+    axios('http://localhost:3000/trips/1/destinations/1')
+    .then(response => {
+      this.setState({
+        users: response.data[0]
+      });
+      console.log(this.state.users[0])
+    })
+    .catch(error => console.log(error))
+
   }
 
   renderUsers() {
@@ -30,14 +56,20 @@ class TripShow extends Component {
     )
   }
 
+  renderDestinationForm() {
+    Actions.CreateDestination({accessToken: this.props.accessToken});
+  }
+
   render() {
     return (
       <View style={styles.container}>
-          <Text style={styles.header}>Destination:</Text>
+        <Text style={styles.header}>Destination:</Text>
+        <Button onPress={Actions.CreateDestination} buttonTitle="Add Destinations" />
         <View>
           {this.renderDestinations()}
         </View>
         <Text style={styles.header}>Attendees:</Text>
+        <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" />
         <View >
           {this.renderUsers()}
         </View>

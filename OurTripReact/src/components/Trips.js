@@ -27,6 +27,7 @@ export default class Trips extends Component {
     );
   };
 }
+
   const styles = StyleSheet.create({
     container: {
       backgroundColor:'transparent',

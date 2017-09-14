@@ -79,6 +79,7 @@ class Login extends Component {
             <Input
               placeholder="email"
               placeholderTextColor="white"
+              textColor="white"
               label="Email"
               value={this.state.email}
               autoCapitalize="none"
@@ -91,6 +92,7 @@ class Login extends Component {
               secureTextEntry
               placeholder="password"
               placeholderTextColor="white"
+              textColor="white"
               label="Password"
               value={this.state.password}
               onChangeText={password => this.setState({ password })}
@@ -152,6 +154,8 @@ const styles = {
     backgroundColor: 'transparent',
     height: 30,
     width: 190,
+    borderColor: 'white',
+    borderWidth: 0.5,
     marginBottom: 8,
     marginLeft: 15
   },
@@ -161,6 +165,8 @@ const styles = {
     backgroundColor: 'transparent',
     height: 30,
     width: 190,
+    borderColor: 'white',
+    borderWidth: 0.5,
     marginBottom: 8,
     marginLeft: 15,
     marginTop: 10

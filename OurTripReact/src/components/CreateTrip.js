@@ -66,52 +66,52 @@ class CreateTrip extends Component {
   }
 
   render() {
-   return (
-     <ImageBackground source={require('../images/new-trip-background.jpg')} style={styles.container}>
-     <View >
-      <Card>
-        <CardSection>
-          <Input
-            placeholder="Trip Name"
-            placeholderTextColor='#949799'
-            returnKeyType="next"
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={ name => this.setState({name})}
-            />
-        </CardSection>
-        <CardSection>
-          <Item>
-            <TouchableOpacity onPress={this._showDateTimePicker}>
-              <Text>Start date & time</Text>
-            </TouchableOpacity>
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleStartDatePicked}
-              onCancel={this._hideDateTimePicker}
-              mode={this.state.pickerMode}
-            />
-          </Item>
-        </CardSection>
-        <CardSection>
-          <Item>
-            <TouchableOpacity onPress={this._showDateTimePicker}>
-              <Text>End date & time</Text>
-            </TouchableOpacity>
-            <DateTimePicker
-              isVisible={this.state.isDateTimePickerVisible}
-              onConfirm={this._handleEndDatePicked}
-              onCancel={this._hideDateTimePicker}
-              mode={this.state.pickerMode}
-            />
-          </Item>
-        </CardSection>
-      </Card>
+    return (
+      <ImageBackground source={require('../images/new-trip-background.jpg')} style={styles.container}>
+       <View>
+        <Card>
+          <CardSection>
+            <Input
+              placeholder="Trip Name"
+              placeholderTextColor='#949799'
+              returnKeyType="next"
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={ name => this.setState({name})}
+              />
+          </CardSection>
+          <CardSection>
+            <Item>
+              <TouchableOpacity onPress={this._showDateTimePicker}>
+                <Text>Start date & time</Text>
+              </TouchableOpacity>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this._handleStartDatePicked}
+                onCancel={this._hideDateTimePicker}
+                mode={this.state.pickerMode}
+              />
+            </Item>
+          </CardSection>
+          <CardSection>
+            <Item>
+              <TouchableOpacity onPress={this._showDateTimePicker}>
+                <Text>End date & time</Text>
+              </TouchableOpacity>
+              <DateTimePicker
+                isVisible={this.state.isDateTimePickerVisible}
+                onConfirm={this._handleEndDatePicked}
+                onCancel={this._hideDateTimePicker}
+                mode={this.state.pickerMode}
+              />
+            </Item>
+          </CardSection>
+        </Card>
 
-      <Button style={styles.button} onPress= {this.postTrip}>
-         <Text style={styles.buttonText}>Create Trip</Text>
-      </Button>
-    </View>
+        <Button style={styles.button} onPress= {this.postTrip}>
+           <Text style={styles.buttonText}>Create Trip</Text>
+        </Button>
+      </View>
     </ImageBackground>
     )
   }
@@ -127,7 +127,6 @@ const styles = {
     right: 0,
     bottom: 0,
     position: 'absolute'
-
   },
   errorTextStyle: {
     fontSize: 20,
