@@ -34,6 +34,9 @@ class OurTrip extends Component {
     <Router sceneStyle={{paddingTop: 65}}>
 
       <Scene
+        hideNavBar={true}
+        titleStyle={{color:'transparent', backgroundColor: 'transparent'}}
+        style={styles.navBar}
         key="login"
         component={Login}
         title="Login"
@@ -41,37 +44,48 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
       />
       <Scene
-        key="register"
+        hideNavBar={false}
+        key= "register"
         component={Register}
         title="Register"
       />
 
-      <Scene onRight={() => Actions.refresh({ accessToken: true})}
+      <Scene 
+        hideNavBar={false}
+        onRight={() => Actions.refresh({ accessToken: true})}
+        hideNavBar={false}
         rightTitle="New Trip"
         key="Trips"
         component={Trips}
         title="Trips"
       />
       <Scene
+        hideNavBar={false}
         key='CreateTrip'
         component={CreateTrip}
         title="Create New Trip"
       />
+      <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
 
       <Scene
+        hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Expense"
         key='Expense'
         component={Expense}
         title="Expense"
       />
-      <Scene key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
-
-
       <Scene key='TripShow' component={TripShow} title="TripShow"/>
 
       <Scene
         onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}
+        accessToken={this.state.accessToken}
+        updateAccessToken={this.updateAccessToken}
+      />
+      <Scene hideNavBar={false} key='CreateExpense' component={CreateExpense} title="Add New Expense"/>
+      <Scene
+        hideNavBar={false}
+        onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
         rightTitle="New Event"
         key='Itinerary'
         component={Itinerary}
@@ -79,9 +93,7 @@ class OurTrip extends Component {
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
         />
-      <Scene key='CreateEvent' component={CreateEvent} title="Create New Event"/>
-
-      <Scene key='Profile' component={Profile} title="Profile"/>
+      <Scene hideNavBar={false} key='CreateEvent' component={CreateEvent} title="Create New Event"/>
     </Router>
     );
   }
@@ -94,9 +106,9 @@ const styles = {
   container: {
    flexDirection: 'column',
   },
-  routesStyle: {
-    flex: 6
-  },
+  navBar: {
+    backgroundColor: 'transparent'
+  }
 }
 
 export default OurTrip;

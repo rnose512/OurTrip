@@ -11,8 +11,6 @@ class CreateTrip extends Component {
 
   constructor(props) {
     super(props)
-    console.log(props)
-    console.log(this.props.accessToken)
     this.state = {
       name: '',
       start_date: '',
@@ -40,13 +38,11 @@ class CreateTrip extends Component {
     })
     .then(function (response) {
       console.log(response.data.access_token)
-      console.log(response)
       AlertIOS.alert("You have created a trip!");
       Actions.Trips({accessToken: response.data.access_token});
     })
     .catch(function (error) {
       console.log("this is an error")
-      console.log(this.props.accessToken)
       console.log(error);
     });
   }

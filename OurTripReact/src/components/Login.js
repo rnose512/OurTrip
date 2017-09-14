@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View,  AlertIOS } from 'react-native';
+import { Text, View,  AlertIOS, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Card, CardSection, Spinner } from './common';
 import { Button, Input } from 'native-base';
 import axios from 'axios';
+import FadeInView from './animation/FadeInView';
 
 
 const FBSDK = require('react-native-fbsdk');
@@ -22,8 +23,8 @@ class Login extends Component {
     console.log(props)
 
     this.state = {
-      email: 'hawken@email.com',
-      password: 'password'
+      email: '',
+      password: ''
     }
     this.loginUser = this.loginUser.bind(this)
     this.authenticateUser = this.authenticateUser.bind(this)
@@ -71,11 +72,13 @@ class Login extends Component {
 
   render() {
     return (
-      <View>
+      <ImageBackground source={require('../images/login-background.jpg')} style={styles.container}>
+        <FadeInView>
         <Card>
           <CardSection>
             <Input
-              placeholder="user@gmail.com"
+              placeholder="email"
+              placeholderTextColor="white"
               label="Email"
               value={this.state.email}
               autoCapitalize="none"
@@ -87,6 +90,7 @@ class Login extends Component {
             <Input
               secureTextEntry
               placeholder="password"
+              placeholderTextColor="white"
               label="Password"
               value={this.state.password}
               onChangeText={password => this.setState({ password })}
@@ -102,29 +106,38 @@ class Login extends Component {
             <Button style={styles.button1} onPress={this.loginUser}>
               <Text style={styles.buttonText}>Log In</Text>
             </Button>
-
+          </CardSection>
+          <CardSection>
             <Button style={styles.button2} onPress={Actions.register}>
               <Text style={styles.buttonText}>Click here to register</Text>
             </Button>
           </CardSection>
+          <Button style={styles.facebookWrapper}>
+          <LoginButton
+            publishPermissions={["publish_actions"]}
+            onLoginFinished={
+              this._handleFacebookLogin
+            }
+            onLogoutFinished={() => alert("logout.")}/>
+            </Button>
         </Card>
-
-        <Text style={styles.center}>Or</Text>
-
-        <Button style={styles.facebookWrapper}>
-        <LoginButton
-          publishPermissions={["publish_actions"]}
-          onLoginFinished={
-            this._handleFacebookLogin
-          }
-          onLogoutFinished={() => alert("logout.")}/>
-          </Button>
-      </View>
+        </FadeInView>
+      </ImageBackground>
     );
   }
 }
 
 const styles = {
+  container:{
+    backgroundColor:'transparent',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  },
   center: {
     alignSelf: 'center'
   },
@@ -136,25 +149,31 @@ const styles = {
   button1: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#68B0AB',
-    flex: 1,
-    flexDirection: 'row',
-    marginRight: 5,
+    backgroundColor: 'transparent',
+    height: 30,
+    width: 190,
+    marginBottom: 8,
+    marginLeft: 15
   },
   button2: {
     alignSelf: 'center',
-    backgroundColor: '#68B0AB',
-    flex: 1,
-    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    height: 30,
+    width: 190,
+    marginBottom: 8,
+    marginLeft: 15,
+    marginTop: 10
   },
   facebookWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingLeft: 100,
-    backgroundColor: 'white'
+    backgroundColor: 'transparent',
+    marginTop: 50
   },
   buttonText: {
     textAlign: 'center',
+    color: 'white',
   }
 };
 

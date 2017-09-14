@@ -57,7 +57,6 @@
 		831C6EF11F6614B600C321D9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C6EE31F6614B600C321D9 /* FBSDKShareKit.framework */; };
 		831C6EF21F6614B600C321D9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C6EE31F6614B600C321D9 /* FBSDKShareKit.framework */; };
 		831C6EF31F6614B600C321D9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C6EE31F6614B600C321D9 /* FBSDKShareKit.framework */; };
-		831C6F201F66152B00C321D9 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C6F1F1F66151D00C321D9 /* libRCTFBSDK.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8C915ECC5C4E46998E481519 /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A60E1469E6846EFA25BF401 /* rubicon-icon-font.ttf */; };
 		B5E9E7D388234C139EC8BFC6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 194FB1E09FB64B1299105A09 /* Ionicons.ttf */; };
@@ -284,19 +283,19 @@
 			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
 			remoteInfo = "double-conversion-tvOS";
 		};
-		831C6F1E1F66151D00C321D9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 831C6F1A1F66151D00C321D9 /* RCTFBSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
-			remoteInfo = RCTFBSDK;
-		};
 		832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
+		};
+		D0BB13791F69BD7000BE42C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D0BB13751F69BD7000BE42C7 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -335,7 +334,6 @@
 		831C6EE11F6614B600C321D9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		831C6EE21F6614B600C321D9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		831C6EE31F6614B600C321D9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
-		831C6F1A1F66151D00C321D9 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../../../FBLoginTest/node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9A60E1469E6846EFA25BF401 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
 		A2BAE872098F499594FC454E /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -347,6 +345,7 @@
 		C11235151F6863F90006173F /* HindVadodara-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HindVadodara-Regular.ttf"; path = "../assets/fonts/HindVadodara-Regular.ttf"; sourceTree = "<group>"; };
 		C11235161F6863F90006173F /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pacifico-Regular.ttf"; path = "../assets/fonts/Pacifico-Regular.ttf"; sourceTree = "<group>"; };
 		C11235171F6863F90006173F /* Shrikhand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Shrikhand-Regular.ttf"; path = "../assets/fonts/Shrikhand-Regular.ttf"; sourceTree = "<group>"; };
+		D0BB13751F69BD7000BE42C7 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = ../../../../../../../Documents/FacebookSDK/ios/RCTFBSDK.xcodeproj; sourceTree = "<group>"; };
 		F1BE21F80EB4455A9A85004E /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -367,7 +366,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				831C6F201F66152B00C321D9 /* libRCTFBSDK.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				831C6EF01F6614B600C321D9 /* FBSDKShareKit.framework in Frameworks */,
@@ -580,18 +578,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		831C6F1B1F66151D00C321D9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				831C6F1F1F66151D00C321D9 /* libRCTFBSDK.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				831C6F1A1F66151D00C321D9 /* RCTFBSDK.xcodeproj */,
+				D0BB13751F69BD7000BE42C7 /* RCTFBSDK.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -640,6 +630,14 @@
 				00E356EE1AD99517003FC87E /* OurTripReactTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* OurTripReact-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* OurTripReact-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D0BB13761F69BD7000BE42C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0BB137A1F69BD7000BE42C7 /* libRCTFBSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -767,8 +765,8 @@
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
 				},
 				{
-					ProductGroup = 831C6F1B1F66151D00C321D9 /* Products */;
-					ProjectRef = 831C6F1A1F66151D00C321D9 /* RCTFBSDK.xcodeproj */;
+					ProductGroup = D0BB13761F69BD7000BE42C7 /* Products */;
+					ProjectRef = D0BB13751F69BD7000BE42C7 /* RCTFBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -1014,18 +1012,18 @@
 			remoteRef = 831C6F171F6614B600C321D9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		831C6F1F1F66151D00C321D9 /* libRCTFBSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTFBSDK.a;
-			remoteRef = 831C6F1E1F66151D00C321D9 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		832341B51AAA6A8300B99B32 /* libRCTText.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D0BB137A1F69BD7000BE42C7 /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = D0BB13791F69BD7000BE42C7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1230,8 +1228,8 @@
 				DEVELOPMENT_TEAM = ZAZ5Z6DH7Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/peter/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
-					/Users/ashleyteow/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = OurTripReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1253,8 +1251,8 @@
 				DEVELOPMENT_TEAM = ZAZ5Z6DH7Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					/Users/peter/Documents/FacebookSDK,
 					"$(PROJECT_DIR)",
-					/Users/ashleyteow/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = OurTripReact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
