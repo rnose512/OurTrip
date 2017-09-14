@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, ImageBackground } from 'react-native';
+import { ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import TripList from './TripList';
 import Dock from './common/Dock';
 import { Actions } from 'react-native-router-flux';
@@ -20,9 +20,9 @@ export default class Trips extends Component {
   render(){
     return (
       <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
-        <View style={styles.trips}>
+        <ScrollView style={styles.trips}>
           <TripList accessToken={this.props.accessToken}/>
-        </View>
+        </ScrollView>
       </ImageBackground>
     );
   };
@@ -41,7 +41,7 @@ export default class Trips extends Component {
     },
     trips: {
       marginTop: 70,
-      opacity: .5
+      opacity: .8
     },
     dock: {
       flex: 1,

@@ -30,16 +30,17 @@ class CreateTrip extends Component {
 
 
   newTrip(name, start_date, end_date) {
+    var self = this
     axios.post('http://localhost:3000/trips', {
       name: name,
       start_date: start_date,
       end_date: end_date,
-      access_token: this.props.accessToken
+      access_token: self.props.accessToken
     })
     .then(function (response) {
       console.log(response.data.access_token)
       AlertIOS.alert("You have created a trip!");
-      Actions.Trips({accessToken: response.data.access_token});
+      Actions.Trips({accessToken: self.props.accessToken});
     })
     .catch(function (error) {
       console.log("this is an error")
@@ -68,7 +69,7 @@ class CreateTrip extends Component {
   render() {
   return (
     <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
-      <View >
+      <View>
         <View style={styles.form}>
           <Input style={styles.textForm}
             placeholder='Trip Name'
@@ -143,28 +144,26 @@ const styles = {
     marginRight: 20,
     marginTop: 100,
     backgroundColor: 'beige',
-    opacity: .2,
+    opacity: .5,
   },
   date: {
     flex: 4,
     justifyContent: 'center',
-    textAlign: 'center',
     marginLeft: 20,
     marginRight: 20,
-    marginTop: 50,
+    marginTop: 10,
     backgroundColor: 'beige',
-    opacity: .2
+    opacity: .5
   },
   date2: {
     flex: 4,
     justifyContent: 'center',
-    textAlign: 'center',
     marginLeft: 20,
     marginRight: 20,
     marginTop: 10,
     marginBottom: 30,
     backgroundColor: 'beige',
-    opacity: .2
+    opacity: .5
   },
   button: {
     flex: 1,
