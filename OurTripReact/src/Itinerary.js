@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Calendar from './Calendar';
 import axios from 'axios';
 import Dock from './components/common/Dock';
@@ -19,10 +19,14 @@ class Itinerary extends Component {
 
 	render(){
 		return (
-			<View style={styles.container} >
-				<Calendar style={styles.itinerary} events={this.state.events} />
-				<Dock style={styles.dock} accessToken={this.props.accessToken}/>
-			</View>
+      <ImageBackground source={require('./images/tripshow.jpeg')} style={styles.container}>
+        <ScrollView style={styles.trips}>
+          <View style={styles.box}>
+    				<Calendar style={styles.itinerary} events={this.state.events} />
+          </View>
+  				<Dock style={styles.dock} accessToken={this.props.accessToken}/>
+        </ScrollView>
+      </ImageBackground>
 		)
 	}
 }
@@ -33,8 +37,8 @@ const styles = StyleSheet.create({
    justifyContent: 'center',
    bottom: 0,
   },
-  itinerary: {
-
+  box: {
+    opacity: .8,
   },
   dock: {
     flex: 1,

@@ -72,7 +72,7 @@ class CreateTrip extends Component {
 
   render() {
   return (
-    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+    <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
       <View>
         <View style={styles.form}>
           <Input style={styles.textForm}

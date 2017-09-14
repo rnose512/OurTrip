@@ -47,13 +47,13 @@ class TripShow extends Component {
 
   renderUsers() {
     return this.state.users.map(user =>
-      <Text key={user.id}>{user.first_name}</Text>
+      <Text key={user.id} style={styles.whiteText}>{user.first_name}</Text>
     )
   }
 
   renderDestinations() {
     return this.state.destinations.map(destination =>
-      <Text key={destination.id}>{destination.name}</Text>
+      <Text key={destination.id} style={styles.whiteText}>{destination.name}</Text>
     )
   }
 
@@ -63,18 +63,22 @@ class TripShow extends Component {
 
   render() {
     return (
-      <ImageBackground source={require('../images/tripshow.jpeg')} style={styles.container}>
+      <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
         <ScrollView style={styles.trips}>
+        <View style={styles.box}>
           <Text style={styles.header}>Destination:</Text>
           <Button onPress={this.renderDestinationForm.bind(this)} buttonTitle="Add Destinations" style={styles.buttonStyle} />
           <View>
             {this.renderDestinations()}
           </View>
+        </View>
+        <View style={styles.box}>
           <Text style={styles.header}>Attendees:</Text>
           <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" style={styles.buttonStyle} />
           <View >
             {this.renderUsers()}
           </View>
+        </View>
           <Dock style={styles.dock} accessToken={this.props.accessToken}/>
         </ScrollView>
       </ImageBackground>
@@ -112,6 +116,7 @@ const styles = {
   },
   dock: {
     flex: 1,
+    position: 'fixed'
   },
   buttonStyle: {
     borderTopWidth: 4,
@@ -121,6 +126,14 @@ const styles = {
     borderColor: '#2E4057',
     marginTop: 4,
     marginBottom: 4
+  },
+  box: {
+    margin: 10,
+    padding: 10, 
+    opacity: .8
+  },
+  whiteText: {
+    color: '#FFF1C9'
   }
 }
 
