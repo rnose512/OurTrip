@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View,  AlertIOS, Image } from 'react-native';
-import { Scene, Router, Actions } from 'react-native-router-flux';
+import { Scene, Router, Actions, Route } from 'react-native-router-flux';
 import TripShow from './components/TripShow';
 import Trips from './components/Trips';
 import Itinerary from './Itinerary';
@@ -65,6 +65,7 @@ class OurTrip extends Component {
         title="Create New Trip"
       />
       <Scene hideNavBar={false} key='TripShow' component={TripShow} title="TripShow"/>
+
       <Scene
         hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: this.state.accessToken })}
@@ -72,6 +73,11 @@ class OurTrip extends Component {
         key='Expense'
         component={Expense}
         title="Expense"
+      />
+      <Scene key='TripShow' component={TripShow} title="TripShow"/>
+
+      <Scene
+        onRight={() => Actions.CreateEvent({ accessToken: this.state.accessToken })}
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
       />
