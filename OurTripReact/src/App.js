@@ -53,12 +53,15 @@ class OurTrip extends Component {
         hideNavBar={false}
         onRight={() => Actions.refresh({ accessToken: true})}
         hideNavBar={false}
+        navigationBarStyle={{backgroundColor: 'transparent'}}
         rightTitle="New Trip"
         key="Trips"
         component={Trips}
         title="Trips"
       />
       <Scene
+        initial
+        navigationBarStyle={{backgroundColor: 'transparent'}}
         hideNavBar={false}
         key='CreateTrip'
         component={CreateTrip}

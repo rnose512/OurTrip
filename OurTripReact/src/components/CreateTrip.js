@@ -67,13 +67,14 @@ class CreateTrip extends Component {
 
   render() {
    return (
-     <ImageBackground source={require('../images/new-trip-background.jpg')} style={styles.container}>
+     <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
      <View >
       <Card>
         <CardSection>
           <Input
+            style={styles.form}
             placeholder="Trip Name"
-            placeholderTextColor='#949799'
+            placeholderTextColor='white'
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
@@ -81,9 +82,8 @@ class CreateTrip extends Component {
             />
         </CardSection>
         <CardSection>
-          <Item>
-            <TouchableOpacity onPress={this._showDateTimePicker}>
-              <Text>Start date & time</Text>
+            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+              <Text style={styles.buttonText}>Start date & time</Text>
             </TouchableOpacity>
             <DateTimePicker
               isVisible={this.state.isDateTimePickerVisible}
@@ -91,12 +91,10 @@ class CreateTrip extends Component {
               onCancel={this._hideDateTimePicker}
               mode={this.state.pickerMode}
             />
-          </Item>
         </CardSection>
         <CardSection>
-          <Item>
-            <TouchableOpacity onPress={this._showDateTimePicker}>
-              <Text>End date & time</Text>
+            <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+              <Text style={styles.buttonText}>End date & time</Text>
             </TouchableOpacity>
             <DateTimePicker
               isVisible={this.state.isDateTimePickerVisible}
@@ -104,7 +102,6 @@ class CreateTrip extends Component {
               onCancel={this._hideDateTimePicker}
               mode={this.state.pickerMode}
             />
-          </Item>
         </CardSection>
       </Card>
 
@@ -119,6 +116,8 @@ class CreateTrip extends Component {
 
 const styles = {
   container: {
+    flex: 1,
+    position: 'absolute',
     backgroundColor:'transparent',
     justifyContent: 'center',
     alignItems: 'center',
@@ -126,13 +125,14 @@ const styles = {
     left: 0,
     right: 0,
     bottom: 0,
-    position: 'absolute'
-
   },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
     color: 'red'
+  },
+  form: {
+    marginLeft: 20
   },
   button: {
     backgroundColor: '#68B0AB',
@@ -142,9 +142,10 @@ const styles = {
     marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
+
   },
   buttonText: {
-    color: '#FFF',
+    color: 'white',
     fontSize: 20,
     textAlign: 'center',
   },

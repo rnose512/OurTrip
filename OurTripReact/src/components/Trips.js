@@ -20,7 +20,7 @@ export default class Trips extends Component {
   render(){
     return (
       <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
-        <View style={styles.container}>
+        <View style={styles.trips}>
           <TripList accessToken={this.props.accessToken}/>
         </View>
       </ImageBackground>
@@ -29,6 +29,7 @@ export default class Trips extends Component {
 }
   const styles = StyleSheet.create({
     container: {
+      position: 'absolute',
       backgroundColor:'transparent',
       justifyContent: 'center',
       alignItems: 'center',
@@ -38,7 +39,7 @@ export default class Trips extends Component {
       bottom: 0
     },
     trips: {
-      
+      marginTop: 70,
     },
     dock: {
       flex: 1,

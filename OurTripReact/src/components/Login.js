@@ -174,6 +174,7 @@ const styles = {
   buttonText: {
     textAlign: 'center',
     color: 'white',
+    
   }
 };
 
