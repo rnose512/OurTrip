@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import TripList from './TripList';
 import Dock from './common/Dock';
 import { Actions } from 'react-native-router-flux';
@@ -19,23 +19,28 @@ export default class Trips extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
-        <TripList style={styles.trips} accessToken={this.props.accessToken}/>
-      </View>
+      <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
+        <View style={styles.container}>
+          <TripList accessToken={this.props.accessToken}/>
+        </View>
+      </ImageBackground>
     );
   };
 }
   const styles = StyleSheet.create({
     container: {
-     flex: 1,
-     justifyContent: 'center',
-     bottom: 0,
+      backgroundColor:'transparent',
+      justifyContent: 'center',
+      alignItems: 'center',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0
     },
     trips: {
-      flex: 4,
+      
     },
     dock: {
       flex: 1,
     }
   })
-
