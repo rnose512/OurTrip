@@ -15,6 +15,8 @@ class CreateTrip extends Component {
       name: '',
       start_date: '',
       end_date: '',
+      START: 'Start date',
+      END: 'End date',
       creator_id: null,
       isDateTimePickerVisible: false,
       pickerMode: 'datetime'
@@ -54,11 +56,13 @@ class CreateTrip extends Component {
 
   _handleStartDatePicked = (date) => {
     this.setState({start_time: date})
+    this.setState({START: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this._hideDateTimePicker();
   };
 
   _handleEndDatePicked = (date) => {
     this.setState({end_time: date})
+    this.setState({END: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this._hideDateTimePicker();
   };
 
@@ -81,7 +85,7 @@ class CreateTrip extends Component {
           />
         </View>
           <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
-            <Text style={styles.buttonText}>Start date & time</Text>
+            <Text style={styles.buttonText}>{this.state.START}</Text>
           </TouchableOpacity>
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
@@ -91,7 +95,7 @@ class CreateTrip extends Component {
           />
 
           <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
-            <Text style={styles.buttonText}>End date & time</Text>
+            <Text style={styles.buttonText}>{this.state.END}</Text>
           </TouchableOpacity>
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
