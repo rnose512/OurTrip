@@ -3,8 +3,6 @@ import { View, Text } from 'react-native';
 
 const EventDetails = (props) => {
 
-
-
 	return (
 		<View style={styles.containerStyle}>
 			<Text>{props.event.title}</Text>

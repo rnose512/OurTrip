@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170911185324) do
     t.string "title"
     t.string "category"
     t.text "description"
-    t.string "start_time"
-    t.string "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "destination_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

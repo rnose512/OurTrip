@@ -15,8 +15,8 @@ class CreateEvent extends Component {
 			description: '',
 			start_time: '',
 			end_time: '',
-      start_date_format: 'Start date',
-      end_date_format: 'End date',
+      start_time_format: 'Start date',
+      end_time_format: 'End date',
       startDateTimePickerVisible: false,
       endDateTimePickerVisible: false,
 			pickerMode: 'datetime'
@@ -48,14 +48,14 @@ class CreateEvent extends Component {
   }
   
   handleStartDatePicked(date) {
-    this.setState({start_date: date})
-    this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
+    this.setState({start_time: date})
+    this.setState({start_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideStartDateTimePicker();
   };
 
   handleEndDatePicked(date) {
-    this.setState({end_date: date})
-    this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
+    this.setState({end_time: date})
+    this.setState({end_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideEndDateTimePicker();
   };
 
@@ -69,6 +69,7 @@ class CreateEvent extends Component {
 			end_time: end_time
 		})
 		.then(function (response) {
+      console.log(self.props.accessToken)
 			Actions.Itinerary({accessToken: self.props.accessToken});
 		})
 		.catch(function (error) {
@@ -116,7 +117,7 @@ class CreateEvent extends Component {
 					/>
 				</View>
         <TouchableOpacity onPress={this.showStartDateTimePicker} style={styles.date}>
-          <Text style={styles.buttontext}>{this.state.start_date_format}</Text>
+          <Text style={styles.buttontext}>{this.state.start_time_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.startDateTimePickerVisible}
@@ -125,7 +126,7 @@ class CreateEvent extends Component {
           mode={this.state.pickerMode}
         />
         <TouchableOpacity onPress={this.showEndDateTimePicker} style={styles.date2}>
-          <Text style={styles.buttontext}>{this.state.end_date_format}</Text>
+          <Text style={styles.buttontext}>{this.state.end_time_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.endDateTimePickerVisible}
