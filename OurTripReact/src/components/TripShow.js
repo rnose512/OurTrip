@@ -24,13 +24,11 @@ class TripShow extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.accessToken)
     axios('http://localhost:3000/trips/1/destinations')
     .then(response => {
       this.setState({ 
         destinations: response.data 
       });
-      console.log(this.state.destinations)
     })
     .catch(error => console.log(error))
 
@@ -39,7 +37,6 @@ class TripShow extends Component {
       this.setState({
         users: response.data[0]
       });
-      console.log(this.state.users[0])
     })
     .catch(error => console.log(error))
 

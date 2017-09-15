@@ -28,7 +28,6 @@ class CreateExpense extends Component {
     .then((jsonData) => {
      self.setState({ attendees: jsonData.attendees })
     })
-    console.log('reached create expense')
   }
 
   createExpense(name, total_amount) {

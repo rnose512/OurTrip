@@ -54,7 +54,6 @@ class CreateTrip extends Component {
       access_token: self.props.accessToken
     })
     .then(function (response) {
-      console.log(response.data.access_token)
       AlertIOS.alert("You have created a trip!");
       Actions.Trips({accessToken: self.props.accessToken});
     })

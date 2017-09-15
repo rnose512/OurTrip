@@ -60,9 +60,6 @@ class CreateEvent extends Component {
   };
 
 	createEvent(title, category, description, start_time, end_time) {
-		console.log(title)
-		console.log(start_time)
-		console.log(end_time)
 		var self = this
 		axios.post('http://localhost:3000/destinations/1/events', {
 			title: title,

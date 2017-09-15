@@ -8,7 +8,6 @@ export default class Trips extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props)
   }
 
   componentWillReceiveProps (props) {
