@@ -71,15 +71,16 @@ class TripShow extends Component {
           <View>
             {this.renderDestinations()}
           </View>
+        </View> 
         <View style={styles.box}>
           <Text style={styles.header}>Attendees:</Text>
           <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" style={styles.buttonStyle} />
-          <View >
+          <View center= {styles.center}>
             {this.renderUsers()}
           </View>
         </View>
-          <Dock style={styles.dock} accessToken={this.props.accessToken}/>
         </ScrollView>
+        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </ImageBackground>
     );
   }
@@ -90,8 +91,6 @@ const styles = {
   container: {
     position: 'absolute',
     backgroundColor:'transparent',
-    justifyContent: 'center',
-    alignItems: 'center',
     top: 0,
     left: 0,
     right: 0,
@@ -120,7 +119,7 @@ const styles = {
   buttonStyle: {
     borderTopWidth: 4,
     borderBottomWidth: 1,
-    alignSelf: 'stretch',
+    width: 130,
     backgroundColor: '#fff',
     borderColor: '#2E4057',
     marginTop: 4,
@@ -129,10 +128,16 @@ const styles = {
   box: {
     margin: 10,
     padding: 10,
-    opacity: .8
+    opacity: .8, 
   },
   whiteText: {
-    color: '#FFF1C9'
+    color: '#FFF1C9',
+    textAlign: 'center'
+  },
+  center:{
+    alignSelf: 'center',
+    alignContent: 'center',
+    justifyContent:'center',
   }
 }
 

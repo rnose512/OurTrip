@@ -95,6 +95,7 @@ class OurTrip extends Component {
         component={Expense}
         title="Expense"
         navigationBarStyle={{backgroundColor: 'transparent'}}
+
       />
       <Scene
         hideNavBar={false}
@@ -113,7 +114,6 @@ class OurTrip extends Component {
         title="Itinerary"
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
-        initial
         />
       <Scene
         hideNavBar={false}
@@ -131,6 +131,7 @@ class OurTrip extends Component {
 const styles = {
   backgroundImage: {
     flex: 1,
+
   },
   container: {
    flexDirection: 'column',
