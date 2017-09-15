@@ -12,7 +12,6 @@ class TripList extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props.accessToken)
     fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
     .then((data) => data.json())
     .then((jsonData) => {

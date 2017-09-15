@@ -15,31 +15,46 @@ class CreateEvent extends Component {
 			end_date: '',
 			start_date_format: 'Start date',
 			end_date_format: 'End date',
-			isDateTimePickerVisible: false,
+      startDateTimePickerVisible: false,
+      endDateTimePickerVisible: false,
 			pickerMode: 'date'
 		}
 		this.createDestination = this.createDestination.bind(this)
 		this.setDestination = this.setDestination.bind(this)
-		this._showDateTimePicker = this._showDateTimePicker.bind(this)
-		this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
-		this._handleStartDatePicked = this._handleStartDatePicked.bind(this)
-		this._handleEndDatePicked = this._handleEndDatePicked.bind(this)
+    this.showStartDateTimePicker = this.showStartDateTimePicker.bind(this)
+    this.showEndDateTimePicker = this.showEndDateTimePicker.bind(this)
+    this.hideStartDateTimePicker = this.hideStartDateTimePicker.bind(this)
+    this.hideEndDateTimePicker = this.hideEndDateTimePicker.bind(this)
+    this.handleStartDatePicked = this.handleStartDatePicked.bind(this)
+    this.handleEndDatePicked = this.handleEndDatePicked.bind(this)
 	}
 
-	_showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+  showStartDateTimePicker(){
+    this.setState({ startDateTimePickerVisible: true });
+  }
 
-  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+  showEndDateTimePicker(){
+    this.setState({ endDateTimePickerVisible: true });
+  }
 
-  _handleStartDatePicked = (date) => {
+  hideStartDateTimePicker(){
+    this.setState({ startDateTimePickerVisible: false });
+  }
+  
+  hideEndDateTimePicker(){
+    this.setState({ endDateTimePickerVisible: false });
+  }
+  
+  handleStartDatePicked(date) {
     this.setState({start_date: date})
     this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
+    this.hideStartDateTimePicker();
   };
 
-  _handleEndDatePicked = (date) => {
+  handleEndDatePicked(date) {
     this.setState({end_date: date})
     this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
+    this.hideEndDateTimePicker();
   };
 
 	createDestination(name, start_date, end_date) {
@@ -76,22 +91,22 @@ class CreateEvent extends Component {
 	          onChangeText={ name => this.setState({name})}
 					/>
 				</View>
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+        <TouchableOpacity onPress={this.showStartDateTimePicker} style={styles.date}>
           <Text style={styles.buttontext}>{this.state.start_date_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleStartDatePicked}
-          onCancel={this._hideDateTimePicker}
+          isVisible={this.state.startDateTimePickerVisible}
+          onConfirm={this.handleStartDatePicked}
+          onCancel={this.hideStartDateTimePicker}
           mode={this.state.pickerMode}
         />
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+        <TouchableOpacity onPress={this.showEndDateTimePicker} style={styles.date2}>
           <Text style={styles.buttontext}>{this.state.end_date_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleEndDatePicked}
-          onCancel={this._hideDateTimePicker}
+          isVisible={this.state.endDateTimePickerVisible}
+          onConfirm={this.handleEndDatePicked}
+          onCancel={this.hideEndDateTimePicker}
           mode={this.state.pickerMode}
         />
 	      <Button style={styles.button} onPress= {this.setDestination}>

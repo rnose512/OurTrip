@@ -5,17 +5,6 @@ import { TabNavigator } from 'react-navigation'
 import FirstScreen from './FirstScreen'
 import SecondScreen from './SecondScreen'
 
-
-// class MainScreenNavigator extends Component {
-// 	render(){
-// 		return (
-// 			<View>
-// 				<FirstScreen />
-// 			</View>
-// 			)
-// 	}
-	
-// }
 	var MainScreenNavigator = TabNavigator({
 	  Tab1: {screen: FirstScreen},
 	  Tab2: {screen: SecondScreen}

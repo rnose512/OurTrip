@@ -30,9 +30,18 @@ class CreateExpense extends Component {
 
   componentWillMount() {
     var self = this
-    axios.get("http://localhost:3000/trips", {
-      params:
-      { access_token: self.props.accessToken }
+    fetch('http://localhost:3000/trips?access_token=' + this.props.accessToken)
+    .then((data) => data.json())
+    .then((jsonData) => {
+     self.setState({ attendees: jsonData.attendees })
+    })
+  }
+
+  createExpense(name, total_amount) {
+    axios.post('http://localhost:3000/trips/5/expenses', {
+      name: name,
+      total_amount: total_amount,
+      accessToken: this.props.accessToken
     })
     .then(function(response) {
       console.log(response)

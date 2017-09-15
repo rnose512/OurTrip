@@ -28,7 +28,6 @@ class OurTrip extends Component {
 
   updateAccessToken(token) {
     this.setState({accessToken: token});
-    console.log(this.state.accessToken)
   }
 
 	render() {
@@ -113,7 +112,6 @@ class OurTrip extends Component {
         title="Itinerary"
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
-        initial
         />
       <Scene
         hideNavBar={false}

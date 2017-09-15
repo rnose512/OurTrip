@@ -8,7 +8,6 @@ import axios from 'axios';
 class Expense extends Component {
   constructor(props){
     super(props);
-    console.log(props)
     this.state = {
       trips: [],
       expenses: '',
@@ -23,7 +22,6 @@ class Expense extends Component {
       {access_token: self.props.accessToken}
     })
     .then(function(response) {
-      console.log(response)
       self.setState({expenses: response.data.expenses})
       self.setState({trips: response.data.trips})
       self.setState({user_expenses: response.data.user_expenses})

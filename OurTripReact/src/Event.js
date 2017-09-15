@@ -3,6 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import EventDetail from './EventDetails'
 
 class Event extends Component {
+	constructor(props){
+		super(props)
+	}
+	
 	renderEvents() {
 		return this.props.events.map(event =>
 			<EventDetail key={event.title} event={event} />

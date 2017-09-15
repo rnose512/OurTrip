@@ -3,6 +3,9 @@ import { View, Text, StyleSheet } from 'react-native'
 import Event from './Event'
 
 class Calendar extends Component {
+	constructor(props){
+		super(props)
+	}
 
 	render(){
 		return (
