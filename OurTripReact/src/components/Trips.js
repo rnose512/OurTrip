@@ -19,7 +19,7 @@ export default class Trips extends Component {
 
   render(){
     return (
-      <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
+      <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
         <ScrollView style={styles.trips}>
           <TripList accessToken={this.props.accessToken}/>
         </ScrollView>

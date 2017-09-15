@@ -27,18 +27,16 @@ render(){
 const styles = {
   textStyle: {
     alignSelf: 'center',
-    color: '#2E4057',
+    color: 'black',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
   },
   buttonStyle: {
-    borderTopWidth: 4,
-    borderBottomWidth: 1,
+    opacity: .7,
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderColor: '#2E4057',
+    backgroundColor: 'beige',
     marginTop: 4,
     marginBottom: 4
   }
