@@ -103,6 +103,7 @@ class OurTrip extends Component {
         component={CreateExpense}
         title="Add New Expense"
         navigationBarStyle={{backgroundColor: 'transparent'}}
+        titleStyle={{color:'white'}}
       />
       <Scene
         hideNavBar={false}

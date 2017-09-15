@@ -41,7 +41,7 @@ class Expense extends Component {
   render(){
     return (
    
-     <ImageBackground source={require('../images/expense.jpg')} style={styles.image}>
+     <ImageBackground source={require('../images/expense2.jpg')} style={styles.image}>
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.header}>What You Owe</Text>
