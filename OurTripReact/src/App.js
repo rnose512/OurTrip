@@ -48,6 +48,8 @@ class OurTrip extends Component {
         key="register"
         component={Register}
         title="Register"
+        titleStyle={{color:'white'}}
+        navigationBarStyle={{backgroundColor: 'transparent'}}
       />
 
       <Scene

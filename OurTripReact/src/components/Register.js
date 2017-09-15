@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Alert, AlertIOS } from 'react-native';
+import { StyleSheet, Alert, AlertIOS, ImageBackground } from 'react-native';
 import { Container, Title, Item, Input, Content, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
+import { FormLabel, FormInput } from 'react-native-elements';
 
 export default class Register extends Component {
 
@@ -46,43 +47,41 @@ export default class Register extends Component {
 
   render() {
   return (
+    <ImageBackground source={require('../images/login-background.jpg')} style={styles.image}>
     <Container style={styles.container}>
-      <Item>
-        <Input
+        <FormInput
+            inputStyle= {styles.color}
             placeholder="first name"
-            placeholderTextColor='#949799'
+            placeholderTextColor='white'
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={ first_name => this.setState({first_name})}
           />
-      </Item>
 
-      <Item>
-        <Input
+        <FormInput
+            inputStyle= {styles.color}
             placeholder="last name"
-            placeholderTextColor='#949799'
+            placeholderTextColor='white'
             returnKeyType="next"
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={(last_name) => this.setState({last_name})}
           />
-      </Item>
-      <Item>
-        <Input
+        <FormInput
+            inputStyle = {styles.color}
             placeholder="email"
-            placeholderTextColor='#949799'
+            placeholderTextColor='white'
             returnKeyType="next"
             keyboardType="email-address"
             autoCapitalize="none"
             autoCorrect={false}
             onChangeText={(email) => this.setState({email})}
           />
-      </Item>
-      <Item>
-        <Input
+        <FormInput
+          inputStyle = {styles.color}
           placeholder="password"
-          placeholderTextColor='#949799'
+          placeholderTextColor='white'
           returnKeyType="next"
           keyboardType="default"
           secureTextEntry
@@ -90,73 +89,81 @@ export default class Register extends Component {
           autoCorrect={false}
           onChangeText={(password) => this.setState({password})}
         />
-      </Item>
-      <Item>
-        <Input
+        <FormInput
+          inputStyle = {styles.color}
           placeholder="phone number"
-          placeholderTextColor='#949799'
+          placeholderTextColor='white'
           returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(phone_number) => this.setState({phone_number})}
         />
-      </Item>
-      <Item>
-        <Input
+
+        <FormInput
+          inputStyle = {styles.color}
           placeholder="Emergency contact"
-          placeholderTextColor='#949799'
+          placeholderTextColor='white'
           returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(emergency_contact) => this.setState({emergency_contact})}
         />
-      </Item>
-      <Item>
-        <Input
+        <FormInput
+          inputStyle = {styles.color}
           placeholder="Emergency contact phone number"
-          placeholderTextColor='#949799'
+          placeholderTextColor='white'
           returnKeyType="next"
           keyboardType="default"
           autoCapitalize="none"
           autoCorrect={false}
           onChangeText={(emergency_contact_phone_number) => this.setState({emergency_contact_phone_number})}
         />
-      </Item>
-       <Button style={styles.hasmargin} onPress= {this.registerUser}>
+       <Button style={styles.button} onPress= {this.registerUser}>
          <Text style={styles.buttontext}>REGISTER</Text>
         </Button>
     </Container>
+    </ImageBackground>
   );
 }
 }
-
 const styles = StyleSheet.create({
+  image: {
+    position: 'absolute',
+    backgroundColor:'transparent',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
   container: {
+   marginTop: 10,
+   flex: 1,
+   justifyContent: 'center',
+   bottom: 0,
+  },
+  trips: {
+    flex: 4,
+  },
+  dock: {
     flex: 1,
+  },
+  button: {
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  input: {
-    backgroundColor: '#fff',
-    height: 40,
-    width:200,
-    padding: 3,
-    margin: 10
-  },
-  hasmargin: {
-    marginLeft: 35,
+    flexDirection: 'row',
+    backgroundColor: "#D3D3D3",
+    width: 350,
+    paddingTop: 10,
+    alignSelf: 'center',
+    marginLeft: 30,
     marginRight: 30,
     marginTop: 30,
-    backgroundColor: '#68B0AB',
-    width: 300,
-    alignItems: 'center',
-    justifyContent: 'center'
+    marginBottom: 40,
+    borderColor: 'white',
+    opacity: .8
   },
-  buttontext: {
-    color: '#000000'
+  color:{
+    color: 'white',
   }
-
-});
+})
