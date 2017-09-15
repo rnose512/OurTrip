@@ -37,11 +37,7 @@ class TripList extends Component {
 const styles = StyleSheet.create({
   container: {
    flex: 1,
-
    bottom: 0,
-  },
-  trips: {
-    flex: 4,
   }
 })
 export default TripList;

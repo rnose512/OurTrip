@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, AlertIOS } from 'react-native';
+import { View, Text, StyleSheet, AlertIOS, ImageBackground } from 'react-native';
 import { Container, Item, Input, Button } from 'native-base';
 import { Card, CardSection } from './common';
 import { FormLabel, FormInput } from 'react-native-elements';
@@ -154,50 +154,70 @@ class CreateExpense extends Component {
 
   render() {
    return (
+    <ImageBackground source={require('../images/expense2.jpg')} style={styles.image}>
     <Container style={styles.container}>
-      <FormLabel>Name</FormLabel>
+      <FormLabel labelStyle = {styles.color}>Name</FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="expense name"
+          placeholderTextColor="#D3D3D3"
           onChangeText={name => this.setState({ name })}/>
-      <FormLabel>How much was it?</FormLabel>
+      <FormLabel labelStyle = {styles.color}>How much was it?</FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="expense amount"
+          placeholderTextColor="#D3D3D3"
           onChangeText={total_amount => this.setState({ total_amount })}/>
-
-      <FormLabel>Rio: </FormLabel>
+      <FormLabel labelStyle = {styles.color}>Rio: </FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="$0"
+          placeholderTextColor="#D3D3D3"
           onChangeText={value => this.setState({ rio: {value: parseInt(value)} })}/>
-
-      <FormLabel>Hawken: </FormLabel>
+      <FormLabel labelStyle = {styles.color}>Hawken: </FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="$0"
+          placeholderTextColor="#D3D3D3"
           onChangeText={value => this.setState({ hawken: {value: parseInt(value)} })}/>
-
-      <FormLabel>Hannie: </FormLabel>
+      <FormLabel labelStyle = {styles.color}>Hannie: </FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="$0"
+          placeholderTextColor="#D3D3D3"
           onChangeText={value => this.setState({ hannie: {value: parseInt(value)} })}/>
-
-      <FormLabel>Peter: </FormLabel>
+      <FormLabel labelStyle = {styles.color}>Peter: </FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="$0"
+          placeholderTextColor="#D3D3D3"
           onChangeText={value => this.setState({ peter: {value: parseInt(value)} })}/>
-
-      <FormLabel>Ashley: </FormLabel>
+      <FormLabel labelStyle = {styles.color}>Ashley: </FormLabel>
         <FormInput
+          inputStyle = {styles.color}
           placeholder="$0"
+          placeholderTextColor="#D3D3D3"
           onChangeText={value => this.setState({ ashley: {value: parseInt(value)} })}/>
       <Button style={styles.button} onPress= {this.callCreateExpense}>
         <Text style={styles.buttontext}>Add Expense</Text>
       </Button>
     </Container>
+    </ImageBackground>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  image: {
+    position: 'absolute',
+    backgroundColor:'transparent',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
   container: {
+   marginTop: 60,
    flex: 1,
    justifyContent: 'center',
    bottom: 0,
@@ -212,15 +232,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: '#BDBDBD',
+    backgroundColor: "#D3D3D3",
     width: 350,
-    paddingTop: 15,
+    paddingTop: 10,
     alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
-    marginTop: 20,
-    marginBottom: 30,
-    borderColor: 'white'
+    marginTop: 30,
+    marginBottom: 40,
+    borderColor: 'white',
+    opacity: .8
+  },
+  color:{
+    color: 'white',
   }
 })
 

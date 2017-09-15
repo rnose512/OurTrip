@@ -86,8 +86,8 @@ class CreateTrip extends Component {
 
   render() {
   return (
-    <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
-      <View>
+    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+      <View style= {styles.box} >
         <View style={styles.form}>
           <Input style={styles.textForm}
             placeholder='Trip Name'
@@ -98,29 +98,30 @@ class CreateTrip extends Component {
             onChangeText={ name => this.setState({name})}
           />
         </View>
-
-        <TouchableOpacity onPress={this.showStartDateTimePicker} style={styles.date}>
-          <Text style={styles.buttonText}>{this.state.start_date_format}</Text>
-        </TouchableOpacity>
-        <DateTimePicker
-          isVisible={this.state.startDateTimePickerVisible}
-          onConfirm={this.handleStartDatePicked}
-          onCancel={this.hideStartDateTimePicker}
-          mode={this.state.pickerMode}
-        />
-
-        <TouchableOpacity onPress={this.showEndDateTimePicker} style={styles.date2}>
-          <Text style={styles.buttonText}>{this.state.end_date_format}</Text>
-        </TouchableOpacity>
-        <DateTimePicker
-          isVisible={this.state.endDateTimePickerVisible}
-          onConfirm={this.handleEndDatePicked}
-          onCancel={this.hideEndDateTimePicker}
-          mode={this.state.pickerMode}
-        />
-
+        <View style={styles.form}>
+          <TouchableOpacity onPress={this.showStartDateTimePicker} style={styles.date}>
+            <Text style={styles.buttonText}>{this.state.start_date_format}</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.startDateTimePickerVisible}
+            onConfirm={this.handleStartDatePicked}
+            onCancel={this.hideStartDateTimePicker}
+            mode={this.state.pickerMode}
+          />
+        </View>
+        <View style={styles.form}>
+          <TouchableOpacity onPress={this.showEndDateTimePicker} style={styles.date2}>
+            <Text style={styles.buttonText}>{this.state.end_date_format}</Text>
+          </TouchableOpacity>
+          <DateTimePicker
+            isVisible={this.state.endDateTimePickerVisible}
+            onConfirm={this.handleEndDatePicked}
+            onCancel={this.hideEndDateTimePicker}
+            mode={this.state.pickerMode}
+          />
+        </View>
         <Button style={styles.button} onPress= {this.postTrip}>
-          <Text style={styles.buttonText}>Create Trip</Text>
+          <Text style={styles.text}>Create Trip</Text>
         </Button>
 
       </View>
@@ -140,6 +141,9 @@ const styles = {
     right: 0,
     bottom: 0,
   },
+  box: {
+    marginTop: 60,
+  },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
@@ -147,67 +151,46 @@ const styles = {
   },
   textView: {
     justifyContent: 'center',
-    marginTop: 100,
+    marginTop: 10,
     backgroundColor: 'transparent'
   },
   textForm: {
     textAlign: 'center',
-    color: 'black'
-  },
-  text: {
-    textAlign: 'center',
-    color: 'white',
   },
   form: {
-    flex: 2,
+    flex: .15,
+    width: 270,
     justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 100,
-    backgroundColor: 'beige',
-    opacity: .5,
-  },
-  date: {
-    flex: 4,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    backgroundColor: 'beige',
-    opacity: .5
-  },
-  date2: {
-    flex: 4,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    marginBottom: 30,
-    backgroundColor: 'beige',
-    opacity: .5
-  },
-  button: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: '#BDBDBD',
-    width: 350,
-    paddingTop: 15,
-    alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 10,
-    marginBottom: 30,
-    borderColor: 'white'
+    backgroundColor: 'white',
+    opacity: .6,
+    alignSelf: 'center',
   },
-  buttonText: {
+  button: {
+    flex: .1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    width: 180,
+    paddingTop: 10,
+    alignSelf: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 50,
+    marginBottom: 20,
+    borderColor: 'white',
+    opacity: .8,
+  },
+  text:{
     color: 'black',
-    fontSize: 15,
-    textAlign: 'center',
+    alignSelf: 'center',
+    margin: 20,
   },
   dock: {
     flex: 1,
   }
-};
+}
 
 export default CreateTrip;

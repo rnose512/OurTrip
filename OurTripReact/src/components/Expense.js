@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { ScrollView, Text, StyleSheet, View, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { Card } from 'native-base'
 import Dock from './common/Dock';
 import CreateExpense from './CreateExpense';
 import axios from 'axios';
@@ -37,27 +38,64 @@ class Expense extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
-        <Text style={styles.expense}>What you owe: {this.state.user_expenses}</Text>
-        <Text style={styles.expense}>What you are owed: {this.state.expenses}</Text>
-        <Text>Net Total: {this.state.net}</Text>
-        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
-      </View>
+   
+     <ImageBackground source={require('../images/expense2.jpg')} style={styles.image}>
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.header}>What You Owe</Text>
+          <Card style = {styles.card}>
+            <Text style={styles.expense}>{this.state.user_expenses}</Text>
+          </Card>
+            <Text style={styles.header}>What You Are Owed</Text>
+          <Card style = {styles.card}>
+            <Text style={styles.expense}> {this.state.expenses}</Text>
+          </Card>
+            <Text style={styles.header}>Net Total</Text>
+          <Card style = {styles.card}>
+            <Text style={styles.expense}> {this.state.net}</Text>
+          </Card>
+        </View>
+      </ScrollView>
+      <Dock style={styles.dock} accessToken={this.props.accessToken}/>
+    </ImageBackground>
+
+
     );
   }
 }
 
 const styles = {
+  image: {
+    position: 'absolute',
+    backgroundColor:'transparent',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
   container: {
-   flex: 1,
-   justifyContent: 'center',
-   bottom: 0,
+    margin: 50,
+    padding: 10,
+    opacity: .8
+  },
+  header: {
+    fontSize: 16,
+    paddingTop: 20,
+    paddingBottom: 20,
+    alignSelf: 'center',
+    color: 'white',
   },
   expense: {
-    flex: 4,
+    padding: 10,
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  card: {
+    opacity: .6,
   },
   dock: {
-    flex: 1,
+    position: 'absolute',
+    bottom: 0
   }
 };
 

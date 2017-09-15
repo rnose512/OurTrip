@@ -93,7 +93,9 @@ class OurTrip extends Component {
         key='Expense'
         component={Expense}
         title="Expense"
+        titleStyle={{color:'white'}}
         navigationBarStyle={{backgroundColor: 'transparent'}}
+
       />
       <Scene
         hideNavBar={false}
@@ -101,6 +103,7 @@ class OurTrip extends Component {
         component={CreateExpense}
         title="Add New Expense"
         navigationBarStyle={{backgroundColor: 'transparent'}}
+        titleStyle={{color:'white'}}
       />
       <Scene
         hideNavBar={false}
@@ -110,6 +113,7 @@ class OurTrip extends Component {
         key='Itinerary'
         component={Itinerary}
         title="Itinerary"
+        titleStyle={{color:'white'}}
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
         />
@@ -118,6 +122,7 @@ class OurTrip extends Component {
         key='CreateEvent'
         component={CreateEvent}
         title="Create New Event"
+        titleStyle={{color:'white'}}
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />
     </Router>
@@ -129,6 +134,7 @@ class OurTrip extends Component {
 const styles = {
   backgroundImage: {
     flex: 1,
+
   },
   container: {
    flexDirection: 'column',
