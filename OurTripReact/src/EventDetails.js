@@ -4,8 +4,6 @@ import { Card } from 'native-base'
 
 const EventDetails = (props) => {
 
-
-
 	return (
 		<View style>
 			<Text style= {styles.header}>{props.event.title}</Text>

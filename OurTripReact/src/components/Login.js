@@ -20,7 +20,6 @@ const {
 class Login extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
 
     this.state = {
       email: '',
@@ -39,7 +38,6 @@ class Login extends Component {
         alert("Unable to sign in, Sign In Cancelled by user");
       } else {
         alert("Login success with permissions;" + result.grantedPermissions.toString())
-        console.log(this.props.accessToken)
         Actions.Trips({accessToken: this.props.accessToken});
       }
     })
@@ -62,8 +60,6 @@ class Login extends Component {
         .catch(function(response) {
           console.log(error)
         })
-
-      console.log(this.props.accessToken)
   }
 
   loginUser() {

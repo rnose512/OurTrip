@@ -13,8 +13,15 @@ class Itinerary extends Component {
   }
 
 	componentWillMount() {
+    var self = this
 		axios.get('http://localhost:3000/destinations/1/events')
-			.then(response => this.setState({ events: response.data.events }))
+		.then(response => {
+      console.log(response.data)
+      self.setState({ 
+        events: response.data.event_info
+      })
+    })
+    .catch(error => console.log(error))
 	}
 
 	render(){
