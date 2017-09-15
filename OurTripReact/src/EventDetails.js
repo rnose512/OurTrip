@@ -12,7 +12,7 @@ const EventDetails = (props) => {
 		<Card style= {styles.box}>
 			<Text style = {styles.description}>{props.event.description}</Text>
 			<Text style= {styles.time}>{props.event.start_time}</Text>
-			<Text >{props.event.end_time}</Text>
+			<Text style= {styles.time}>{props.event.end_time}</Text>
 		</Card>
 		</View>
 	)
@@ -20,6 +20,7 @@ const EventDetails = (props) => {
 
 const styles = {
 	box:{
+		backgroundColor: 'beige',
 		marginRight: 10,
 		marginLeft: 10,
 		borderWidth: 1,
@@ -35,15 +36,13 @@ const styles = {
 		padding: 3
 	},
 	header: {
-    fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
     paddingTop: 5,
     paddingBottom: 5,
     alignSelf: 'center',
     color: 'white',
 	},
 	description:{
-		fontWeight: 'bold',
 		padding: 3,
 	},
 	time:{

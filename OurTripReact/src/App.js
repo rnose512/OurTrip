@@ -117,13 +117,13 @@ class OurTrip extends Component {
         titleStyle={{color:'white'}}
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
-        initial
         />
       <Scene
         hideNavBar={false}
         key='CreateEvent'
         component={CreateEvent}
         title="Create New Event"
+        titleStyle={{color:'white'}}
         navigationBarStyle={{backgroundColor: 'transparent'}}
       />
     </Router>

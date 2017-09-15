@@ -24,8 +24,8 @@ class Itinerary extends Component {
           <View style={styles.box}>
     				<Calendar style={styles.itinerary} events={this.state.events} />
           </View>
-  				<Dock style={styles.dock} accessToken={this.props.accessToken}/>
         </ScrollView>
+        <Dock style={styles.dock} accessToken={this.props.accessToken}/>
       </ImageBackground>
 		)
 	}

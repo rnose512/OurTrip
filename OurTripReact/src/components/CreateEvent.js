@@ -77,11 +77,11 @@ class CreateEvent extends Component {
     {console.log(this.props.accessToken)}
    return (
     <ImageBackground source={require('../images/tripshow.jpeg')} style={styles.container}>
-      <View>
-        <View style={styles.titleform}>
+      <View style= {styles.box}>
+        <View style={styles.form}>
 					<Input style={styles.textForm}
 						placeholder="title"
-						placeholderTextColor='#949799'
+						placeholderTextColor='black'
 	          returnKeyType="next"
 	          autoCapitalize="none"
 	          autoCorrect={false}
@@ -91,7 +91,7 @@ class CreateEvent extends Component {
 				<View style={styles.form}>
 					<Input style={styles.textForm}
 						placeholder="category"
-						placeholderTextColor='#949799'
+						placeholderTextColor='black'
 	          returnKeyType="next"
 	          autoCapitalize="none"
 	          autoCorrect={false}
@@ -101,15 +101,15 @@ class CreateEvent extends Component {
 				<View style={styles.form}>
 					<Input style={styles.textForm}
 						placeholder="description"
-						placeholderTextColor='#949799'
+						placeholderTextColor='black'
 	          returnKeyType="next"
 	          autoCapitalize="none"
 	          autoCorrect={false}
 	          onChangeText={ description => this.setState({description})}
 					/>
 				</View>
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
-          <Text style={styles.buttontext}>{this.state.start_time_format}</Text>
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+          <Text style={styles.textForm}>{this.state.start_time_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
@@ -117,8 +117,8 @@ class CreateEvent extends Component {
           onCancel={this._hideDateTimePicker}
           mode={this.state.pickerMode}
         />
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
-          <Text style={styles.buttonText}>{this.state.end_time_format}</Text>
+        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.form}>
+          <Text style={styles.textForm}>{this.state.end_time_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
@@ -127,7 +127,7 @@ class CreateEvent extends Component {
           mode={this.state.pickerMode}
         />
 	      <Button style={styles.button} onPress= {this.setEvent}>
-		      <Text style={styles.buttontext}>Save Event</Text>
+		      <Text style={styles.buttonText}>Save Event</Text>
 	      </Button>
 			</View>
 		</ImageBackground>
@@ -146,6 +146,9 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
+  box: {
+    marginTop: 60,
+  },
   errorTextStyle: {
     fontSize: 20,
     alignSelf: 'center',
@@ -153,72 +156,39 @@ const styles = StyleSheet.create({
   },
   textView: {
     justifyContent: 'center',
-    marginTop: 100,
+    marginTop: 10,
     backgroundColor: 'transparent'
   },
   textForm: {
     textAlign: 'center',
-    color: 'black'
-  },
-  text: {
-    textAlign: 'center',
-    color: 'white',
-  },
-  titleform:{
-    flex: .8,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 65,
-    backgroundColor: 'beige',
-    opacity: .8,
   },
   form: {
-    flex: .8,
+    flex: .15,
+    width: 270,
     justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    backgroundColor: 'beige',
-    opacity: .8,
-  },
-  date: {
-    flex: .5,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    backgroundColor: 'beige',
-    opacity: .5
-  },
-  date2: {
-    flex: .5,
-    justifyContent: 'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
-    marginBottom: 20,
-    backgroundColor: 'beige',
-    opacity: .5
-  },
-  button: {
-    flex: .3,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    backgroundColor: '#BDBDBD',
-    width: 350,
-    paddingTop: 15,
-    alignSelf: 'center',
     marginLeft: 30,
     marginRight: 30,
     marginTop: 10,
-    marginBottom: 20,
-    borderColor: 'white'
+    backgroundColor: 'beige',
+    opacity: .6,
   },
-  buttontext: {
+  button: {
+    flex: .1,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'beige',
+    width: 150,
+    paddingTop: 10,
+    alignSelf: 'center',
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 50,
+    marginBottom: 20,
+    borderColor: 'white',
+    opacity: .8,
+  },
+  buttonText:{
     color: 'black',
-    fontSize: 15,
-    textAlign: 'center',
   },
   dock: {
     flex: 1,

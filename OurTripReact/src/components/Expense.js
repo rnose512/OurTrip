@@ -81,8 +81,7 @@ const styles = {
     opacity: .8
   },
   header: {
-    fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
     paddingTop: 20,
     paddingBottom: 20,
     alignSelf: 'center',
@@ -90,8 +89,7 @@ const styles = {
   },
   expense: {
     padding: 10,
-    fontSize: 12,
-    fontWeight: 'bold',
+    fontSize: 14,
     textAlign: 'center',
   },
   card: {
