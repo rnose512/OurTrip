@@ -34,14 +34,12 @@ class CreateTrip extends Component {
   }
 
   handleStartDatePicked(date) {
-    console.log("start date")
     this.setState({start_time: date})
     this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideStartDateTimePicker();
   };
 
   handleEndDatePicked(date) {
-    console.log("end date")
     this.setState({end_time: date})
     this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideEndDateTimePicker();
@@ -91,7 +89,6 @@ class CreateTrip extends Component {
   return (
     <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
       <View>
-
         <View style={styles.form}>
           <Input style={styles.textForm}
             placeholder='Trip Name'
@@ -109,7 +106,7 @@ class CreateTrip extends Component {
         <DateTimePicker
           isVisible={this.state.startDateTimePickerVisible}
           onConfirm={this.handleStartDatePicked}
-          onCancel={this._hideDateTimePicker}
+          onCancel={this.hideStartDateTimePicker}
           mode={this.state.pickerMode}
         />
 
@@ -119,7 +116,7 @@ class CreateTrip extends Component {
         <DateTimePicker
           isVisible={this.state.endDateTimePickerVisible}
           onConfirm={this.handleEndDatePicked}
-          onCancel={this._hideDateTimePicker}
+          onCancel={this.hideEndDateTimePicker}
           mode={this.state.pickerMode}
         />
 
