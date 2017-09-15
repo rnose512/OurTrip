@@ -82,7 +82,7 @@ const styles = {
   },
   header: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 14,
     paddingTop: 20,
     paddingBottom: 20,
     alignSelf: 'center',
@@ -90,7 +90,7 @@ const styles = {
   },
   expense: {
     padding: 10,
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
   },

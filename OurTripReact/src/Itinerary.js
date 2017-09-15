@@ -19,7 +19,7 @@ class Itinerary extends Component {
 
 	render(){
 		return (
-      <ImageBackground source={require('./images/tripshow.jpeg')} style={styles.container}>
+      <ImageBackground source={require('./images/tripshow.jpeg')} style={styles.image}>
         <ScrollView style={styles.trips}>
           <View style={styles.box}>
     				<Calendar style={styles.itinerary} events={this.state.events} />
@@ -32,13 +32,16 @@ class Itinerary extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   justifyContent: 'center',
-   bottom: 0,
+  image: {
+    position: 'absolute',
+    backgroundColor:'transparent',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   box: {
-    opacity: .8,
+    marginTop: 60,
   },
   dock: {
     flex: 1,

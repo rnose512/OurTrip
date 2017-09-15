@@ -76,7 +76,7 @@ class CreateEvent extends Component {
   render() {
     {console.log(this.props.accessToken)}
    return (
-    <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
+    <ImageBackground source={require('../images/tripshow.jpeg')} style={styles.container}>
       <View>
         <View style={styles.titleform}>
 					<Input style={styles.textForm}

@@ -94,6 +94,7 @@ class OurTrip extends Component {
         key='Expense'
         component={Expense}
         title="Expense"
+        titleStyle={{color:'white'}}
         navigationBarStyle={{backgroundColor: 'transparent'}}
 
       />
@@ -113,8 +114,10 @@ class OurTrip extends Component {
         key='Itinerary'
         component={Itinerary}
         title="Itinerary"
+        titleStyle={{color:'white'}}
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
+        initial
         />
       <Scene
         hideNavBar={false}

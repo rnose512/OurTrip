@@ -6,7 +6,7 @@ class Calendar extends Component {
 
 	render(){
 		return (
-			<View style={styles.container}>
+			<View style >
 					<Event style={styles.event} events={this.props.events} />
 			</View>
 		)
@@ -14,12 +14,6 @@ class Calendar extends Component {
 }
 
 const styles = StyleSheet.create({
-	container: {
-   flex: 1,
-   width: 400,
-	 height: 40,
-
-  },
   event: {
     flex: 2,
 		alignItems: 'center',
