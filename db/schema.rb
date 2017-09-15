@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20170911185324) do
   create_table "user_expenses", force: :cascade do |t|
     t.integer "user_id"
     t.integer "expense_id"
-    t.float "amount"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
