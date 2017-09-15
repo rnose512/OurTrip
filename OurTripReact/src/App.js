@@ -113,7 +113,6 @@ class OurTrip extends Component {
         title="Itinerary"
         accessToken={this.state.accessToken}
         updateAccessToken={this.updateAccessToken}
-        initial
         />
       <Scene 
         hideNavBar={false} 

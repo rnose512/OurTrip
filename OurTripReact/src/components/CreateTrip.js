@@ -18,18 +18,34 @@ class CreateTrip extends Component {
       start_date_format: 'Start date',
       end_date_format: 'End date',
       creator_id: null,
-      isDateTimePickerVisible: false,
+      startDateTimePickerVisible: false,
+      endDateTimePickerVisible: false,
       pickerMode: 'datetime'
     }
 
     this.newTrip = this.newTrip.bind(this)
     this.postTrip = this.postTrip.bind(this)
-    this._showDateTimePicker = this._showDateTimePicker.bind(this)
-    this._hideDateTimePicker = this._hideDateTimePicker.bind(this)
-    this._handleStartDatePicked = this._handleStartDatePicked.bind(this)
-    this._handleEndDatePicked = this._handleEndDatePicked.bind(this)
+    this.showStartDateTimePicker = this.showStartDateTimePicker.bind(this)
+    this.showEndDateTimePicker = this.showEndDateTimePicker.bind(this)
+    this.hideStartDateTimePicker = this.hideStartDateTimePicker.bind(this)
+    this.hideEndDateTimePicker = this.hideEndDateTimePicker.bind(this)
+    this.handleStartDatePicked = this.handleStartDatePicked.bind(this)
+    this.handleEndDatePicked = this.handleEndDatePicked.bind(this)
   }
 
+  handleStartDatePicked(date) {
+    console.log("start date")
+    this.setState({start_time: date})
+    this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
+    this.hideStartDateTimePicker();
+  };
+
+  handleEndDatePicked(date) {
+    console.log("end date")
+    this.setState({end_time: date})
+    this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
+    this.hideEndDateTimePicker();
+  };
 
   newTrip(name, start_date, end_date) {
     var self = this
@@ -50,22 +66,23 @@ class CreateTrip extends Component {
     });
   }
 
-  _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
+  showStartDateTimePicker(){
+    this.setState({ startDateTimePickerVisible: true });
+  }
 
-  _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
+  showEndDateTimePicker(){
+    this.setState({ endDateTimePickerVisible: true });
+  }
 
-  _handleStartDatePicked = (date) => {
-    this.setState({start_time: date})
-    this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
-  };
+  hideStartDateTimePicker(){
+    this.setState({ startDateTimePickerVisible: false });
+  }
+  
+  hideEndDateTimePicker(){
+    this.setState({ endDateTimePickerVisible: false });
+  }
 
-  _handleEndDatePicked = (date) => {
-    this.setState({end_time: date})
-    this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
-    this._hideDateTimePicker();
-  };
-
+  
   postTrip(){
     this.newTrip(this.state.name, this.state.start_date, this.state.end_date)
   }
@@ -74,6 +91,7 @@ class CreateTrip extends Component {
   return (
     <ImageBackground source={require('../images/trips-background.jpg')} style={styles.container}>
       <View>
+
         <View style={styles.form}>
           <Input style={styles.textForm}
             placeholder='Trip Name'
@@ -84,28 +102,31 @@ class CreateTrip extends Component {
             onChangeText={ name => this.setState({name})}
           />
         </View>
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date}>
+
+        <TouchableOpacity onPress={this.showStartDateTimePicker} style={styles.date}>
           <Text style={styles.buttonText}>{this.state.start_date_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleStartDatePicked}
+          isVisible={this.state.startDateTimePickerVisible}
+          onConfirm={this.handleStartDatePicked}
           onCancel={this._hideDateTimePicker}
           mode={this.state.pickerMode}
         />
 
-        <TouchableOpacity onPress={this._showDateTimePicker} style={styles.date2}>
+        <TouchableOpacity onPress={this.showEndDateTimePicker} style={styles.date2}>
           <Text style={styles.buttonText}>{this.state.end_date_format}</Text>
         </TouchableOpacity>
         <DateTimePicker
-          isVisible={this.state.isDateTimePickerVisible}
-          onConfirm={this._handleEndDatePicked}
+          isVisible={this.state.endDateTimePickerVisible}
+          onConfirm={this.handleEndDatePicked}
           onCancel={this._hideDateTimePicker}
           mode={this.state.pickerMode}
         />
+
         <Button style={styles.button} onPress= {this.postTrip}>
           <Text style={styles.buttonText}>Create Trip</Text>
         </Button>
+
       </View>
     </ImageBackground>
     )
