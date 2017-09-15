@@ -26,8 +26,8 @@ class TripShow extends Component {
   componentWillMount() {
     axios('http://localhost:3000/trips/1/destinations')
     .then(response => {
-      this.setState({ 
-        destinations: response.data 
+      this.setState({
+        destinations: response.data
       });
     })
     .catch(error => console.log(error))
@@ -68,7 +68,6 @@ class TripShow extends Component {
           <View>
             {this.renderDestinations()}
           </View>
-        </View>
         <View style={styles.box}>
           <Text style={styles.header}>Attendees:</Text>
           <Button onPress={Actions.CreateAttendeeList} buttonTitle="Add Attendees" style={styles.buttonStyle} />
@@ -126,7 +125,7 @@ const styles = {
   },
   box: {
     margin: 10,
-    padding: 10, 
+    padding: 10,
     opacity: .8
   },
   whiteText: {
