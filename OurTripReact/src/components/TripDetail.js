@@ -29,16 +29,16 @@ const styles = {
     alignSelf: 'center',
     color: 'black',
     fontSize: 16,
-    fontWeight: '600',
     paddingTop: 10,
     paddingBottom: 10,
   },
   buttonStyle: {
     opacity: .7,
-    alignSelf: 'stretch',
-    backgroundColor: 'beige',
+    backgroundColor: 'white',
     marginTop: 4,
-    marginBottom: 4
+    marginBottom: 4,
+    width: 300,
+    justifyContent: 'center',
   }
 };
 
