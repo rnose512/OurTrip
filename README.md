@@ -5,12 +5,11 @@
 -----------------------------------------------
 
 * [Description](#description)
-* [Product Vision](#productvision)
 * [User Stories](#userstories)
 * [Schema Design](#schemadesign)
 * [Tech Stack](#techstack)
 * [Gameplan](#gameplan)
-* [Workflows](#workflows)
+* [Screenshots](#screenshots)
 
 <a name="description" />
 
@@ -18,13 +17,7 @@
 
 -----------------------------------------------
 
-_Description goes here_
-
-<a name="productvision" />
-
-### product vision: 
-
------------------------------------------------
+A mobile app built on React Native and Ruby on Rails that allows you to collaboratively plan trips with your friends. 
 
 <a name="userstories" />
 
@@ -80,15 +73,18 @@ _Description goes here_
 2. 2:00 PM
 3. 6:00 PM
 
-<a name="workflows" />
+<a name="screenshots" />
 
-### Workflows: 
-
+### SCREENSHOTS: 
 -----------------------------------------------
-
-[Link to our Trello](https://trello.com/b/iHupfS1z/ourtrip)
-
-*Our app QR code*:
+![homepage](/tripnout1.png "homepage")
+![trip page](/tripnout2.png "trip page")
+![trip form](/tripnout3.png "trip form")
+![trip details](/tripnout4.png "trip details")
+![itinerary](/tripnout5.png "itinerary")
+![event form](/tripnout6.png "itinerary")
+![expense page](/tripnout7.png "expense page")
+![expense form](/tripnout8.png "expense form")
 
 ### Contributors: 
 
