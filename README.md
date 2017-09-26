@@ -50,13 +50,11 @@ A mobile app built on React Native and Ruby on Rails that allows you to collabor
 -----------------------------------------------
 
 - Ruby on Rails
-- Postgres
+- PostgreSQL
 - React Native
 - xcode
-- Travis
+- TravisCI
 - SASS
-- Pubnub API
-- Splitwise API
 - Facebook API
 
 <a name="gameplan" />
