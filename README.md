@@ -1,27 +1,30 @@
 # OurTrip
 
 ## Table of contents
-*************************
+
+-----------------------------------------------
+
 * [Description](#description)
-* [Product Vision](#productvision)
 * [User Stories](#userstories)
 * [Schema Design](#schemadesign)
 * [Tech Stack](#techstack)
 * [Gameplan](#gameplan)
-* [Workflows](#workflows)
+* [Screenshots](#screenshots)
 
 <a name="description" />
-### Description: 
-*************************
-_Description goes here_
 
-<a name="productvision" />
-### product vision: 
-*************************
+### Description: 
+
+-----------------------------------------------
+
+A mobile app built on React Native and Ruby on Rails that allows you to collaboratively plan trips with your friends. 
 
 <a name="userstories" />
+
 ### User stories: 
-*************************
+
+-----------------------------------------------
+
 - User can login, with email or FaceBook (only if we get react native down)
 - User can add new trips or view trips they're going on
 - User can view itinerary (weekly or daily view)
@@ -33,77 +36,32 @@ _Description goes here_
 - With adding an expense, user can specify who needs to pay for that expense 
 
 <a name="schemadesign" />
+
 ### Schema design: 
-*************************
+
+-----------------------------------------------
+
+![Schema Design](/SchemaDesign.png "Schema Design")
 
 <a name="techstack" />
+
 ### Tech Stack: 
-*************************
+
+-----------------------------------------------
+
 - Ruby on Rails
-- Postgres
+- PostgreSQL
 - React Native
 - xcode
-- Travis
+- TravisCI
 - SASS
-- Pubnub API
-- Splitwise API
 - Facebook API
 
 <a name="gameplan" />
+
 ### GAMEPLAN: 
-*************************
 
-##### Thursday 9/7
-AM: Planning (Schema, associations, wireframing)
-PM: Learning React Native
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Friday 9/8
-AM: rails
-PM: Learning Pubnub/Splitwise/Facebook
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Saturday 9/9
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Sunday 9/10
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Monday 9/11
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Tuesday 9/12
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Wednesday 9/13
-_Roles:_
-* Scrum
-* Git master
-* Devops
-
-#### Thursday 9/14
-_Roles:_
-* Scrum
-* Git master
-* Devops
+-----------------------------------------------
 
 ####  Workhour expectations
 9AM-6PM
@@ -113,15 +71,31 @@ _Roles:_
 2. 2:00 PM
 3. 6:00 PM
 
-<a name="workflows" />
-### Workflows: 
-*************************
-[Link to our Trello](https://trello.com/b/iHupfS1z/ourtrip)
+<a name="screenshots" />
+
+### SCREENSHOTS: 
+-----------------------------------------------
+![homepage](/tripnout1.png "homepage")
+![trip page](/tripnout2.png "trip page")
+![trip form](/tripnout3.png "trip form")
+![trip details](/tripnout4.png "trip details")
+![itinerary](/tripnout5.png "itinerary")
+![event form](/tripnout6.png "itinerary")
+![expense page](/tripnout7.png "expense page")
+![expense form](/tripnout8.png "expense form")
 
 ### Contributors: 
-*************************
+
+-----------------------------------------------
+
 * [Hannie Dong](https://github.com/hanniedong)
 * [Hawken Ritter](https://github.com/hawkenritter)
 * [Ashley Teow](https://github.com/ashleyteow)
 * [Peter Thompson](https://github.com/peter6848)
 * [Rio Nose](https://github.com/rnose512)
+
+#### Resources:
+
+* [React Native Styling](https://medium.com/the-react-native-log/tips-for-styling-your-react-native-apps-3f61608655eb)
+* [React Native Tutorial](https://facebook.github.io/react-native/docs/tutorial.html)
+* [Date time picker for iOS](https://facebook.github.io/react-native/docs/datepickerios.html)
