@@ -21,45 +21,37 @@ class CreateEvent extends Component {
       endDateTimePickerVisible: false,
 			pickerMode: 'datetime'
 		}
-		this.createEvent = this.createEvent.bind(this)
-		this.setEvent = this.setEvent.bind(this)
-    this.showStartDateTimePicker = this.showStartDateTimePicker.bind(this)
-    this.showEndDateTimePicker = this.showEndDateTimePicker.bind(this)
-    this.hideStartDateTimePicker = this.hideStartDateTimePicker.bind(this)
-    this.hideEndDateTimePicker = this.hideEndDateTimePicker.bind(this)
-    this.handleStartDatePicked = this.handleStartDatePicked.bind(this)
-    this.handleEndDatePicked = this.handleEndDatePicked.bind(this)
 	}
 
-  showStartDateTimePicker(){
+  showStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: true });
   }
 
-  showEndDateTimePicker(){
+  showEndDateTimePicker = () => {
     this.setState({ endDateTimePickerVisible: true });
   }
 
-  hideStartDateTimePicker(){
+  hideStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: false });
   }
-  
-  hideEndDateTimePicker(){
+
+  hideEndDateTimePicker = () => {
     this.setState({ endDateTimePickerVisible: false });
   }
-  
-  handleStartDatePicked(date) {
+
+  handleStartDatePicked = (date) => {
     this.setState({start_time: date})
     this.setState({start_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideStartDateTimePicker();
   };
 
-  handleEndDatePicked(date) {
+  handleEndDatePicked = (date) => {
     this.setState({end_time: date})
     this.setState({end_time_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideEndDateTimePicker();
   };
 
-	createEvent(title, category, description, start_time, end_time) {
+	createEvent = (title, category, description, start_time, end_time) => {
 		var self = this
 		axios.post('http://localhost:3000/destinations/1/events', {
 			title: title,
@@ -78,7 +70,7 @@ class CreateEvent extends Component {
 		})
 	}
 
-	setEvent(){
+	setEvent = () => {
 		this.createEvent(this.state.title, this.state.category, this.state.description, this.state.start_time, this.state.end_time)
 	}
 

@@ -23,9 +23,6 @@ class CreateExpense extends Component {
       hannie: { id: null, name: null, value: 0 },
       peter: { id: null, name: null, value: 0 }
     }
-
-    this.createExpense = this.createExpense.bind(this)
-    this.callCreateExpense = this.callCreateExpense.bind(this)
   }
 
   componentWillMount() {
@@ -37,7 +34,7 @@ class CreateExpense extends Component {
     })
   }
 
-  createExpense(name, total_amount) {
+  createExpense = (name, total_amount) => {
     axios.post('http://localhost:3000/trips/5/expenses', {
       name: name,
       total_amount: total_amount,
@@ -59,7 +56,7 @@ class CreateExpense extends Component {
     })
   }
 
-  createExpense(name, total_amount) {
+  createExpense = (name, total_amount) => {
     var self = this;
     console.log(this.state)
     axios.post('http://localhost:3000/trips/1/expenses', {

@@ -18,45 +18,37 @@ class CreateEvent extends Component {
       endDateTimePickerVisible: false,
 			pickerMode: 'date'
 		}
-		this.createDestination = this.createDestination.bind(this)
-		this.setDestination = this.setDestination.bind(this)
-    this.showStartDateTimePicker = this.showStartDateTimePicker.bind(this)
-    this.showEndDateTimePicker = this.showEndDateTimePicker.bind(this)
-    this.hideStartDateTimePicker = this.hideStartDateTimePicker.bind(this)
-    this.hideEndDateTimePicker = this.hideEndDateTimePicker.bind(this)
-    this.handleStartDatePicked = this.handleStartDatePicked.bind(this)
-    this.handleEndDatePicked = this.handleEndDatePicked.bind(this)
 	}
 
-  showStartDateTimePicker(){
+  showStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: true });
   }
 
-  showEndDateTimePicker(){
+  showEndDateTimePicker = () => {
     this.setState({ endDateTimePickerVisible: true });
   }
 
-  hideStartDateTimePicker(){
+  hideStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: false });
   }
-  
-  hideEndDateTimePicker(){
+
+  hideEndDateTimePicker = () => {
     this.setState({ endDateTimePickerVisible: false });
   }
-  
-  handleStartDatePicked(date) {
+
+  handleStartDatePicked = (date) => {
     this.setState({start_date: date})
     this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideStartDateTimePicker();
   };
 
-  handleEndDatePicked(date) {
+  handleEndDatePicked = (date) => {
     this.setState({end_date: date})
     this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideEndDateTimePicker();
   };
 
-	createDestination(name, start_date, end_date) {
+	createDestination = (name, start_date, end_date) => {
 		var self = this
 		axios.post('http://localhost:3000/trips/1/destinations', {
 			name: name,
@@ -72,7 +64,7 @@ class CreateEvent extends Component {
 		})
 	}
 
-	setDestination(){
+	setDestination = () => {
 		this.createDestination(this.state.name, this.state.start_date, this.state.end_date)
 	}
 
@@ -81,7 +73,7 @@ class CreateEvent extends Component {
     <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
       <View style= {styles.box}>
         <View style={styles.form}>
-					<Input 
+					<Input
             style={styles.textForm}
 						placeholder="where are you going?"
 						placeholderTextColor='black'

@@ -21,12 +21,10 @@ class OurTrip extends Component {
     super();
     this.state = {
       accessToken: null
-    }
-
-    this.updateAccessToken = this.updateAccessToken.bind(this)
+    };
   }
 
-  updateAccessToken(token) {
+  updateAccessToken = (token) => {
     this.setState({accessToken: token});
   }
 

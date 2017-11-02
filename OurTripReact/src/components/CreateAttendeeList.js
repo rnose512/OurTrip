@@ -16,11 +16,11 @@ class CreateEvent extends Component {
 
 	componentWillMount() {
 		axios.get('http://localhost:3000/user_trips')
-			.then(response => 
+			.then(response =>
 				this.setState({ user_first_name: response.data.non_attending_users[0].first_name, user_last_name: response.data.non_attending_users[0].last_name }))
 	}
 
-	createAttendance() {
+	createAttendance = () => {
 		var self = this
 		axios.post('http://localhost:3000/user_trips')
 		.then(function (response) {
@@ -32,11 +32,11 @@ class CreateEvent extends Component {
 		})
 	}
 
-	checkBox(){
+	checkBox = () => {
 		this.setState({checkbox_chk: true})
 	}
 
-	setAttendance(){
+	setAttendance = () =>{
 		this.createAttendance()
 	}
 
