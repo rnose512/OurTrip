@@ -6,12 +6,10 @@ import { Actions } from 'react-native-router-flux';
 class TripDetail extends Component {
 
   constructor(props){
-    super(props)
-
-    this.navigateUser = this.navigateUser.bind(this)
+    super(props);
   }
 
-  navigateUser(){
+  navigateUser = () => {
     Actions.TripShow({accessToken: this.props.accessToken})
   }
 

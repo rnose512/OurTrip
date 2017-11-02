@@ -19,12 +19,9 @@ export default class Register extends Component {
       registered: false,
       accessToken: null
     }
-
-    this.createUser = this.createUser.bind(this)
-    this.registerUser = this.registerUser.bind(this)
   }
 
-  createUser(first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) {
+  createUser = (first_name, last_name, email, password, phone_number, emergency_contact, emergency_contact_phone_number) => {
 
     fetch('http://localhost:3000/register?first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&password=' + password + '&phone_number=' + phone_number + '&emergency_contact=' + emergency_contact + '&emergency_contact_phone_number=' + emergency_contact_phone_number, {method: "POST" })
     .then(data => data.json())
@@ -41,7 +38,7 @@ export default class Register extends Component {
     .catch((error) => {}) // currently not catching errors
   }
 
-  registerUser(){
+  registerUser = () => {
     this.createUser(this.state.first_name, this.state.last_name, this.state.email, this.state.password, this.state.phone_number, this.state.emergency_contact, this.state.emergency_contact_phone_number)
   }
 

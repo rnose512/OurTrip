@@ -14,16 +14,14 @@ class TripShow extends Component {
       destinations: [] ,
       users: [],
       buttonTitle: ""
+    };
   };
 
-  this.updateUsers = this.updateUsers.bind(this);
-}
-
-  updateUsers(newUsers) {
+  updateUsers = (newUsers) => {
     this.setState({ users: this.state.users + newUsers })
   }
 
-  componentWillMount() {
+  componentWillMount = () => {
     axios('http://localhost:3000/trips/1/destinations')
     .then(response => {
       this.setState({
@@ -42,23 +40,23 @@ class TripShow extends Component {
 
   }
 
-  renderUsers() {
+  renderUsers = () => {
     return this.state.users.map(user =>
       <Text key={user.id} style={styles.whiteText}>{user.first_name}</Text>
     )
   }
 
-  renderDestinations() {
+  renderDestinations = () => {
     return this.state.destinations.map(destination =>
       <Text key={destination.id} style={styles.whiteText}>{destination.name}</Text>
     )
   }
 
-  renderDestinationForm() {
+  renderDestinationForm = () => {
     Actions.CreateDestination({accessToken: this.props.accessToken});
   }
 
-  render() {
+  render = () => {
     return (
       <ImageBackground source={require('../images/create-trip-background.jpg')} style={styles.container}>
         <ScrollView style={styles.trips}>
@@ -70,7 +68,7 @@ class TripShow extends Component {
           <View>
             {this.renderDestinations()}
           </View>
-        </View> 
+        </View>
         <View style={styles.box}>
           <Text style={styles.header}>Attendees:</Text>
           <Button onPress={Actions.CreateAttendeeList} style={styles.buttonStyle}>
@@ -85,7 +83,6 @@ class TripShow extends Component {
       </ImageBackground>
     );
   }
-
 }
 
 const styles = {
@@ -130,7 +127,7 @@ const styles = {
   box: {
     margin: 10,
     padding: 10,
-    opacity: .8, 
+    opacity: .8,
     justifyContent: 'center',
     alignSelf: 'center',
   },

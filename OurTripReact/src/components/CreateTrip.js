@@ -10,7 +10,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker'
 class CreateTrip extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       name: '',
       start_date: '',
@@ -21,31 +21,22 @@ class CreateTrip extends Component {
       startDateTimePickerVisible: false,
       endDateTimePickerVisible: false,
       pickerMode: 'datetime'
-    }
-
-    this.newTrip = this.newTrip.bind(this)
-    this.postTrip = this.postTrip.bind(this)
-    this.showStartDateTimePicker = this.showStartDateTimePicker.bind(this)
-    this.showEndDateTimePicker = this.showEndDateTimePicker.bind(this)
-    this.hideStartDateTimePicker = this.hideStartDateTimePicker.bind(this)
-    this.hideEndDateTimePicker = this.hideEndDateTimePicker.bind(this)
-    this.handleStartDatePicked = this.handleStartDatePicked.bind(this)
-    this.handleEndDatePicked = this.handleEndDatePicked.bind(this)
+    };
   }
 
-  handleStartDatePicked(date) {
+  handleStartDatePicked = (date) => {
     this.setState({start_time: date})
     this.setState({start_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideStartDateTimePicker();
   };
 
-  handleEndDatePicked(date) {
+  handleEndDatePicked = (date) => {
     this.setState({end_time: date})
     this.setState({end_date_format: (date.getMonth()+1).toString() + '/' + date.getDate().toString() + '/' + date.getFullYear().toString()})
     this.hideEndDateTimePicker();
   };
 
-  newTrip(name, start_date, end_date) {
+  newTrip = (name, start_date, end_date) => {
     var self = this
     axios.post('http://localhost:3000/trips', {
       name: name,
@@ -63,24 +54,23 @@ class CreateTrip extends Component {
     });
   }
 
-  showStartDateTimePicker(){
+  showStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: true });
   }
 
-  showEndDateTimePicker(){
+  showEndDateTimePicker = () => {
     this.setState({ endDateTimePickerVisible: true });
   }
 
-  hideStartDateTimePicker(){
+  hideStartDateTimePicker = () => {
     this.setState({ startDateTimePickerVisible: false });
   }
-  
-  hideEndDateTimePicker(){
+
+  hideEndDateTimePicker = () =>{
     this.setState({ endDateTimePickerVisible: false });
   }
 
-  
-  postTrip(){
+  postTrip= () => {
     this.newTrip(this.state.name, this.state.start_date, this.state.end_date)
   }
 
