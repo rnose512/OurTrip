@@ -1,4 +1,4 @@
-# module Api
+
 	class AccomodationsController < ApplicationController
 		def index
 			@accomodations = Accomodation.where(destination_id: params[:destination_id])
@@ -11,21 +11,21 @@
 		end
 
 		def create
-			# @accomodation = Accomodation.new(
-			# 	name: params[:name],
-			# 	address: params[:address],
-			# 	phone_number: params[:phone_number],
-			# 	price: params[:price],
-			# 	destination_id: params[:destination_id],
-			# 	check_in: params[:check_in],
-			# 	check_out: params[:check_out]
-			# 	)
-			# if @accomodation.save
-			# 	render json: @accomodation.to_json
-			# 	redirect_to destination_accomodations_path
-			# else
-			# 	render :new, status: 422
-			# end
+			@accomodation = Accomodation.new(
+				name: params[:name],
+				address: params[:address],
+				phone_number: params[:phone_number],
+				price: params[:price],
+				destination_id: params[:destination_id],
+				check_in: params[:check_in],
+				check_out: params[:check_out]
+				)
+			if @accomodation.save
+				render json: @accomodation.to_json
+				redirect_to destination_accomodations_path
+			else
+				render :new, status: 422
+			end
 		end
 
 		def new
@@ -39,7 +39,6 @@
 		end
 
 		def destroy
-
 		end
 
 		private

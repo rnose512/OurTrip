@@ -2,10 +2,8 @@ class SessionsController < ApplicationController
 
   include SessionsHelper
 
-
   def new
     user = User.find_by(email: params[:email])
-
     if user && user.authenticate(params[:password])
       render json: {
         found: true,
@@ -32,8 +30,6 @@ class SessionsController < ApplicationController
           errors: ['Incorrect e-mail or password']
         }.to_json
       end
-    p '*' * 50
-    p user
   end
 
   def verify_access_token

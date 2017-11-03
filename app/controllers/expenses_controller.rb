@@ -16,13 +16,10 @@ class ExpensesController < ApplicationController
 		end
 	end
 
-	def create # /trips/:trip_id/expenses
+	def create
 		@trip = Trip.find(1)
 		@user = User.find_by(access_token: params[:access_token])
 		@expense = @user.loans.new(name: params[:name], total_amount: params[:total_amount], trip_id: @trip.id, payer_id: @user.id)
-		p @user
-	p params
-		p @expense.errors.full_messages
 		if @expense.save
 			render json: { expense: @expense, access_token: @user.access_token, hawken: @hawken, hannie: @hannie, ashley: @ashley, peter: @peter, rio: @rio, attendees: @attendees }.to_json
 		else
@@ -32,19 +29,7 @@ class ExpensesController < ApplicationController
 		end
 	end
 
-	# def edit
-	# end
-
-	# def show
-	# end
-
-	# def update
-	# end
-
-	# def destroy
-	# end
 	 private
-
     def set_user
         @user = User.find_by(access_token: params[:access_token])
     end
